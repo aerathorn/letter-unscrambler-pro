@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat Suite</title>
     
-    <!-- NATIVE PRODUCTION LOCAL STYLES LINK (BYPASSES CDN BLOCKS) -->
+    <!-- LOCAL STYLES LINK (BYPASSES CDN BLOCKS PERMANENTLY) -->
     <link rel="stylesheet" href="style.css">
     
     <script>
@@ -17,7 +17,7 @@
         }
     </script>
     <style>
-        /* Custom UI patches for Tailwind v2 dark utility compatibility layers */
+        /* Custom UI patches for Tailwind dark utility compatibility layers */
         .dark body { background-color: #020617 !important; color: #e2e8f0 !important; }
         .dark .bg-white { background-color: #0f172a !important; border-color: #1e293b !important; }
         .dark .bg-slate-900 { background-color: #020617 !important; }
@@ -123,6 +123,16 @@
         </div>
     </main>
 
+    <!-- DYNAMIC SEO CONTENT LAYER FOR GOOGLE CRAWLERS -->
+    <section class="max-w-4xl w-full mx-auto px-4 md:px-6 mb-8">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
+            <h2 id="seoTitle" class="text-xl md:text-2xl font-black mb-4 text-blue-600 dark:text-blue-400">Word Finder & Unscrambler Guide</h2>
+            <p id="seoText" class="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.
+            </p>
+        </div>
+    </section>
+
     <!-- AD DEMARCATION SLOT (BOTTOM) -->
     <div class="w-full max-w-7xl mx-auto my-4 text-center">
         <div class="bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-3 text-xs tracking-wider border border-dashed border-gray-300 dark:border-gray-700 rounded-md">ADVERTISEMENT SLOT (BOTTOM)</div>
@@ -152,7 +162,3 @@
     </script>
 
     <!-- Mandatory Local Data Core Script Integrations -->
-    <script src="words.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
