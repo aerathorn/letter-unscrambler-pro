@@ -3,162 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat Suite</title>
-    
-    <!-- LOCAL STYLES LINK (BYPASSES CDN BLOCKS PERMANENTLY) -->
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat</title>
+    <style>
+        /* Pure, Unblockable CSS Theme Configuration Matrices */
+        :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; --tile-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%); --tile-border: #facc15; }
+        .dark { --bg: #020617; --card: #0f172a; --text: #f1f5f9; --muted: #94a3b8; --border: #1e293b; --accent: #3b82f6; --tile-bg: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); --tile-border: #a16207; }
+        
+        body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; transition: background 0.2s, color 0.2s; }
+        header { max-w: 800px; margin: 15px auto 0; display: flex; justify-content: flex-end; padding: 0 15px; }
+        .toggle-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; rounded: 8px; font-weight: bold; font-size: 12px; cursor: pointer; border-radius: 8px; }
+        .ad-slot { max-width: 800px; margin: 15px auto; background: var(--border); color: var(--muted); text-align: center; padding: 12px; font-size: 11px; border-radius: 6px; letter-spacing: 1px; }
+        main { max-width: 800px; width: 100%; margin: 0 auto; padding: 15px; box-sizing: border-box; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); overflow: hidden; }
+        .hero { background: #0f172a; color: #ffffff; text-align: center; padding: 30px 15px; border-b: 1px solid #1e293b; }
+        .hero h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; }
+        .hero p { margin: 0; color: #94a3b8; font-size: 14px; }
+        .form-area { padding: 25px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.01); }
+        .input-group-center { max-width: 500px; margin: 0 auto 25px; text-align: center; }
+        label { display: block; font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .main-input { w-full; width: 100%; text-align: center; padding: 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; font-size: 28px; font-family: monospace; font-weight: 900; uppercase; color: var(--accent); outline: none; box-sizing: border-box; }
+        .grid-options { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
+        @media (min-width: 600px) { .grid-options { grid-template-columns: 1fr 1fr; } }
+        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline: none; box-sizing: border-box; }
+        .flex-overlays { display: flex; gap: 8px; }
+        .sub-input { text-align: center; text-transform: uppercase; }
+        .action-btn { width: 100%; background: var(--accent); color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 14px; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .action-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .results-panel { padding: 25px; min-height: 150px; }
+        .empty-text { text-align: center; color: var(--muted); font-size: 15px; padding: 30px 0; }
+        .bucket-container { background: rgba(0,0,0,0.01); border: 1px solid var(--border); border-radius: 12px; padding: 15px; margin-bottom: 20px; }
+        .bucket-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px 0; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        .tile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        @media (min-width: 450px) { .tile-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 650px) { .tile-grid { grid-template-columns: repeat(4, 1fr); } }
+        .tile { background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-weight: bold; }
+        .tile-text { font-size: 16px; color: #020617; }
+        .tile-score { background: rgba(0,0,0,0.08); font-size: 11px; padding: 2px 6px; border-radius: 4px; color: #020617; }
+        .seo-box { max-width: 800px; margin: 0 auto 20px; padding: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+        .seo-box h2 { font-size: 18px; font-weight: 900; color: var(--accent); margin: 0 0 10px 0; }
+        .seo-box p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button>
+    </header>
+
+    <div class="ad-slot">ADVERTISEMENT SLOT (TOP)</div>
+
+    <main>
+        <div class="card">
+            <div class="hero">
+                <h1>Letter Unscrambler Pro</h1>
+                <p>Elite multi-dictionary analytics engine for Scrabble and word puzzles.</p>
+            </div>
+
+            <div class="form-area">
+                <div class="input-group-center">
+                    <label>Input Rack Letters (Use '?' or '*' for Blanks)</label>
+                    <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="main-input">
+                </div>
+
+                <div class="grid-options">
+                    <div>
+                        <label>Reference Lexicon</label>
+                        <select id="dictionarySelect" onchange="initializeDictionaryDownload()">
+                            <option value="scrabble">Scrabble Standard (ENABLE List)</option>
+                            <option value="wordle">Wordle Valid Guess Engine</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Optional Placement Overlays</label>
+                        <div class="flex-overlays">
+                            <input type="text" id="startsWith" placeholder="Starts..." class="sub-input">
+                            <input type="text" id="contains" placeholder="Contains..." class="sub-input">
+                            <input type="text" id="endsWith" placeholder="Ends..." class="sub-input">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="action-btn">
+                    <span id="btnText">Connecting Engine...</span>
+                </button>
+            </div>
+
+            <div id="resultsScreen" class="results-panel">
+                <div id="emptyState" class="empty-text">
+                    <p id="statusFeedback">Streaming complete word lists into local cache pools...</p>
+                </div>
+                <div id="resultsContent" style="display: none;"></div>
+            </div>
+        </div>
+    </main>
+
+    <section class="seo-box">
+        <h2 id="seoTitle">Word Finder & Unscrambler Guide</h2>
+        <p id="seoText">Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.</p>
+    </section>
+
+    <div class="ad-slot">ADVERTISEMENT SLOT (BOTTOM)</div>
+
     <script>
-        // Inline script to prevent theme flashing on load
+        // Inline theme toggle configuration properties
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
         }
-    </script>
-    <style>
-        /* Custom UI patches for Tailwind dark utility compatibility layers */
-        .dark body { background-color: #020617 !important; color: #e2e8f0 !important; }
-        .dark .bg-white { background-color: #0f172a !important; border-color: #1e293b !important; }
-        .dark .bg-slate-900 { background-color: #020617 !important; }
-        .dark .bg-slate-50\/50 { background-color: rgba(15, 23, 42, 0.5) !important; }
-        .dark .bg-slate-50 { background-color: #1e293b !important; border-color: #334155 !important; }
-        .dark input, .dark select { background-color: #020617 !important; border-color: #1e293b !important; color: #f1f5f9 !important; }
-        .dark h3 { color: #94a3b8 !important; border-color: #334155 !important; }
-        .dark span { color: #f1f5f9 !important; }
-        .dark .text-slate-400 { color: #94a3b8 !important; }
-        .dark .text-slate-500 { color: #64748b !important; }
-        .dark .text-slate-600 { color: #94a3b8 !important; }
-        
-        .word-tile {
-            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%) !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .dark .word-tile {
-            background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%) !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }
-        .dark .word-tile span { color: #020617 !important; }
-        .spinner {
-            border: 3px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top: 3px solid #2563eb;
-            width: 20px;
-            height: 20px;
-            animation: spin 0.8s linear infinite;
-        }
-        .dark .spinner {
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid #3b82f6;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col transition-colors duration-200">
-
-    <!-- THEME TOGGLE ACTION BAR -->
-    <header class="w-full max-w-4xl mx-auto px-4 pt-4 flex justify-end">
-        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider cursor-pointer flex items-center gap-2 transition-all">
-            <span id="themeToggleText">🌙 Dark Mode</span>
-        </button>
-    </header>
-
-    <!-- AD DEMARCATION SLOT (TOP) -->
-    <div class="w-full max-w-7xl mx-auto my-4 text-center">
-        <div class="bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-3 text-xs tracking-wider border border-dashed border-gray-300 dark:border-gray-700 rounded-md">ADVERTISEMENT SLOT (TOP)</div>
-    </div>
-
-    <!-- Application Dashboard Wrapper -->
-    <main class="flex-grow max-w-4xl w-full mx-auto p-4 md:p-6">
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-            
-            <!-- Centered Header Panel -->
-            <div class="bg-gray-900 text-white p-6 md:p-8 text-center border-b border-gray-800">
-                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Letter Unscrambler Pro</h1>
-                <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">Elite multi-dictionary analytics engine for Scrabble, Words with Friends, and Wordle.</p>
-            </div>
-
-            <div class="p-6 md:p-8 bg-gray-50 bg-opacity-50">
-                
-                <!-- HYPER-PROMINENT CENTERED INPUT BOX -->
-                <div class="max-w-2xl mx-auto text-center mb-8">
-                    <label class="block text-xs font-extrabold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Input Rack Letters (Use '?' or '*' for Blanks)</label>
-                    <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="w-full text-center px-6 py-5 bg-white rounded-2xl border-2 border-gray-200 dark:border-gray-700 text-3xl md:text-4xl font-mono font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 outline-none transition-all shadow-sm">
-                </div>
-
-                <!-- SECONDARY OPTION FIELDS GRID -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Rule Book / Reference Lexicon</label>
-                        <select id="dictionarySelect" onchange="initializeDictionaryDownload()" class="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 dark:border-gray-700 text-base text-gray-700 dark:text-gray-300 outline-none cursor-pointer">
-                            <option value="scrabble">Scrabble Standard (ENABLE Master List)</option>
-                            <option value="wordle">Wordle Target Words Database</option>
-                        </select>
-                    </div>
-                    <div>
-                        <span class="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Optional Placement Overlays</span>
-                        <div class="grid grid-cols-3 gap-2">
-                            <input type="text" id="startsWith" placeholder="Starts..." class="px-2 py-3 bg-white border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-center uppercase outline-none text-gray-700 dark:text-gray-300">
-                            <input type="text" id="contains" placeholder="Contains..." class="px-2 py-3 bg-white border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-center uppercase outline-none text-gray-700 dark:text-gray-300">
-                            <input type="text" id="endsWith" placeholder="Ends..." class="px-2 py-3 bg-white border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-center uppercase outline-none text-gray-700 dark:text-gray-300">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Core Action Trigger Button -->
-                <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-md flex items-center justify-center gap-3 transition-all opacity-60 text-lg cursor-pointer">
-                    <span id="btnSpinner" class="spinner hidden"></span>
-                    <span id="btnText">Downloading Dictionary...</span>
-                </button>
-            </div>
-
-            <!-- Dynamic Processing Result Visual Panel -->
-            <div id="resultsScreen" class="p-6 md:p-8 min-h-[200px]">
-                <div id="emptyState" class="text-center py-12 text-gray-400 dark:text-gray-500">
-                    <p id="statusFeedback" class="text-lg font-medium text-gray-600 dark:text-gray-400">Initializing global word data array pools...</p>
-                </div>
-                <div id="resultsContent" class="hidden space-y-8"></div>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- DYNAMIC SEO CONTENT LAYER FOR GOOGLE CRAWLERS -->
-    <section class="max-w-4xl w-full mx-auto px-4 md:px-6 mb-8">
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-100 dark:border-gray-700 shadow-sm">
-            <h2 id="seoTitle" class="text-xl md:text-2xl font-black mb-4 text-blue-600 dark:text-blue-400">Word Finder & Unscrambler Guide</h2>
-            <p id="seoText" class="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300">
-                Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.
-            </p>
-        </div>
-    </section>
-
-    <!-- AD DEMARCATION SLOT (BOTTOM) -->
-    <div class="w-full max-w-7xl mx-auto my-4 text-center">
-        <div class="bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-3 text-xs tracking-wider border border-dashed border-gray-300 dark:border-gray-700 rounded-md">ADVERTISEMENT SLOT (BOTTOM)</div>
-    </div>
-
-    <!-- Theme Logic Manager Script -->
-    <script>
-        function updateToggleBtnText() {
-            const btnText = document.getElementById('themeToggleText');
-            if (document.documentElement.classList.contains('dark')) {
-                btnText.innerText = "🌞 Light Mode";
-            } else {
-                btnText.innerText = "🌙 Dark Mode";
-            }
-        }
         function toggleThemeMode() {
+            const btn = document.getElementById('themeToggleBtn');
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
                 localStorage.theme = 'light';
+                btn.innerText = "🌙 Dark Mode";
             } else {
                 document.documentElement.classList.add('dark');
                 localStorage.theme = 'dark';
+                btn.innerText = "🌞 Light Mode";
             }
-            updateToggleBtnText();
         }
-        window.addEventListener('DOMContentLoaded', updateToggleBtnText);
+        window.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('themeToggleBtn');
+            if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";
+        });
     </script>
-
-    <!-- Mandatory Local Data Core Script Integrations -->
+    <script src="app.js"></script>
+</body>
+</html>
