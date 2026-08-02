@@ -8,43 +8,48 @@ async function initializeDictionaryDownload() {
     const btnText = document.getElementById('btnText');
     const statusFeedback = document.getElementById('statusFeedback');
 
-    if (window.loadedWordDatabase) {
+    // Securely pull the local database array layer from window scope (words.js)
+    if (window.loadedWordDatabase && window.loadedWordDatabase.length > 0) {
         loadedWordDatabase = window.loadedWordDatabase;
+        
+        // Remove loading state and toggle button fully active instantly
+        actionBtn.disabled = false;
+        actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+        if(btnSpinner) btnSpinner.classList.add('hidden');
+        btnText.innerText = "Unscramble Letters Now";
+        statusFeedback.innerText = "Complete Dictionary Online. Native data core verified.";
+        
+        // ACTIVATE PROGRAMMATIC SEO URL ROUTER IMMEDIATELY ONCE DATABASE IS VERIFIED
+        runProgrammaticRouter();
+    } else {
+        statusFeedback.innerText = "Data matrix missing. Checking words.js deployment sync...";
+        btnText.innerText = "Data Missing";
     }
-
-    actionBtn.disabled = false;
-    actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-    btnSpinner.classList.add('hidden');
-    btnText.innerText = "Unscramble Letters Now";
-    statusFeedback.innerText = "Complete Dictionary Online. Native data core verified.";
-
-    // ACTIVATE PROGRAMMATIC SEO URL ROUTER ON WINDOW INITIALIZATION
-    runProgrammaticRouter();
 }
 
 function runProgrammaticRouter() {
     const path = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
-    if (path.length === 0) return; // Standard homepage user
+    if (path.length === 0) return; // Standard homepage viewer, do nothing
 
     const seoTitle = document.getElementById('seoTitle');
     const seoText = document.getElementById('seoText');
     const lettersInput = document.getElementById('lettersInput');
     const startsWith = document.getElementById('startsWith');
 
-    // ROUTE 1: Words starting with a specific letter
-    if (path[0] === 'words-starting-with' && path[1] && path[1].length === 1) {
+    // ROUTE 1: Handle dynamic paths like /words-starting-with/z
+    if (path[0] === 'words-starting-with' && path[1]) {
         const targetLetter = path[1].toUpperCase();
         
-        // Update browser layout text blocks for Google indexing signals
+        // Update browser elements for precise Google indexing algorithms
         document.title = `Words Starting With ${targetLetter} | Letter Unscrambler Pro`;
-        seoTitle.innerText = `Comprehensive List of Words Starting with ${targetLetter}`;
-        seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${targetLetter}. Each word combo displays its official Scrabble point score allocation to give you an instant edge in your online games.`;
+        if(seoTitle) seoTitle.innerText = `Comprehensive List of Words Starting with ${targetLetter}`;
+        if(seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${targetLetter}. Each word combo displays its official Scrabble point score allocation to give you an instant edge in your online games.`;
         
-        // Feed parameters directly into backend input controllers
-        startsWith.value = targetLetter;
-        lettersInput.value = `${targetLetter}??????`; // Fills with blank tiles to show all possibilities
+        // Feed parameter data straight into the text layout inputs
+        if(startsWith) startsWith.value = targetLetter;
+        if(lettersInput) lettersInput.value = `${targetLetter}??????`; // Fills rack with wildcards to compute all words
         
-        // Fire calculation loop
+        // Execute automatic analysis scan
         runUnscrambleAnalysis();
     }
 }
@@ -82,7 +87,7 @@ function runUnscrambleAnalysis() {
     const resultsContent = document.getElementById('resultsContent');
 
     if (!letters) {
-        alert("Please enter characters to process.");
+        alert("Please enter letters to unscramble.");
         return;
     }
 
