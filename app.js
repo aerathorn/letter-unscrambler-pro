@@ -1,8 +1,7 @@
-// Production-grade, high-speed open source Scrabble dictionary URL
-const dictionarySourceURI = "https://githubusercontent.com";
+// Local point scoring configuration values
+const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
 
 let loadedWordDatabase = [];
-const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
 
 async function initializeDictionaryDownload() {
     const actionBtn = document.getElementById('actionBtn');
@@ -10,32 +9,20 @@ async function initializeDictionaryDownload() {
     const btnText = document.getElementById('btnText');
     const statusFeedback = document.getElementById('statusFeedback');
 
-    actionBtn.disabled = true;
-    actionBtn.classList.add('opacity-60', 'cursor-not-allowed');
-    btnSpinner.classList.remove('hidden');
-    btnText.innerText = "Downloading Dictionary Engine...";
-    statusFeedback.innerText = "Streaming master English lexicon dataset into browser memory matrices...";
-
-    try {
-        // Fetch massive public 170,000+ word Scrabble text bank instantly over internet backbones
-        const response = await fetch(dictionarySourceURI);
-        if (!response.ok) throw new Error("Dictionary payload fetch breakdown.");
-        const rawText = await response.text();
+    // Check if the master database variable inside words.js exists in browser window memory
+    if (window.loadedWordDatabase && window.loadedWordDatabase.length > 0) {
+        loadedWordDatabase = window.loadedWordDatabase;
         
-        // Sanitize data, parse newlines, and filter out entries
-        loadedWordDatabase = rawText.split(/\r?\n/).map(w => w.trim().toUpperCase()).filter(w => w.length >= 2);
-        
-        // Re-enable dashboard controls once compilation wraps up
+        // Remove loading state and toggle button fully active instantly
         actionBtn.disabled = false;
         actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
         btnSpinner.classList.add('hidden');
         btnText.innerText = "Unscramble Letters Now";
-        statusFeedback.innerText = "Complete Dictionary Online. Enter letters to solve.";
-    } catch (err) {
-        console.error(err);
-        statusFeedback.innerText = "Dictionary stream delay. Refreshing page to reload dataset coordinates.";
-        btnText.innerText = "Sync failure";
-        btnSpinner.classList.add('hidden');
+        statusFeedback.innerText = "Complete Dictionary Online. Native data core verified.";
+    } else {
+        // Warning fallback loop
+        statusFeedback.innerText = "Data matrix missing. Checking words.js deployment sync...";
+        btnText.innerText = "Data Missing";
     }
 }
 
@@ -72,12 +59,13 @@ function runUnscrambleAnalysis() {
     const resultsContent = document.getElementById('resultsContent');
 
     if (!letters) {
-        alert("Please assign rack letters to process layout paths.");
+        alert("Please enter letters to unscramble.");
         return;
     }
 
     let processingMatches = [];
 
+    // Search directly across the array loaded via words.js
     for (let word of loadedWordDatabase) {
         if (prefix && !word.startsWith(prefix)) continue;
         if (interior && !word.includes(interior)) continue;
@@ -93,7 +81,7 @@ function runUnscrambleAnalysis() {
     }
 
     if (processingMatches.length === 0) {
-        emptyState.innerHTML = `<p class='text-lg font-semibold text-slate-700 py-6'>No dynamic combinations trace pattern matches for "${letters}".</p>`;
+        emptyState.innerHTML = `<p class='text-lg font-semibold text-slate-700 py-6'>No entries match "${letters}".</p>`;
         emptyState.classList.remove('hidden');
         resultsContent.classList.add('hidden');
         return;
@@ -119,7 +107,7 @@ function runUnscrambleAnalysis() {
         
         let headerLine = document.createElement('h3');
         headerLine.className = "text-sm font-extrabold text-slate-500 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2 flex justify-between";
-        headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span class='text-xs font-normal text-slate-400'>${listings.length} entries</span>`;
+        headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span class='text-xs font-normal text-slate-400'>${listings.length} items</span>`;
         container.appendChild(headerLine);
 
         let wrapperGrid = document.createElement('div');
@@ -141,4 +129,3 @@ function runUnscrambleAnalysis() {
 }
 
 window.onload = initializeDictionaryDownload;
-	
