@@ -164,7 +164,7 @@ function runProgrammaticRouter() {
     const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
     if (segments.length < 2) return;
 
-    // LOCKED IN FIXED INDICES: Safely handling array index items to stop the file crash permanently
+    // FIXED ARRAY INDICES: targeting specific indices cleanly to bypass the array conversion crash
     const routeType = segments[0];
     const parameter = segments[1] ? segments[1].toUpperCase() : '';
 
