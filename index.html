@@ -25,8 +25,10 @@
     </script>
 
     <style>
+        /* Pure, Unblockable CSS Theme Configuration Matrices */
         :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; --tile-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%); --tile-border: #facc15; }
         .dark { --bg: #020617; --card: #0f172a; --text: #f1f5f9; --muted: #94a3b8; --border: #1e293b; --accent: #3b82f6; --tile-bg: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); --tile-border: #a16207; }
+        
         body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; transition: background 0.2s, color 0.2s; }
         header { max-width: 800px; margin: 15px auto 0; display: flex; justify-content: flex-end; padding: 0 15px; }
         .toggle-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; font-weight: bold; font-size: 12px; cursor: pointer; border-radius: 8px; }
@@ -42,7 +44,7 @@
         .main-input { width: 100%; text-align: center; padding: 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; font-size: 28px; font-family: monospace; font-weight: 900; text-transform: uppercase; color: var(--accent); outline: none; box-sizing: border-box; }
         .grid-options { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
         @media (min-width: 600px) { .grid-options { grid-template-columns: 1fr 1fr; } }
-        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline: none; box-sizing: border-box; }
+        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline-none: box-sizing: border-box; }
         .flex-overlays { display: flex; gap: 8px; }
         .sub-input { text-align: center; text-transform: uppercase; }
         .action-btn { width: 100%; background: var(--accent); color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 14px; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
@@ -65,19 +67,26 @@
     </style>
 </head>
 <body>
-    <header><button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button></header>
+
+    <header>
+        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button>
+    </header>
+
     <div class="ad-slot">ADVERTISEMENT SLOT (TOP)</div>
+
     <main>
         <div class="card">
             <div class="hero">
                 <h1>Letter Unscrambler Pro</h1>
                 <p>Elite multi-dictionary analytics engine for Scrabble and word puzzles.</p>
             </div>
+
             <div class="form-area">
                 <div class="input-group-center">
                     <label>Input Rack Letters (Use '?' or '*' for Blanks)</label>
                     <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="main-input">
                 </div>
+
                 <div class="grid-options">
                     <div>
                         <label>Reference Lexicon</label>
@@ -95,27 +104,36 @@
                         </div>
                     </div>
                 </div>
-                <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="action-btn">
+
+                <button id="actionBtn" onclick="runUnscrambleAnalysis()" class="action-btn">
                     <span id="btnText">Unscramble Letters Now</span>
                 </button>
             </div>
+
             <div id="resultsScreen" class="results-panel">
-                <div id="emptyState" class="empty-text"><p id="statusFeedback">System online. Standby for input rack values.</p></div>
+                <div id="emptyState" class="empty-text">
+                    <p id="statusFeedback">System online. Standby for input rack values.</p>
+                </div>
                 <div id="resultsContent" style="display: none;"></div>
             </div>
         </div>
     </main>
+
     <section class="seo-box">
         <h2 id="seoTitle">Word Finder & Unscrambler Guide</h2>
         <p id="seoText">Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.</p>
     </section>
+
     <div class="ad-slot">ADVERTISEMENT SLOT (BOTTOM)</div>
+
+    <!-- COMPLIANT TRUST LINK FOOTER -->
     <footer>
         <span>© 2026 Letter Unscrambler Pro. All Rights Reserved.</span>
         <a href="/about.html">About Us</a>
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
     </footer>
+
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -130,9 +148,11 @@
                 btn.innerText = "🌙 Dark Mode";
             } else {
                 document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
+localStorage.theme = 'dark';
                 btn.innerText = "🌞 Light Mode";
+                }
             }
-        }
         window.addEventListener('DOMContentLoaded', () => {
-const btn = document.getElementById('themeToggleBtn');if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";});
+            const btn = document.getElementById('themeToggleBtn');
+            if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";
+            });
