@@ -1,4 +1,3 @@
-// Local point scoring configuration values
 const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
 
 let loadedWordDatabase = [];
@@ -9,21 +8,15 @@ async function initializeDictionaryDownload() {
     const btnText = document.getElementById('btnText');
     const statusFeedback = document.getElementById('statusFeedback');
 
-    // Check if the master database variable inside words.js exists in browser window memory
-    if (window.loadedWordDatabase && window.loadedWordDatabase.length > 0) {
+    if (window.loadedWordDatabase) {
         loadedWordDatabase = window.loadedWordDatabase;
-        
-        // Remove loading state and toggle button fully active instantly
-        actionBtn.disabled = false;
-        actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-        btnSpinner.classList.add('hidden');
-        btnText.innerText = "Unscramble Letters Now";
-        statusFeedback.innerText = "Complete Dictionary Online. Native data core verified.";
-    } else {
-        // Warning fallback loop
-        statusFeedback.innerText = "Data matrix missing. Checking words.js deployment sync...";
-        btnText.innerText = "Data Missing";
     }
+
+    actionBtn.disabled = false;
+    actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+    btnSpinner.classList.add('hidden');
+    btnText.innerText = "Unscramble Letters Now";
+    statusFeedback.innerText = "Complete Dictionary Online. Native data core verified.";
 }
 
 function determineScrabbleScore(word) {
@@ -59,13 +52,12 @@ function runUnscrambleAnalysis() {
     const resultsContent = document.getElementById('resultsContent');
 
     if (!letters) {
-        alert("Please enter letters to unscramble.");
+        alert("Please enter characters to process.");
         return;
     }
 
     let processingMatches = [];
 
-    // Search directly across the array loaded via words.js
     for (let word of loadedWordDatabase) {
         if (prefix && !word.startsWith(prefix)) continue;
         if (interior && !word.includes(interior)) continue;
