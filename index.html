@@ -44,7 +44,7 @@
         .main-input { width: 100%; text-align: center; padding: 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; font-size: 28px; font-family: monospace; font-weight: 900; text-transform: uppercase; color: var(--accent); outline: none; box-sizing: border-box; }
         .grid-options { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
         @media (min-width: 600px) { .grid-options { grid-template-columns: 1fr 1fr; } }
-        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline-none: box-sizing: border-box; }
+        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline: none; box-sizing: border-box; }
         .flex-overlays { display: flex; gap: 8px; }
         .sub-input { text-align: center; text-transform: uppercase; }
         .action-btn { width: 100%; background: var(--accent); color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 14px; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
@@ -150,8 +150,8 @@
                 document.documentElement.classList.add('dark');
 localStorage.theme = 'dark';
                 btn.innerText = "🌞 Light Mode";
-                }
             }
+        }
         window.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('themeToggleBtn');
             if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";
