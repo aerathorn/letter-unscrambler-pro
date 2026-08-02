@@ -1,7 +1,3 @@
-// High-Speed Globally Optimized CDN Word Repository (100% Complete Vocabulary)
-const cdnDictionaryFolder = "https://jsdelivr.net";
-
-let loadedWordDatabase = [];
 const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
 
 async function initializeDictionaryDownload() {
@@ -9,54 +5,13 @@ async function initializeDictionaryDownload() {
     const btnText = document.getElementById('btnText');
     const statusFeedback = document.getElementById('statusFeedback');
 
-    actionBtn.disabled = true;
-    actionBtn.classList.add('opacity-60', 'cursor-not-allowed');
-    btnText.innerText = "Downloading Dictionary Core...";
-    statusFeedback.innerText = "Streaming master English lexicon dataset into memory matrices...";
+    // Peak Performance: Ready immediately with zero loading lag!
+    actionBtn.disabled = false;
+    actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+    btnText.innerText = "Unscramble Letters Now";
+    statusFeedback.innerText = "System online. Standby for input rack values.";
 
-    try {
-        // Fetch the full 178k-word dictionary block safely bypassing CORS limitations via jsDelivr CDN mesh networks
-        const response = await fetch(cdnDictionaryFolder);
-        if (!response.ok) throw new Error("Dictionary payload download failure.");
-        const rawText = await response.text();
-        
-        // Parse word breaks and sanitize entries into uniform uppercase blocks
-        loadedWordDatabase = rawText.split(/\r?\n/).map(w => w.trim().toUpperCase()).filter(w => w.length >= 2);
-        
-        actionBtn.disabled = false;
-        actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-        btnText.innerText = "Unscramble Letters Now";
-        statusFeedback.innerText = "Complete Dictionary Online. Enter letters to solve.";
-
-        // Execute initial check loop for Track A dynamic folders
-        runProgrammaticRouter();
-    } catch (err) {
-        print(err);
-        statusFeedback.innerText = "Network path sync block. Reverting to backup internal data configurations.";
-        btnText.innerText = "Launch Utility";
-    }
-}
-
-function runProgrammaticRouter() {
-    const path = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
-    if (path.length < 2 || path[0] !== 'words-starting-with') return;
-
-    const targetLetter = path[1].toUpperCase();
-    if (targetLetter.length !== 1) return;
-
-    const seoTitle = document.getElementById('seoTitle');
-    const seoText = document.getElementById('seoText');
-    const lettersInput = document.getElementById('lettersInput');
-    const startsWith = document.getElementById('startsWith');
-
-    document.title = `Words Starting With ${targetLetter} | Letter Unscrambler Pro`;
-    if (seoTitle) seoTitle.innerText = `Comprehensive List of Words Starting with ${targetLetter}`;
-    if (seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${targetLetter}. Each word combo displays its official Scrabble point score allocation.`;
-    
-    if (startsWith) startsWith.value = targetLetter;
-    if (lettersInput) lettersInput.value = `${targetLetter}??????`;
-    
-    runUnscrambleAnalysis();
+    runProgrammaticRouter();
 }
 
 function determineScrabbleScore(word) {
@@ -81,7 +36,7 @@ function checkRackInclusion(word, inputLetters) {
     return true;
 }
 
-function runUnscrambleAnalysis() {
+async function runUnscrambleAnalysis() {
     const letters = document.getElementById('lettersInput').value.toUpperCase().replace(/\s/g, '');
     const targetType = document.getElementById('dictionarySelect').value;
     const prefix = document.getElementById('startsWith').value.toUpperCase().trim();
@@ -90,15 +45,42 @@ function runUnscrambleAnalysis() {
 
     const emptyState = document.getElementById('emptyState');
     const resultsContent = document.getElementById('resultsContent');
+    const btnText = document.getElementById('btnText');
 
     if (!letters) {
         alert("Please enter characters to process.");
         return;
     }
 
+    btnText.innerText = "Processing Shards...";
+    
+    // Determine exactly which letter shards we need to pull based on input rack letters
+    let lettersToFetch = new Set(letters.split('').filter(l => l >= 'A' && l <= 'Z'));
+    
+    // If the rack contains wildcards or advanced overlays, fetch all 26 tiny shards safely
+    if (letters.includes('?') || letters.includes('*') || prefix || interior || suffix) {
+        lettersToFetch = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''));
+    }
+
+    let searchPool = [];
+
+    // Asynchronously fetch ONLY the required local letter JSON files from Vercel hosting
+    try {
+        const fetchPromises = Array.from(lettersToFetch).map(async (letter) => {
+            const response = await fetch(`/dictionary/${letter.toLowerCase()}.json`);
+            if (response.ok) {
+                const words = await response.json();
+                searchPool = searchPool.concat(words);
+            }
+        });
+        await Promise.all(fetchPromises);
+    } catch (err) {
+        console.error("Shard load failure:", err);
+    }
+
     let processingMatches = [];
 
-    for (let word of loadedWordDatabase) {
+    for (let word of searchPool) {
         if (prefix && !word.startsWith(prefix)) continue;
         if (interior && !word.includes(interior)) continue;
         if (suffix && !word.endsWith(suffix)) continue;
@@ -111,6 +93,8 @@ function runUnscrambleAnalysis() {
             });
         }
     }
+
+    btnText.innerText = "Unscramble Letters Now";
 
     if (processingMatches.length === 0) {
         emptyState.innerHTML = `<p class='empty-text'>No entries match "${letters}".</p>`;
@@ -158,6 +142,28 @@ function runUnscrambleAnalysis() {
         container.appendChild(wrapperGrid);
         resultsContent.appendChild(container);
     });
+}
+
+function runProgrammaticRouter() {
+    const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
+    if (segments.length < 2 || segments[0] !== 'words-starting-with') return;
+
+    const targetLetter = segments[1].toUpperCase();
+    if (targetLetter.length !== 1) return;
+
+    const seoTitle = document.getElementById('seoTitle');
+    const seoText = document.getElementById('seoText');
+    const lettersInput = document.getElementById('lettersInput');
+    const startsWith = document.getElementById('startsWith');
+
+    document.title = `Words Starting With ${targetLetter} | Letter Unscrambler Pro`;
+    if (seoTitle) seoTitle.innerText = `Comprehensive List of Words Starting with ${targetLetter}`;
+    if (seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${targetLetter}. Each word combo displays its official Scrabble point score allocation.`;
+    
+    if (startsWith) startsWith.value = targetLetter;
+    if (lettersInput) lettersInput.value = `${targetLetter}??????`;
+    
+    runUnscrambleAnalysis();
 }
 
 window.onload = initializeDictionaryDownload;
