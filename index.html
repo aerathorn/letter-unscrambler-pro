@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat</title>
     <meta name="google-site-verification" content="8wRE9V_T_bHRL-d7H-bZ6jG8WjB_XVD83oihHNdA" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480"
-     crossorigin="anonymous"></script>
+    <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
+    
+    <!-- HIGH-SPEED GOOGLE ANALYTICS CODE ENGINE -->
+    <script async src="https://googletagmanager.com"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BPYRF51CN0');
+
+        window.addEventListener('popstate', () => {
+            gtag('event', 'page_view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        });
+    </script>
+
     <style>
-        /* Pure, Unblockable CSS Theme Configuration Matrices */
         :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; --tile-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%); --tile-border: #facc15; }
         .dark { --bg: #020617; --card: #0f172a; --text: #f1f5f9; --muted: #94a3b8; --border: #1e293b; --accent: #3b82f6; --tile-bg: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); --tile-border: #a16207; }
-        
         body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; transition: background 0.2s, color 0.2s; }
         header { max-width: 800px; margin: 15px auto 0; display: flex; justify-content: flex-end; padding: 0 15px; }
         .toggle-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; font-weight: bold; font-size: 12px; cursor: pointer; border-radius: 8px; }
@@ -50,26 +65,19 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button>
-    </header>
-
+    <header><button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button></header>
     <div class="ad-slot">ADVERTISEMENT SLOT (TOP)</div>
-
     <main>
         <div class="card">
             <div class="hero">
                 <h1>Letter Unscrambler Pro</h1>
                 <p>Elite multi-dictionary analytics engine for Scrabble and word puzzles.</p>
             </div>
-
             <div class="form-area">
                 <div class="input-group-center">
                     <label>Input Rack Letters (Use '?' or '*' for Blanks)</label>
                     <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="main-input">
                 </div>
-
                 <div class="grid-options">
                     <div>
                         <label>Reference Lexicon</label>
@@ -87,36 +95,27 @@
                         </div>
                     </div>
                 </div>
-
                 <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="action-btn">
                     <span id="btnText">Unscramble Letters Now</span>
                 </button>
             </div>
-
             <div id="resultsScreen" class="results-panel">
-                <div id="emptyState" class="empty-text">
-                    <p id="statusFeedback">System online. Standby for input rack values.</p>
-                </div>
+                <div id="emptyState" class="empty-text"><p id="statusFeedback">System online. Standby for input rack values.</p></div>
                 <div id="resultsContent" style="display: none;"></div>
             </div>
         </div>
     </main>
-
     <section class="seo-box">
         <h2 id="seoTitle">Word Finder & Unscrambler Guide</h2>
         <p id="seoText">Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.</p>
     </section>
-
     <div class="ad-slot">ADVERTISEMENT SLOT (BOTTOM)</div>
-
-    <!-- COMPLIANT TRUST LINK FOOTER -->
     <footer>
         <span>© 2026 Letter Unscrambler Pro. All Rights Reserved.</span>
         <a href="/about.html">About Us</a>
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
     </footer>
-
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -136,10 +135,4 @@
             }
         }
         window.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('themeToggleBtn');
-            if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";
-        });
-    </script>
-    <script src="app.js"></script>
-</body>
-</html>
+const btn = document.getElementById('themeToggleBtn');if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";});
