@@ -9,8 +9,12 @@ async function initializeDictionaryDownload() {
         actionBtn.disabled = false;
         actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
     }
-    if (btnText) btnText.innerText = "Unscramble Letters Now";
-    if (statusFeedback) statusFeedback.innerText = "System online. Standby for input rack values.";
+    if (btnText) {
+        btnText.innerText = "Unscramble Letters Now";
+    }
+    if (statusFeedback) {
+        statusFeedback.innerText = "System online. Standby for input rack values.";
+    }
 
     runProgrammaticRouter();
 }
@@ -58,7 +62,9 @@ async function runUnscrambleAnalysis() {
         return;
     }
 
-    if (btnText) btnText.innerText = "Processing Shards...";
+    if (btnText) {
+        btnText.innerText = "Processing Shards...";
+    }
     
     let lettersToFetch = new Set(letters.split('').filter(l => l >= 'A' && l <= 'Z'));
     if (letters.includes('?') || letters.includes('*') || prefix || interior || suffix) {
@@ -96,14 +102,18 @@ async function runUnscrambleAnalysis() {
         }
     }
 
-    if (btnText) btnText.innerText = "Unscramble Letters Now";
+    if (btnText) {
+        btnText.innerText = "Unscramble Letters Now";
+    }
 
     if (processingMatches.length === 0) {
         if (emptyState) {
             emptyState.innerHTML = `<p class='empty-text'>No entries match "${letters}".</p>`;
             emptyState.style.display = 'block';
         }
-        if (resultsContent) resultsContent.style.display = 'none';
+        if (resultsContent) {
+            resultsContent.style.display = 'none';
+        }
         return;
     }
 
@@ -154,7 +164,6 @@ function runProgrammaticRouter() {
     const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
     if (segments.length < 2) return;
 
-    // FIX LOGIC: Target specific indices cleanly to bypass the array conversion crash
     const routeType = segments[0];
     const parameter = segments[1].toUpperCase();
 
