@@ -17,6 +17,36 @@ async function initializeDictionaryDownload() {
     btnSpinner.classList.add('hidden');
     btnText.innerText = "Unscramble Letters Now";
     statusFeedback.innerText = "Complete Dictionary Online. Native data core verified.";
+
+    // ACTIVATE PROGRAMMATIC SEO URL ROUTER ON WINDOW INITIALIZATION
+    runProgrammaticRouter();
+}
+
+function runProgrammaticRouter() {
+    const path = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
+    if (path.length === 0) return; // Standard homepage user
+
+    const seoTitle = document.getElementById('seoTitle');
+    const seoText = document.getElementById('seoText');
+    const lettersInput = document.getElementById('lettersInput');
+    const startsWith = document.getElementById('startsWith');
+
+    // ROUTE 1: Words starting with a specific letter
+    if (path[0] === 'words-starting-with' && path[1] && path[1].length === 1) {
+        const targetLetter = path[1].toUpperCase();
+        
+        // Update browser layout text blocks for Google indexing signals
+        document.title = `Words Starting With ${targetLetter} | Letter Unscrambler Pro`;
+        seoTitle.innerText = `Comprehensive List of Words Starting with ${targetLetter}`;
+        seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${targetLetter}. Each word combo displays its official Scrabble point score allocation to give you an instant edge in your online games.`;
+        
+        // Feed parameters directly into backend input controllers
+        startsWith.value = targetLetter;
+        lettersInput.value = `${targetLetter}??????`; // Fills with blank tiles to show all possibilities
+        
+        // Fire calculation loop
+        runUnscrambleAnalysis();
+    }
 }
 
 function determineScrabbleScore(word) {
