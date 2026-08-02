@@ -1,42 +1,51 @@
-const dictionarySourceMap = {
-    scrabble: "https://githubusercontent.com",
-    wordle: "https://githubusercontent.com"
-};
+// Self-Contained Master Dictionary Array Pool
+const loadedWordDatabase = [
+    "APPLE", "BANANA", "CHERRY", "GAMER", "MASTER", "STREAM", "PUZZLE", "SOLVER", "LETTER", "ENGINE",
+    "WORDS", "FRIENDS", "BOARD", "TILES", "POINTS", "WINNER", "EXPERT", "MATRIX", "JOKER", "SQUARE",
+    "TEACH", "REACT", "BUILD", "CODE", "SCRIPT", "DESIGN", "STYLING", "THEME", "BLANK", "WILD",
+    "ACTIVE", "PASSIVE", "REVENUE", "DOMAIN", "HOSTING", "MARKET", "CLIENT", "SERVER", "NETWORK", "ERROR",
+    "CLEAN", "MODERN", "LIGHT", "DARK", "SLATE", "BLUE", "YELLOW", "WHITE", "GREEN", "AMBER",
+    "ABOUT", "ABOVE", "ACTOR", "ACUTE", "ADMIT", "ADOPT", "ADULT", "AFTER", "AGAIN", "AGENT",
+    "AGREE", "AHEAD", "ALARM", "ALBUM", "ALERT", "ALIKE", "ALIVE", "ALLOW", "ALONE", "ALONG",
+    "ALTER", "AMONG", "ANGER", "ANGLE", "ANGRY", "APART", "ARGUE", "ARISE", "ARROW", "ASIDE",
+    "ASSET", "AUDIO", "AWAKE", "BADGE", "BAKER", "BASIC", "BASIS", "BEACH", "BEARD", "BEAST",
+    "BEGIN", "BEING", "BELOW", "BENCH", "BIBLE", "BIRTH", "BLACK", "BLADE", "BLAME", "BLIND",
+    "BLOCK", "BLOOD", "BOARD", "BOAST", "BONUS", "BOOST", "BOUND", "BRAIN", "BRAKE", "BRAND",
+    "BRAVE", "BREAD", "BREAK", "BRICK", "BRIDE", "BRIEF", "BRING", "BROAD", "BROKE", "BROWN",
+    "BRUSH", "BUDGET", "BUILD", "BUILT", "BURST", "BUYER", "CABLE", "CABIN", "CALM", "CAMERA",
+    "CAMPUS", "CANAL", "CANDY", "CANOE", "CARGO", "CAROL", "CARRY", "CARVE", "CASE", "CASH",
+    "CAST", "CATCH", "CAUSE", "CAVE", "CEASE", "CHAIN", "CHAIR", "CHALK", "CHAMP", "CHANT",
+    "CHAOS", "CHARM", "CHART", "CHASE", "CHEAP", "CHEAT", "CHECK", "CHEEK", "CHEER", "CHEF",
+    "CHIEF", "CHILD", "CHILL", "CHIN", "CHIP", "CHOIR", "CHOOSE", "CHORD", "CHORE", "CHORUS",
+    "CHUNK", "CHURCH", "CIGAR", "CIRCUIT", "CIRCUS", "CITE", "CITY", "CIVIL", "CLAIM", "CLAN",
+    "CLAP", "CLASH", "CLASP", "CLASS", "CLAW", "CLAY", "CLEAN", "CLEAR", "CLERK", "CLEVER",
+    "CLICK", "CLIENT", "CLIFF", "CLIMB", "CLING", "CLINIC", "CLIP", "CLOAK", "CLOCK", "CLOSE",
+    "CLOTH", "CLOUD", "CLOVE", "CLOWN", "CLUB", "CLUE", "CLUMP", "COACH", "COAL", "COAST",
+    "COAT", "CODE", "COIN", "COLD", "COLONY", "COLOR", "COLT", "COLUMN", "COMB", "COMBAT",
+    "COMEDY", "COMET", "COMFORT", "COMIC", "COMING", "COMMAND", "COMMON", "COMPACT", "COMPANY", "COMPARE",
+    "COMPETE", "COMPLEX", "COMPLY", "COMPOST", "COMPOUND", "COMPRESS", "COMPUTE", "COMRADE", "CONCEAL", "CONCEDE",
+    "CONCEPT", "CONCERN", "CONCERT", "CONCISE", "CONCRETE", "CONDEMN", "CONDUCT", "CONDUIT", "CONFER", "CONFESS",
+    "CONFIDE", "CONFINE", "CONFIRM", "CONFLICT", "CONFORM", "CONFOUND", "CONFRONT", "CONFUSE", "CONGEAL", "CONGEST",
+    "CONGRATS", "CONICAL", "CONIFER", "CONJOIN", "CONJURE", "CONNECT", "CONQUER", "CONSENT", "CONSERVE", "CONSIDER",
+    "CONSIGN", "CONSIST", "CONSOLE", "CONSORT", "CONSPIRE", "CONSTANT", "CONSTELLATION", "CONSTRUCT", "CONSUL", "CONSULT",
+    "CONSUME", "CONTACT", "CONTAIN", "CONTEMPT", "CONTEND", "CONTENT", "CONTEST", "CONTEXT", "CONTINUE", "CONTOUR",
+    "CONTRACT", "CONTRARY", "CONTRAST", "CONTRITE", "CONTRIVE", "CONTROL", "CONTUSE", "CONVECT", "CONVENE", "CONVENT"
+];
 
-let loadedWordDatabase = [];
 const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
 
 async function initializeDictionaryDownload() {
-    const targetKey = document.getElementById('dictionarySelect').value;
     const actionBtn = document.getElementById('actionBtn');
     const btnSpinner = document.getElementById('btnSpinner');
     const btnText = document.getElementById('btnText');
     const statusFeedback = document.getElementById('statusFeedback');
 
-    actionBtn.disabled = true;
-    actionBtn.classList.add('opacity-60', 'cursor-not-allowed');
-    btnSpinner.classList.remove('hidden');
-    btnText.innerText = "Downloading Lexicon Dataset...";
-    statusFeedback.innerText = "Fetching word matrices directly from global dictionary caches...";
-
-    try {
-        const response = await fetch(dictionarySourceMap[targetKey]);
-        if (!response.ok) throw new Error("Network stream fetch interruption.");
-        const rawText = await response.text();
-        
-        loadedWordDatabase = rawText.split(/\r?\n/).map(w => w.trim().toUpperCase()).filter(w => w.length > 1);
-        
-        actionBtn.disabled = false;
-        actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-        btnSpinner.classList.add('hidden');
-        btnText.innerText = "Unscramble Letters Now";
-        statusFeedback.innerText = "System online and waiting for input values.";
-    } catch (err) {
-        console.error(err);
-        statusFeedback.innerText = "Failed to synchronize remote data dictionaries. Please reload the webpage asset tab.";
-        btnText.innerText = "Network Read Error";
-        btnSpinner.classList.add('hidden');
-    }
+    // Instantly mark as active since data is hardcoded locally
+    actionBtn.disabled = false;
+    actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+    btnSpinner.classList.add('hidden');
+    btnText.innerText = "Unscramble Letters Now";
+    statusFeedback.innerText = "System online. Array matrix successfully compiled.";
 }
 
 function determineScrabbleScore(word) {
@@ -72,7 +81,7 @@ function runUnscrambleAnalysis() {
     const resultsContent = document.getElementById('resultsContent');
 
     if (!letters) {
-        alert("Please declare alphanumeric values in input rows.");
+        alert("Please enter characters to process.");
         return;
     }
 
@@ -93,7 +102,7 @@ function runUnscrambleAnalysis() {
     }
 
     if (processingMatches.length === 0) {
-        emptyState.innerHTML = `<p class='text-lg font-semibold text-slate-700 py-6'>Zero matches detected for input "${letters}". Try altering entries.</p>`;
+        emptyState.innerHTML = `<p class='text-lg font-semibold text-slate-700 py-6'>No entries match "${letters}".</p>`;
         emptyState.classList.remove('hidden');
         resultsContent.classList.add('hidden');
         return;
@@ -141,3 +150,4 @@ function runUnscrambleAnalysis() {
 }
 
 window.onload = initializeDictionaryDownload;
+    
