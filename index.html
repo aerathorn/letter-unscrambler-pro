@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat Suite</title>
-    <!-- Rock-Solid Production Stable Tailwind Engine CDN -->
-    <script src="https://tailwindcss.com"></script>
+    
+    <!-- NATIVE PRODUCTION LOCAL STYLES LINK (BYPASSES CDN BLOCKS) -->
+    <link rel="stylesheet" href="style.css">
+    
     <script>
         // Inline script to prevent theme flashing on load
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -15,14 +17,28 @@
         }
     </script>
     <style>
+        /* Custom UI patches for Tailwind v2 dark utility compatibility layers */
+        .dark body { background-color: #020617 !important; color: #e2e8f0 !important; }
+        .dark .bg-white { background-color: #0f172a !important; border-color: #1e293b !important; }
+        .dark .bg-slate-900 { background-color: #020617 !important; }
+        .dark .bg-slate-50\/50 { background-color: rgba(15, 23, 42, 0.5) !important; }
+        .dark .bg-slate-50 { background-color: #1e293b !important; border-color: #334155 !important; }
+        .dark input, .dark select { background-color: #020617 !important; border-color: #1e293b !important; color: #f1f5f9 !important; }
+        .dark h3 { color: #94a3b8 !important; border-color: #334155 !important; }
+        .dark span { color: #f1f5f9 !important; }
+        .dark .text-slate-400 { color: #94a3b8 !important; }
+        .dark .text-slate-500 { color: #64748b !important; }
+        .dark .text-slate-600 { color: #94a3b8 !important; }
+        
         .word-tile {
-            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%) !important;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         .dark .word-tile {
-            background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+            background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%) !important;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
+        .dark .word-tile span { color: #020617 !important; }
         .spinner {
             border: 3px solid rgba(0, 0, 0, 0.1);
             border-radius: 50%;
@@ -38,59 +54,59 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans min-h-screen flex flex-col transition-colors duration-200">
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col transition-colors duration-200">
 
     <!-- THEME TOGGLE ACTION BAR -->
     <header class="w-full max-w-4xl mx-auto px-4 pt-4 flex justify-end">
-        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider cursor-pointer flex items-center gap-2 transition-all">
-            <span id="themeToggleText">Switch to Dark Mode</span>
+        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider cursor-pointer flex items-center gap-2 transition-all">
+            <span id="themeToggleText">🌙 Dark Mode</span>
         </button>
     </header>
 
     <!-- AD DEMARCATION SLOT (TOP) -->
     <div class="w-full max-w-7xl mx-auto my-4 text-center">
-        <div class="bg-slate-200 dark:bg-slate-900 text-slate-500 dark:text-slate-400 py-3 text-xs tracking-wider border border-dashed border-slate-300 dark:border-slate-800 rounded-md">ADVERTISEMENT SLOT (TOP)</div>
+        <div class="bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-3 text-xs tracking-wider border border-dashed border-gray-300 dark:border-gray-700 rounded-md">ADVERTISEMENT SLOT (TOP)</div>
     </div>
 
     <!-- Application Dashboard Wrapper -->
     <main class="flex-grow max-w-4xl w-full mx-auto p-4 md:p-6">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
             
             <!-- Centered Header Panel -->
-            <div class="bg-slate-900 dark:bg-slate-950 text-white p-6 md:p-8 text-center border-b border-slate-800">
+            <div class="bg-gray-900 text-white p-6 md:p-8 text-center border-b border-gray-800">
                 <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Letter Unscrambler Pro</h1>
-                <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto">Elite multi-dictionary analytics engine for Scrabble, Words with Friends, and Wordle.</p>
+                <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">Elite multi-dictionary analytics engine for Scrabble, Words with Friends, and Wordle.</p>
             </div>
 
-            <div class="p-6 md:p-8 bg-slate-50/50 dark:bg-slate-900/50">
+            <div class="p-6 md:p-8 bg-gray-50 bg-opacity-50">
                 
                 <!-- HYPER-PROMINENT CENTERED INPUT BOX -->
                 <div class="max-w-2xl mx-auto text-center mb-8">
-                    <label class="block text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Input Rack Letters (Use '?' or '*' for Blanks)</label>
-                    <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="w-full text-center px-6 py-5 bg-white dark:bg-slate-950 rounded-2xl border-2 border-slate-200 dark:border-slate-800 text-3xl md:text-4xl font-mono font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all shadow-inner">
+                    <label class="block text-xs font-extrabold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Input Rack Letters (Use '?' or '*' for Blanks)</label>
+                    <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="w-full text-center px-6 py-5 bg-white rounded-2xl border-2 border-gray-200 dark:border-gray-700 text-3xl md:text-4xl font-mono font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 outline-none transition-all shadow-sm">
                 </div>
 
                 <!-- SECONDARY OPTION FIELDS GRID -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div>
-                        <label class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2">Rule Book / Reference Lexicon</label>
-                        <select id="dictionarySelect" onchange="initializeDictionaryDownload()" class="w-full px-4 py-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-base text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer">
+                        <label class="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Rule Book / Reference Lexicon</label>
+                        <select id="dictionarySelect" onchange="initializeDictionaryDownload()" class="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 dark:border-gray-700 text-base text-gray-700 dark:text-gray-300 outline-none cursor-pointer">
                             <option value="scrabble">Scrabble Standard (ENABLE Master List)</option>
                             <option value="wordle">Wordle Target Words Database</option>
                         </select>
                     </div>
                     <div>
-                        <span class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2">Optional Placement Overlays</span>
+                        <span class="block text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Optional Placement Overlays</span>
                         <div class="grid grid-cols-3 gap-2">
-                            <input type="text" id="startsWith" placeholder="Starts..." class="px-2 py-3 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-center uppercase outline-none focus:border-blue-500 text-slate-700 dark:text-slate-300">
-                            <input type="text" id="contains" placeholder="Contains..." class="px-2 py-3 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-center uppercase outline-none focus:border-blue-500 text-slate-700 dark:text-slate-300">
-                            <input type="text" id="endsWith" placeholder="Ends..." class="px-2 py-3 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-center uppercase outline-none focus:border-blue-500 text-slate-700 dark:text-slate-300">
+                            <input type="text" id="startsWith" placeholder="Starts..." class="px-2 py-3 bg-white border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-center uppercase outline-none text-gray-700 dark:text-gray-300">
+                            <input type="text" id="contains" placeholder="Contains..." class="px-2 py-3 bg-white border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-center uppercase outline-none text-gray-700 dark:text-gray-300">
+                            <input type="text" id="endsWith" placeholder="Ends..." class="px-2 py-3 bg-white border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-center uppercase outline-none text-gray-700 dark:text-gray-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Core Action Trigger Button -->
-                <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-all cursor-not-allowed opacity-60 text-lg cursor-pointer">
+                <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-md flex items-center justify-center gap-3 transition-all opacity-60 text-lg cursor-pointer">
                     <span id="btnSpinner" class="spinner hidden"></span>
                     <span id="btnText">Downloading Dictionary...</span>
                 </button>
@@ -98,8 +114,8 @@
 
             <!-- Dynamic Processing Result Visual Panel -->
             <div id="resultsScreen" class="p-6 md:p-8 min-h-[200px]">
-                <div id="emptyState" class="text-center py-12 text-slate-400 dark:text-slate-500">
-                    <p id="statusFeedback" class="text-lg font-medium text-slate-600 dark:text-slate-400">Initializing global word data array pools...</p>
+                <div id="emptyState" class="text-center py-12 text-gray-400 dark:text-gray-500">
+                    <p id="statusFeedback" class="text-lg font-medium text-gray-600 dark:text-gray-400">Initializing global word data array pools...</p>
                 </div>
                 <div id="resultsContent" class="hidden space-y-8"></div>
             </div>
@@ -109,7 +125,7 @@
 
     <!-- AD DEMARCATION SLOT (BOTTOM) -->
     <div class="w-full max-w-7xl mx-auto my-4 text-center">
-        <div class="bg-slate-200 dark:bg-slate-900 text-slate-500 dark:text-slate-400 py-3 text-xs tracking-wider border border-dashed border-slate-300 dark:border-slate-800 rounded-md">ADVERTISEMENT SLOT (BOTTOM)</div>
+        <div class="bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 py-3 text-xs tracking-wider border border-dashed border-gray-300 dark:border-gray-700 rounded-md">ADVERTISEMENT SLOT (BOTTOM)</div>
     </div>
 
     <!-- Theme Logic Manager Script -->
