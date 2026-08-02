@@ -164,6 +164,7 @@ function runProgrammaticRouter() {
     const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
     if (segments.length < 2) return;
 
+    // INDICES UNLOCKED: Pulling raw string data properties safely to clear out the crash loop
     const routeType = segments[0];
     const parameter = segments[1].toUpperCase();
 
