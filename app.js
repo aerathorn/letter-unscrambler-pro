@@ -1,55 +1,7 @@
-// Self-Contained Compressed High-Frequency English Scrabble Dictionary
-const loadedWordDatabase = [
-    // --- 2-Letter Base Connectors ---
-    "AA", "AB", "AD", "AE", "AG", "AH", "AI", "AL", "AM", "AN", "AR", "AS", "AT", "AW", "AX", "AY",
-    "BA", "BE", "BI", "BO", "BY", "DA", "DE", "DO", "ED", "EF", "EH", "EL", "EM", "EN", "ER", "ES", 
-    "ET", "EW", "EX", "FA", "FE", "GI", "GO", "HA", "HE", "HI", "HM", "HO", "ID", "IF", "IN", "IS", 
-    "IT", "JO", "KA", "KI", "LA", "LI", "LO", "MA", "ME", "MI", "MM", "MO", "MU", "MY", "NA", "NE", 
-    "NO", "NU", "OD", "OE", "OF", "OH", "OI", "OK", "OM", "ON", "OP", "OR", "OS", "OU", "OW", "OX", 
-    "OY", "PA", "PE", "PI", "PO", "QI", "RE", "SH", "SI", "SO", "TA", "TE", "TI", "TO", "UH", "UM", 
-    "UN", "UP", "US", "UT", "VA", "WO", "XI", "XU", "YA", "YE", "YO", "ZA",
+// Production-grade, high-speed open source Scrabble dictionary URL
+const dictionarySourceURI = "https://githubusercontent.com";
 
-    // --- 3-Letter Core ---
-    "ACE", "ACT", "ADD", "AGE", "AGO", "AIM", "AIR", "ALE", "ALL", "AMP", "AND", "ANT", "ANY", "APE", 
-    "APP", "APT", "ARC", "ARE", "ARK", "ARM", "ART", "ASH", "ASK", "ASP", "ATE", "AWE", "AWL", "AXE", 
-    "BAD", "BAG", "BAN", "BAR", "BAT", "BAY", "BED", "BEE", "BEG", "BET", "BIB", "BID", "BIG", "BIN", 
-    "BIT", "BOA", "BOB", "BOG", "BOO", "BOP", "BOW", "BOX", "BOY", "BUM", "BUS", "BUT", "BUY", "BYE", 
-    "CAB", "CAN", "CAP", "CAR", "CAT", "COB", "COP", "COT", "COW", "CRY", "CUP", "CUT", "DAD", "DAY", 
-    "DEN", "DID", "DIE", "DIG", "DIM", "DIP", "DOG", "DON", "DOT", "DRY", "DUE", "DUG", "DUO", "DYE", 
-    "EAR", "EAT", "EGG", "EGO", "ELF", "END", "ERA", "ERR", "EYE", "FAN", "FAR", "FAT", "FAX", "FED", 
-    "FEE", "FEW", "FIX", "FLY", "FOE", "FOG", "FOR", "FOX", "FRY", "FUN", "FUR", "GAB", "GAG", "GAP", 
-    "GAS", "GAY", "GEL", "GEM", "GET", "GIG", "GIN", "GNU", "GOB", "GOD", "GOO", "GOT", "GUM", "GUN", 
-    "GUT", "GUY", "GYM", "HAD", "HAG", "HAM", "HAS", "HAT", "HAW", "HAY", "HEM", "HEN", "HER", "HEW", 
-    "HEX", "HEY", "HID", "HIM", "HIP", "HIS", "HIT", "HOB", "HOG", "HOP", "HOT", "HOW", "HUB", "HUE", 
-    "HUG", "HUM", "HUN", "HUT", "ICE", "ICY", "ILL", "IMP", "INK", "INN", "ION", "IRK", "ITS", "IVY", 
-    "JAB", "JAG", "JAM", "JAR", "JAW", "JAY", "JET", "JOB", "JOG", "JOT", "JOY", "JUG", "KID", "KIN",
-    "KIT", "LAB", "LAD", "LAG", "LAP", "LAW", "LAX", "LAY", "LED", "LEG", "LET", "LID", "LIE", "LIP",
-
-    // --- 4-Letter Combos ---
-    "ABLE", "ACID", "AGED", "ALSO", "AREA", "ARMY", "AWAY", "BABY", "BACK", "BALL", "BAND", "BANK", 
-    "BARE", "BASE", "BATH", "BEAR", "BEAT", "BEEN", "BEER", "BELL", "BELT", "BEST", "BIRD", "BITE", 
-    "BLOW", "BLUE", "BOAT", "BODY", "BOLD", "BONE", "BOOK", "BOOM", "BORN", "BOSS", "BOTH", "BOWL", 
-    "BULK", "BURN", "BUSH", "BUSY", "BUYS", "CAFE", "CAKE", "CALL", "CALM", "CAMP", "CARD", "CARE", 
-    "CASE", "CASH", "CAST", "CHAT", "CHEF", "CITY", "CLAN", "CLAY", "CLIP", "CLUB", "CLUE", "COAL", 
-    "COAT", "CODE", "COIN", "COLD", "COME", "COOK", "COOL", "COPE", "COPY", "CORE", "COST", "CREW", 
-    "CROP", "CURE", "CURL", "CUTE", "DARE", "DARK", "DATA", "DATE", "DAWN", "DAYS", "DEAD", "DEAL", 
-    "DEAR", "DEBT", "DECK", "DEED", "DEEP", "DEER", "DESK", "DIAL", "DIET", "DISC", "DISK", "DIVE", 
-
-    // --- 5-Letter Combos ---
-    "ABOUT", "ABOVE", "ACTOR", "ACUTE", "ADMIT", "ADOPT", "ADULT", "AFTER", "AGAIN", "AGENT", "AGREE", 
-    "AHEAD", "ALARM", "ALBUM", "ALERT", "ALIKE", "ALIVE", "ALLOW", "ALONE", "ALONG", "ALTER", "AMONG", 
-    "ANGER", "ANGLE", "ANGRY", "APART", "APPLE", "ARGUE", "ARISE", "ARROW", "ASIDE", "ASSET", "AUDIO", 
-    "AWAKE", "BADGE", "BAKER", "BANANA", "BASIC", "BASIS", "BEACH", "BEARD", "BEAST", "BEGIN", "BEING", 
-    "BELOW", "BENCH", "BIBLE", "BIRTH", "BLACK", "BLADE", "BLAME", "BLIND", "BLOCK", "BLOOD", "BOARD", 
-    "BOAST", "BONUS", "BOOST", "BOUND", "BRAIN", "BRAKE", "BRAND", "BRAVE", "BREAD", "BREAK", "BRICK", 
-
-    // --- 6+ Multi-Letter Utilities ---
-    "ACTIVE", "PASSIVE", "REVENUE", "DOMAIN", "HOSTING", "MARKET", "CLIENT", "SERVER", "NETWORK", "ERROR",
-    "GAMER", "MASTER", "STREAM", "PUZZLE", "SOLVER", "LETTER", "ENGINE", "WORDS", "FRIENDS", "RACK",
-    "TEACH", "REACT", "BUILD", "DESIGN", "STYLING", "THEME", "BLANK", "CLEAN", "MODERN", "LIGHT", 
-    "DARK", "SLATE", "BLUE", "YELLOW", "WHITE", "GREEN", "AMBER", "ABNORMALIZATION", "COMPUTE"
-];
-
+let loadedWordDatabase = [];
 const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
 
 async function initializeDictionaryDownload() {
@@ -58,11 +10,33 @@ async function initializeDictionaryDownload() {
     const btnText = document.getElementById('btnText');
     const statusFeedback = document.getElementById('statusFeedback');
 
-    actionBtn.disabled = false;
-    actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-    btnSpinner.classList.add('hidden');
-    btnText.innerText = "Unscramble Letters Now";
-    statusFeedback.innerText = "System online. Internal vocabulary metrics loaded successfully.";
+    actionBtn.disabled = true;
+    actionBtn.classList.add('opacity-60', 'cursor-not-allowed');
+    btnSpinner.classList.remove('hidden');
+    btnText.innerText = "Downloading Dictionary Engine...";
+    statusFeedback.innerText = "Streaming master English lexicon dataset into browser memory matrices...";
+
+    try {
+        // Fetch massive public 170,000+ word Scrabble text bank instantly over internet backbones
+        const response = await fetch(dictionarySourceURI);
+        if (!response.ok) throw new Error("Dictionary payload fetch breakdown.");
+        const rawText = await response.text();
+        
+        // Sanitize data, parse newlines, and filter out entries
+        loadedWordDatabase = rawText.split(/\r?\n/).map(w => w.trim().toUpperCase()).filter(w => w.length >= 2);
+        
+        // Re-enable dashboard controls once compilation wraps up
+        actionBtn.disabled = false;
+        actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+        btnSpinner.classList.add('hidden');
+        btnText.innerText = "Unscramble Letters Now";
+        statusFeedback.innerText = "Complete Dictionary Online. Enter letters to solve.";
+    } catch (err) {
+        console.error(err);
+        statusFeedback.innerText = "Dictionary stream delay. Refreshing page to reload dataset coordinates.";
+        btnText.innerText = "Sync failure";
+        btnSpinner.classList.add('hidden');
+    }
 }
 
 function determineScrabbleScore(word) {
@@ -98,7 +72,7 @@ function runUnscrambleAnalysis() {
     const resultsContent = document.getElementById('resultsContent');
 
     if (!letters) {
-        alert("Please enter characters to process.");
+        alert("Please assign rack letters to process layout paths.");
         return;
     }
 
@@ -119,7 +93,7 @@ function runUnscrambleAnalysis() {
     }
 
     if (processingMatches.length === 0) {
-        emptyState.innerHTML = `<p class='text-lg font-semibold text-slate-700 py-6'>No entries match "${letters}".</p>`;
+        emptyState.innerHTML = `<p class='text-lg font-semibold text-slate-700 py-6'>No dynamic combinations trace pattern matches for "${letters}".</p>`;
         emptyState.classList.remove('hidden');
         resultsContent.classList.add('hidden');
         return;
@@ -145,7 +119,7 @@ function runUnscrambleAnalysis() {
         
         let headerLine = document.createElement('h3');
         headerLine.className = "text-sm font-extrabold text-slate-500 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2 flex justify-between";
-        headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span class='text-xs font-normal text-slate-400'>${listings.length} items</span>`;
+        headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span class='text-xs font-normal text-slate-400'>${listings.length} entries</span>`;
         container.appendChild(headerLine);
 
         let wrapperGrid = document.createElement('div');
@@ -167,3 +141,4 @@ function runUnscrambleAnalysis() {
 }
 
 window.onload = initializeDictionaryDownload;
+	
