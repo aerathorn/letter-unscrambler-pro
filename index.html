@@ -1,170 +1,132 @@
-const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat</title>
+    <style>
+        /* Pure, Native Custom Theme Properties (Bypasses any CDN network breaks) */
+        :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; --tile-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%); --tile-border: #facc15; }
+        .dark { --bg: #020617; --card: #0f172a; --text: #f1f5f9; --muted: #94a3b8; --border: #1e293b; --accent: #3b82f6; --tile-bg: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); --tile-border: #a16207; }
+        
+        body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; transition: background 0.2s, color 0.2s; }
+        header { max-w: 800px; margin: 15px auto 0; display: flex; justify-content: flex-end; padding: 0 15px; }
+        .toggle-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; font-weight: bold; font-size: 12px; cursor: pointer; border-radius: 8px; }
+        .ad-slot { max-width: 800px; margin: 15px auto; background: var(--border); color: var(--muted); text-align: center; padding: 12px; font-size: 11px; border-radius: 6px; letter-spacing: 1px; }
+        main { max-width: 800px; width: 100%; margin: 0 auto; padding: 15px; box-sizing: border-box; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); overflow: hidden; }
+        .hero { background: #0f172a; color: #ffffff; text-align: center; padding: 30px 15px; border-bottom: 1px solid #1e293b; }
+        .hero h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; }
+        .hero p { margin: 0; color: #94a3b8; font-size: 14px; }
+        .form-area { padding: 25px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.01); }
+        .input-group-center { max-width: 500px; margin: 0 auto 25px; text-align: center; }
+        label { display: block; font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .main-input { width: 100%; text-align: center; padding: 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; font-size: 28px; font-family: monospace; font-weight: 900; text-transform: uppercase; color: var(--accent); outline: none; box-sizing: border-box; }
+        .grid-options { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
+        @media (min-width: 600px) { .grid-options { grid-template-columns: 1fr 1fr; } }
+        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline: none; box-sizing: border-box; }
+        .flex-overlays { display: flex; gap: 8px; }
+        .sub-input { text-align: center; text-transform: uppercase; }
+        .action-btn { width: 100%; background: var(--accent); color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 14px; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .action-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .results-panel { padding: 25px; min-height: 150px; }
+        .empty-text { text-align: center; color: var(--muted); font-size: 15px; padding: 30px 0; }
+        .bucket-container { background: rgba(0,0,0,0.01); border: 1px solid var(--border); border-radius: 12px; padding: 15px; margin-bottom: 20px; }
+        .bucket-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px 0; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        .tile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        @media (min-width: 450px) { .tile-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 650px) { .tile-grid { grid-template-columns: repeat(4, 1fr); } }
+        .tile { background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-weight: bold; }
+        .tile-text { font-size: 16px; color: #020617; }
+        .tile-score { background: rgba(0,0,0,0.08); font-size: 11px; padding: 2px 6px; border-radius: 4px; color: #020617; }
+        .seo-box { max-width: 800px; margin: 0 auto 20px; padding: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+        .seo-box h2 { font-size: 18px; font-weight: 900; color: var(--accent); margin: 0 0 10px 0; }
+        .seo-box p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0; }
+    </style>
+</head>
+<body>
 
-async function initializeDictionaryDownload() {
-    const actionBtn = document.getElementById('actionBtn');
-    const btnText = document.getElementById('btnText');
-    const statusFeedback = document.getElementById('statusFeedback');
+    <header>
+        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button>
+    </header>
 
-    // Peak Performance: Ready immediately with zero loading lag!
-    actionBtn.disabled = false;
-    actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-    btnText.innerText = "Unscramble Letters Now";
-    statusFeedback.innerText = "System online. Standby for input rack values.";
+    <div class="ad-slot">ADVERTISEMENT SLOT (TOP)</div>
 
-    runProgrammaticRouter();
-}
+    <main>
+        <div class="card">
+            <div class="hero">
+                <h1>Letter Unscrambler Pro</h1>
+                <p>Elite multi-dictionary analytics engine for Scrabble and word puzzles.</p>
+            </div>
 
-function determineScrabbleScore(word) {
-    return word.split('').reduce((sum, letter) => sum + (scrabblePointValues[letter] || 0), 0);
-}
+            <div class="form-area">
+                <div class="input-group-center">
+                    <label>Input Rack Letters (Use '?' or '*' for Blanks)</label>
+                    <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="main-input">
+                </div>
 
-function checkRackInclusion(word, inputLetters) {
-    let pool = inputLetters.split('');
-    let wildcards = pool.filter(l => l === '?' || l === '*').length;
-    pool = pool.filter(l => l !== '?' && l !== '*');
+                <div class="grid-options">
+                    <div>
+                        <label>Reference Lexicon</label>
+                        <select id="dictionarySelect" onchange="initializeDictionaryDownload()">
+                            <option value="scrabble">Scrabble Standard (ENABLE List)</option>
+                            <option value="wordle">Wordle Valid Guess Engine</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Optional Placement Overlays</label>
+                        <div class="flex-overlays">
+                            <input type="text" id="startsWith" placeholder="Starts..." class="sub-input">
+                            <input type="text" id="contains" placeholder="Contains..." class="sub-input">
+                            <input type="text" id="endsWith" placeholder="Ends..." class="sub-input">
+                        </div>
+                    </div>
+                </div>
 
-    for (let letter of word) {
-        const foundIdx = pool.indexOf(letter);
-        if (foundIdx > -1) {
-            pool.splice(foundIdx, 1);
-        } else if (wildcards > 0) {
-            wildcards--;
+                <button id="actionBtn" onclick="runUnscrambleAnalysis()" disabled class="action-btn">
+                    <span id="btnText">Unscramble Letters Now</span>
+                </button>
+            </div>
+
+            <div id="resultsScreen" class="results-panel">
+                <div id="emptyState" class="empty-text">
+                    <p id="statusFeedback">System online. Standby for input rack values.</p>
+                </div>
+                <div id="resultsContent" style="display: none;"></div>
+            </div>
+        </div>
+    </main>
+
+    <section class="seo-box">
+        <h2 id="seoTitle">Word Finder & Unscrambler Guide</h2>
+        <p id="seoText">Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.</p>
+    </section>
+
+    <div class="ad-slot">ADVERTISEMENT SLOT (BOTTOM)</div>
+
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
         } else {
-            return false;
+            document.documentElement.classList.remove('dark');
         }
-    }
-    return true;
-}
-
-async function runUnscrambleAnalysis() {
-    const letters = document.getElementById('lettersInput').value.toUpperCase().replace(/\s/g, '');
-    const targetType = document.getElementById('dictionarySelect').value;
-    const prefix = document.getElementById('startsWith').value.toUpperCase().trim();
-    const interior = document.getElementById('contains').value.toUpperCase().trim();
-    const suffix = document.getElementById('endsWith').value.toUpperCase().trim();
-
-    const emptyState = document.getElementById('emptyState');
-    const resultsContent = document.getElementById('resultsContent');
-    const btnText = document.getElementById('btnText');
-
-    if (!letters) {
-        alert("Please enter characters to process.");
-        return;
-    }
-
-    btnText.innerText = "Processing Shards...";
-    
-    // Determine exactly which letter shards we need to pull based on input rack letters
-    let lettersToFetch = new Set(letters.split('').filter(l => l >= 'A' && l <= 'Z'));
-    
-    // If the rack contains wildcards or advanced overlays, fetch all 26 tiny shards safely
-    if (letters.includes('?') || letters.includes('*') || prefix || interior || suffix) {
-        lettersToFetch = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''));
-    }
-
-    let searchPool = [];
-
-    // Asynchronously fetch ONLY the required local letter JSON files from Vercel hosting
-    try {
-        const fetchPromises = Array.from(lettersToFetch).map(async (letter) => {
-            const response = await fetch(`/dictionary/${letter.toLowerCase()}.json`);
-            if (response.ok) {
-                const words = await response.json();
-                searchPool = searchPool.concat(words);
+        function toggleThemeMode() {
+            const btn = document.getElementById('themeToggleBtn');
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                btn.innerText = "🌙 Dark Mode";
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                btn.innerText = "🌞 Light Mode";
             }
-        });
-        await Promise.all(fetchPromises);
-    } catch (err) {
-        console.error("Shard load failure:", err);
-    }
-
-    let processingMatches = [];
-
-    for (let word of searchPool) {
-        if (prefix && !word.startsWith(prefix)) continue;
-        if (interior && !word.includes(interior)) continue;
-        if (suffix && !word.endsWith(suffix)) continue;
-        
-        if (checkRackInclusion(word, letters)) {
-            processingMatches.push({
-                text: word,
-                length: word.length,
-                score: targetType === 'wordle' ? 0 : determineScrabbleScore(word)
-            });
         }
-    }
-
-    btnText.innerText = "Unscramble Letters Now";
-
-    if (processingMatches.length === 0) {
-        emptyState.innerHTML = `<p class='empty-text'>No entries match "${letters}".</p>`;
-        emptyState.style.display = 'block';
-        resultsContent.style.display = 'none';
-        return;
-    }
-
-    emptyState.style.display = 'none';
-    resultsContent.innerHTML = '';
-    resultsContent.style.display = 'block';
-
-    let nestedBuckets = {};
-    processingMatches.forEach(item => {
-        if (!nestedBuckets[item.length]) nestedBuckets[item.length] = [];
-        nestedBuckets[item.length].push(item);
-    });
-
-    const sortedLengths = Object.keys(nestedBuckets).sort((a,b) => b - a);
-
-    sortedLengths.forEach(len => {
-        let listings = nestedBuckets[len].sort((a,b) => b.score - a.score);
-        
-        let container = document.createElement('div');
-        container.className = "bucket-container";
-        
-        let headerLine = document.createElement('h3');
-        headerLine.className = "bucket-title";
-        headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span>${listings.length} items</span>`;
-        container.appendChild(headerLine);
-
-        let wrapperGrid = document.createElement('div');
-        wrapperGrid.className = "tile-grid";
-
-        listings.forEach(obj => {
-            let tile = document.createElement('div');
-            tile.className = "tile";
-            tile.innerHTML = `
-                <span class="tile-text">${obj.text}</span>
-                ${targetType !== 'wordle' ? `<span class="tile-score">${obj.score}</span>` : ''}
-            `;
-            wrapperGrid.appendChild(tile);
+        window.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('themeToggleBtn');
+            if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";
         });
-
-        container.appendChild(wrapperGrid);
-        resultsContent.appendChild(container);
-    });
-}
-
-function runProgrammaticRouter() {
-    const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
-    if (segments.length < 2 || segments[0] !== 'words-starting-with') return;
-
-    const targetLetter = segments[1].toUpperCase();
-    if (targetLetter.length !== 1) return;
-
-    const seoTitle = document.getElementById('seoTitle');
-    const seoText = document.getElementById('seoText');
-    const lettersInput = document.getElementById('lettersInput');
-    const startsWith = document.getElementById('startsWith');
-
-    document.title = `Words Starting With ${targetLetter} | Letter Unscrambler Pro`;
-    if (seoTitle) seoTitle.innerText = `Comprehensive List of Words Starting with ${targetLetter}`;
-    if (seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${targetLetter}. Each word combo displays its official Scrabble point score allocation.`;
-    
-    if (startsWith) startsWith.value = targetLetter;
-    if (lettersInput) lettersInput.value = `${targetLetter}??????`;
-    
-    runUnscrambleAnalysis();
-}
-
-window.onload = initializeDictionaryDownload;
-
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
