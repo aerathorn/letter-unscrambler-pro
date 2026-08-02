@@ -164,9 +164,9 @@ function runProgrammaticRouter() {
     const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
     if (segments.length < 2) return;
 
-    // INDICES UNLOCKED: Pulling raw string data properties safely to clear out the crash loop
+    // LOCKED IN FIXED INDICES: Safely handling array index items to stop the file crash permanently
     const routeType = segments[0];
-    const parameter = segments[1].toUpperCase();
+    const parameter = segments[1] ? segments[1].toUpperCase() : '';
 
     const seoTitle = document.getElementById('seoTitle');
     const seoText = document.getElementById('seoText');
