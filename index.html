@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat</title>
+    <meta name="description" id="metaDescription" content="Elite multi-dictionary letter unscrambler and word finder tool. Optimize your Scrabble, Wordle, and crossword puzzle gameplay parameters instantly." />
     <meta name="google-site-verification" content="8wRE9V_T_bHRL-d7H-bZ6jG8WjB_XVD83oihHNdA" />
+    <link rel="canonical" id="canonicalUrl" href="https://letterunscramblerpro.com" />
     <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
     
-    <!-- HIGH-SPEED GOOGLE ANALYTICS CODE ENGINE -->
+    <!-- GOOGLE ANALYTICS INTEGRATION MATRIX -->
     <script async src="https://googletagmanager.com"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -24,11 +26,22 @@
         });
     </script>
 
+    <!-- DYNAMIC STRUCTURED DATA SCHEMA FOR GOOGLEBOT -->
+    <script type="application/ld+json" id="structuredDataSchema">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Letter Unscrambler Pro",
+      "url": "https://letterunscramblerpro.com",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "Elite multi-dictionary anagram solver and Scrabble point helper engine.",
+      "browserRequirements": "Requires JavaScript. Requires HTML5."
+    }
+    </script>
     <style>
-        /* Pure, Unblockable CSS Theme Configuration Matrices */
         :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; --tile-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%); --tile-border: #facc15; }
         .dark { --bg: #020617; --card: #0f172a; --text: #f1f5f9; --muted: #94a3b8; --border: #1e293b; --accent: #3b82f6; --tile-bg: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); --tile-border: #a16207; }
-        
         body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; transition: background 0.2s, color 0.2s; }
         header { max-width: 800px; margin: 15px auto 0; display: flex; justify-content: flex-end; padding: 0 15px; }
         .toggle-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; font-weight: bold; font-size: 12px; cursor: pointer; border-radius: 8px; }
@@ -67,29 +80,22 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button>
-    </header>
-
+    <header><button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button></header>
     <div class="ad-slot">ADVERTISEMENT SLOT (TOP)</div>
-
     <main>
-        <div class="card">
+        <article class="card">
             <div class="hero">
                 <h1>Letter Unscrambler Pro</h1>
                 <p>Elite multi-dictionary analytics engine for Scrabble and word puzzles.</p>
             </div>
-
             <div class="form-area">
                 <div class="input-group-center">
-                    <label>Input Rack Letters (Use '?' or '*' for Blanks)</label>
+                    <label for="lettersInput">Input Rack Letters (Use '?' or '*' for Blanks)</label>
                     <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="main-input">
                 </div>
-
                 <div class="grid-options">
                     <div>
-                        <label>Reference Lexicon</label>
+                        <label for="dictionarySelect">Reference Lexicon</label>
                         <select id="dictionarySelect" onchange="initializeDictionaryDownload()">
                             <option value="scrabble">Scrabble Standard (ENABLE List)</option>
                             <option value="wordle">Wordle Valid Guess Engine</option>
@@ -98,41 +104,31 @@
                     <div>
                         <label>Optional Placement Overlays</label>
                         <div class="flex-overlays">
-                            <input type="text" id="startsWith" placeholder="Starts..." class="sub-input">
-                            <input type="text" id="contains" placeholder="Contains..." class="sub-input">
-                            <input type="text" id="endsWith" placeholder="Ends..." class="sub-input">
+                            <input type="text" id="startsWith" aria-label="Starts with letters" placeholder="Starts..." class="sub-input">
+                            <input type="text" id="contains" aria-label="Contains letters" placeholder="Contains..." class="sub-input">
+                            <input type="text" id="endsWith" aria-label="Ends with letters" placeholder="Ends..." class="sub-input">
                         </div>
                     </div>
                 </div>
-
-                <button id="actionBtn" onclick="runUnscrambleAnalysis()" class="action-btn">
-                    <span id="btnText">Unscramble Letters Now</span>
-                </button>
+                <button id="actionBtn" onclick="runUnscrambleAnalysis()" class="action-btn"><span id="btnText">Unscramble Letters Now</span></button>
             </div>
-
             <div id="resultsScreen" class="results-panel">
-                <div id="emptyState" class="empty-text">
-                    <p id="statusFeedback">System online. Standby for input rack values.</p>
-                </div>
+                <div id="emptyState" class="empty-text"><p id="statusFeedback">System online. Standby for input rack values.</p></div>
                 <div id="resultsContent" style="display: none;"></div>
             </div>
-        </div>
+        </article>
     </main>
     <section class="seo-box">
-        <h2 id="seoTitle">Word Finder & Unscrambler Guide</h2>
+        <h2 id="seoTitle">Word Finder & Anagram Unscrambler Guide</h2>
         <p id="seoText">Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.</p>
     </section>
-
     <div class="ad-slot">ADVERTISEMENT SLOT (BOTTOM)</div>
-
-    <!-- COMPLIANT TRUST LINK FOOTER -->
     <footer>
         <span>© 2026 Letter Unscrambler Pro. All Rights Reserved.</span>
         <a href="/about.html">About Us</a>
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
     </footer>
-
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -151,51 +147,32 @@
                 btn.innerText = "🌞 Light Mode";
             }
         }
-        window.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('themeToggleBtn');
-            if (document.documentElement.classList.contains('dark')) btn.innerText = "🌞 Light Mode";
-        });
     </script>
     <script>
         const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
-
         async function initializeDictionaryDownload() {
             const actionBtn = document.getElementById('actionBtn');
-            const btnText = document.getElementById('btnText');
-            const statusFeedback = document.getElementById('statusFeedback');
-
             if (actionBtn) {
                 actionBtn.disabled = false;
                 actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
             }
-            if (btnText) btnText.innerText = "Unscramble Letters Now";
-            if (statusFeedback) statusFeedback.innerText = "System online. Standby for input rack values.";
-
             runProgrammaticRouter();
         }
-
         function determineScrabbleScore(word) {
             return word.split('').reduce((sum, letter) => sum + (scrabblePointValues[letter] || 0), 0);
         }
-
         function checkRackInclusion(word, inputLetters) {
             let pool = inputLetters.split('');
             let wildcards = pool.filter(l => l === '?' || l === '*').length;
             pool = pool.filter(l => l !== '?' && l !== '*');
-
             for (let letter of word) {
                 const foundIdx = pool.indexOf(letter);
-                if (foundIdx > -1) {
-                    pool.splice(foundIdx, 1);
-                } else if (wildcards > 0) {
-                    wildcards--;
-                } else {
-                    return false;
-                }
+                if (foundIdx > -1) { pool.splice(foundIdx, 1); }
+                else if (wildcards > 0) { wildcards--; }
+                else { return false; }
             }
             return true;
         }
-
         async function runUnscrambleAnalysis() {
             const lettersInput = document.getElementById('lettersInput');
             const dictionarySelect = document.getElementById('dictionarySelect');
@@ -212,20 +189,14 @@
             const interior = containsInput ? containsInput.value.toUpperCase().trim() : '';
             const suffix = endsWithInput ? endsWithInput.value.toUpperCase().trim() : '';
 
-            if (!letters) {
-                alert("Please enter characters to process.");
-                return;
-            }
-
+            if (!letters) { alert("Please enter characters to process."); return; }
             if (btnText) btnText.innerText = "Processing Shards...";
             
             let lettersToFetch = new Set(letters.split('').filter(l => l >= 'A' && l <= 'Z'));
             if (letters.includes('?') || letters.includes('*') || prefix || interior || suffix) {
                 lettersToFetch = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''));
             }
-
             let searchPool = [];
-
             try {
                 const fetchPromises = Array.from(lettersToFetch).map(async (letter) => {
                     const response = await fetch(`/dictionary/${letter.toLowerCase()}.json`);
@@ -235,17 +206,13 @@
                     }
                 });
                 await Promise.all(fetchPromises);
-            } catch (err) {
-                console.error("Shard load failure:", err);
-            }
+            } catch (err) { console.error("Shard load failure:", err); }
 
             let processingMatches = [];
-
             for (let word of searchPool) {
                 if (prefix && !word.startsWith(prefix)) continue;
                 if (interior && !word.includes(interior)) continue;
                 if (suffix && !word.endsWith(suffix)) continue;
-                
                 if (checkRackInclusion(word, letters)) {
                     processingMatches.push({
                         text: word,
@@ -254,9 +221,7 @@
                     });
                 }
             }
-
             if (btnText) btnText.innerText = "Unscramble Letters Now";
-
             if (processingMatches.length === 0) {
                 if (emptyState) {
                     emptyState.innerHTML = `<p class='empty-text'>No entries match "${letters}".</p>`;
@@ -265,54 +230,38 @@
                 if (resultsContent) resultsContent.style.display = 'none';
                 return;
             }
-
             if (emptyState) emptyState.style.display = 'none';
-            if (resultsContent) {
-                resultsContent.innerHTML = '';
-                resultsContent.style.display = 'block';
-            }
+            if (resultsContent) { resultsContent.innerHTML = ''; resultsContent.style.display = 'block'; }
 
             let nestedBuckets = {};
             processingMatches.forEach(item => {
                 if (!nestedBuckets[item.length]) nestedBuckets[item.length] = [];
                 nestedBuckets[item.length].push(item);
             });
-
             const sortedLengths = Object.keys(nestedBuckets).sort((a,b) => b - a);
-
             sortedLengths.forEach(len => {
                 let listings = nestedBuckets[len].sort((a,b) => b.score - a.score);
-                
                 let container = document.createElement('div');
                 container.className = "bucket-container";
-                
                 let headerLine = document.createElement('h3');
                 headerLine.className = "bucket-title";
                 headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span>${listings.length} items</span>`;
                 container.appendChild(headerLine);
-
                 let wrapperGrid = document.createElement('div');
                 wrapperGrid.className = "tile-grid";
-
                 listings.forEach(obj => {
                     let tile = document.createElement('div');
                     tile.className = "tile";
-                    tile.innerHTML = `
-                        <span class="tile-text">${obj.text}</span>
-                        ${targetType !== 'wordle' ? `<span class="tile-score">${obj.score}</span>` : ''}
-                    `;
+                    tile.innerHTML = `<span class="tile-text">${obj.text}</span>${targetType !== 'wordle' ? `<span class="tile-score">${obj.score}</span>` : ''}`;
                     wrapperGrid.appendChild(tile);
                 });
-
                 container.appendChild(wrapperGrid);
                 if (resultsContent) resultsContent.appendChild(container);
             });
         }
-
         function runProgrammaticRouter() {
             const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
             if (segments.length < 2) return;
-
             const routeType = segments[0];
             const rawParam = segments[1] || '';
             const parameter = rawParam.toUpperCase();
@@ -323,33 +272,62 @@
             const startsWith = document.getElementById('startsWith');
             const containsInput = document.getElementById('contains');
             const endsWith = document.getElementById('endsWith');
+            const metaDesc = document.getElementById('metaDescription');
+            const canonical = document.getElementById('canonicalUrl');
+
+            const pageUrl = "https://letterunscramblerpro.com" + window.location.pathname;
+            if (canonical) canonical.setAttribute('href', pageUrl);
 
             if (routeType === 'words-starting-with' && parameter.length === 1) {
-                document.title = `Words Starting With ${parameter} | Letter Unscrambler Pro`;
+                const titleStr = `Words Starting With ${parameter} | Letter Unscrambler Pro`;
+                const descStr = `Comprehensive list and finder for words starting with the letter ${parameter}. Find the highest scoring Scrabble combinations instantly.`;
+                document.title = titleStr;
+                if (metaDesc) metaDesc.setAttribute('content', descStr);
                 if (seoTitle) seoTitle.innerText = `Comprehensive List of Words Starting with ${parameter}`;
-                if (seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${parameter}. Find the highest scoring combinations for your next turn.`;
+                if (seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${parameter}. Find top scoring hooks for your next turn dynamically.`;
                 if (startsWith) startsWith.value = parameter;
                 if (lettersInput) lettersInput.value = `${parameter}???????`;
+                updateGoogleSchema(titleStr, descStr, pageUrl);
                 runUnscrambleAnalysis();
             }
             else if (routeType === 'words-ending-in') {
-                document.title = `Words Ending In ${parameter} | Letter Unscrambler Pro`;
+                const titleStr = `Words Ending In ${parameter} | Letter Unscrambler Pro`;
+                const descStr = `Find every solvable word ending in ${parameter} sorted by high-scoring Scrabble tile values. Perfect for tricky puzzle placement shortcuts.`;
+                document.title = titleStr;
+                if (metaDesc) metaDesc.setAttribute('content', descStr);
                 if (seoTitle) seoTitle.innerText = `Every Solvable Word Ending in ${parameter}`;
                 if (seoText) seoText.innerText = `Stuck with an end-board placement? Browse our master dictionary index of all words that end with the string ${parameter} sorted by high-scoring point arrays.`;
                 if (endsWith) endsWith.value = parameter;
                 if (lettersInput) lettersInput.value = `???????${parameter}`;
+                updateGoogleSchema(titleStr, descStr, pageUrl);
                 runUnscrambleAnalysis();
             }
             else if (routeType === 'words-containing') {
-                document.title = `Words Containing ${parameter} | Letter Unscrambler Pro`;
+                const titleStr = `Words Containing ${parameter} | Letter Unscrambler Pro`;
+                const descStr = `Discover terms and words containing the letters ${parameter}. Optimize your tile racks and clear high-value placements instantly.`;
+                document.title = titleStr;
+                if (metaDesc) metaDesc.setAttribute('content', descStr);
                 if (seoTitle) seoTitle.innerText = `Words Containing the Letters ${parameter}`;
                 if (seoText) seoText.innerText = `Need to map high-value tiles together? Check out every word containing the target string ${parameter} available inside our tournament dictionary database.`;
                 if (containsInput) containsInput.value = parameter;
                 if (lettersInput) lettersInput.value = `???${parameter}???`;
+                updateGoogleSchema(titleStr, descStr, pageUrl);
                 runUnscrambleAnalysis();
             }
         }
-
+        function updateGoogleSchema(name, desc, url) {
+            const schemaScript = document.getElementById('structuredDataSchema');
+            if (schemaScript) {
+                const schemaObj = {
+                    "@context": "https://schema.org",
+                    "@type": "WebPage",
+                    "name": name,
+                    "url": url,
+                    "description": desc
+                };
+                schemaScript.text = JSON.stringify(schemaObj);
+            }
+        }
         window.onload = initializeDictionaryDownload;
     </script>
 </body>
