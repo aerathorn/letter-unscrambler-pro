@@ -4,17 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- ==================== SEO META TAGS ==================== -->
   <title>Unscramble 7 Letter Words - Fast Letter Unscrambler Tool</title>
-  <meta name="description" content="Unscramble 7-letter words instantly. Enter your rack letters to find all valid 7-letter anagrams and high-scoring words for Scrabble and Words With Friends.">
+  <meta name="description" content="Unscramble 7-letter words instantly. Enter your rack letters to find all valid 7-letter anagrams and high-scoring words with tile point values for Scrabble and Words With Friends.">
   <link rel="canonical" href="https://letterunscramblerpro.com/7-letter-words.html">
 
-  <!-- ==================== GOOGLE ADSENSE SCRIPT ==================== -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480"
-       crossorigin="anonymous"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480" crossorigin="anonymous"></script>
 
   <style>
-    /* Light Mode Variables */
     :root {
       --primary-color: #2563eb;
       --primary-hover: #1d4ed8;
@@ -24,13 +21,14 @@
       --heading-color: #0f172a;
       --border-color: #e2e8f0;
       --subtext-color: #64748b;
-      --chip-bg: #eff6ff;
-      --chip-text: #1e40af;
-      --chip-border: #bfdbfe;
       --ad-bg: #f1f5f9;
+      --tile-bg: #fef08a;
+      --tile-border: #eab308;
+      --tile-text: #713f12;
+      --tile-shadow: #ca8a04;
+      --tile-sub: #a16207;
     }
 
-    /* Dark Mode (Night Mode) Variables */
     [data-theme="dark"] {
       --primary-color: #3b82f6;
       --primary-hover: #60a5fa;
@@ -40,22 +38,23 @@
       --heading-color: #f8fafc;
       --border-color: #334155;
       --subtext-color: #94a3b8;
-      --chip-bg: #1e3a8a;
-      --chip-text: #93c5fd;
-      --chip-border: #1d4ed8;
       --ad-bg: #1e293b;
+      --tile-bg: #854d0e;
+      --tile-border: #a16207;
+      --tile-text: #fef08a;
+      --tile-shadow: #713f12;
+      --tile-sub: #fde047;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
     body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 90px; }
 
-    /* Header & Navigation */
     header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     header a.logo { font-weight: 800; font-size: 1.3rem; color: var(--primary-color); text-decoration: none; }
     .nav-items { display: flex; align-items: center; gap: 1rem; }
     nav a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
     nav a:hover { color: var(--primary-color); }
-
+    
     .theme-btn {
       background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
     }
@@ -65,9 +64,8 @@
     .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--heading-color); }
     .hero p { color: var(--subtext-color); }
 
-    /* Tool Card */
     .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-    .input-group { display: flex; flex-direction: column; gap: 1rem; }
+    .input-group { display: flex; flex-direction: column; gap: 0.75rem; }
     @media (min-width: 640px) { .input-group { flex-direction: row; } }
 
     input[type="text"], select {
@@ -80,10 +78,18 @@
     }
     button.unscramble-btn:hover { background: var(--primary-hover); }
 
-    /* Ads Container */
+    .filter-toggles { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .chip-btn {
+      background: var(--ad-bg); border: 1px solid var(--border-color); color: var(--subtext-color); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    }
+    .chip-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+
+    .advanced-filters { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-color); }
+    .filter-field { flex: 1; min-width: 180px; }
+    .filter-field label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--subtext-color); margin-bottom: 0.3rem; text-transform: uppercase; }
+
     .ad-container { margin: 1.5rem 0; text-align: center; background: var(--ad-bg); border: 1px dashed var(--border-color); padding: 10px; border-radius: 8px; }
 
-    /* Sticky Bottom Ad Window */
     .sticky-bottom-ad {
       position: fixed; bottom: 0; left: 0; width: 100%; background: var(--card-bg); border-top: 1px solid var(--border-color); padding: 8px 10px; z-index: 9999; text-align: center; box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
     }
@@ -91,28 +97,38 @@
       position: absolute; top: -12px; right: 15px; background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; cursor: pointer; font-weight: bold; line-height: 22px;
     }
 
-    /* Results styling */
     .results-area { margin-top: 1.5rem; }
-    .results-header { font-size: 1.1rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: var(--heading-color); }
+    .results-header { font-size: 1.05rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: var(--heading-color); }
     .length-group { margin-bottom: 1.5rem; }
-    .length-group h3 { font-size: 1rem; color: var(--subtext-color); margin-bottom: 0.5rem; }
-    .word-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .word-card { background: var(--chip-bg); color: var(--chip-text); border: 1px solid var(--chip-border); padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; }
+    .length-group h3 { font-size: 1.05rem; color: var(--subtext-color); margin-bottom: 0.6rem; }
+    
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
+    .word-row {
+      display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--border-color); padding: 0.6rem 0.8rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .tile-rack { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+    .tile {
+      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 32px; background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 4px; font-weight: 800; font-size: 0.95rem; color: var(--tile-text); position: relative; text-transform: uppercase; box-shadow: 0 2px 0 var(--tile-shadow);
+    }
+    .tile sub {
+      position: absolute; bottom: 1px; right: 2px; font-size: 0.55rem; font-weight: 700; line-height: 1; color: var(--tile-sub);
+    }
+    .score-badge {
+      background: var(--primary-color); color: white; padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 700; font-size: 0.8rem; white-space: nowrap; margin-left: 8px;
+    }
+
     .no-results, .error-msg { color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 0.8rem; border-radius: 6px; }
 
-    /* SEO Article Section */
     .content-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; }
     .content-section h2 { font-size: 1.4rem; margin: 1rem 0 0.5rem; color: var(--heading-color); }
     .content-section p { margin-bottom: 1rem; color: var(--text-color); }
 
     footer { text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.85rem; }
     footer a { color: var(--subtext-color); text-decoration: none; margin: 0 0.5rem; }
-    footer a:hover { color: var(--primary-color); }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <a href="/" class="logo">LetterUnscramblerPro</a>
     <div class="nav-items">
@@ -128,13 +144,11 @@
 
   <main class="container">
 
-    <!-- Hero Title -->
     <div class="hero">
       <h1>Unscramble 7 Letter Words</h1>
       <p>Enter your scrambled letters below to find all possible 7-letter words instantly.</p>
     </div>
 
-    <!-- Top Banner Ad -->
     <div class="ad-container">
       <ins class="adsbygoogle"
            style="display:block"
@@ -145,12 +159,15 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- Unscrambler Tool Card -->
     <div class="tool-card">
       <div class="input-group">
         <input type="text" id="lettersInput" placeholder="Enter scrambled letters (e.g., A B S O L U T)" maxlength="15" autofocus>
         
-        <!-- Filter pre-selected for 7-letter words -->
+        <select id="gameModeSelect">
+          <option value="scrabble" selected>Scrabble Scoring</option>
+          <option value="wwf">Words With Friends</option>
+        </select>
+
         <select id="lengthFilter">
           <option value="0">All Lengths</option>
           <option value="7" selected>7-Letter Words Only</option>
@@ -161,11 +178,32 @@
         <button id="unscrambleBtn" class="unscramble-btn">Unscramble</button>
       </div>
 
-      <!-- Results Area -->
+      <div class="filter-toggles">
+        <button class="chip-btn" id="btnToggleStartsWith">+ Starts With</button>
+        <button class="chip-btn" id="btnToggleEndsWith">+ Ends With</button>
+        <button class="chip-btn" id="btnToggleContains">+ Contains</button>
+      </div>
+
+      <div class="advanced-filters" id="advancedFilters" style="display: none;">
+        <div class="filter-field" id="fieldStartsWith" style="display: none;">
+          <label for="startsWithInput">Starts With</label>
+          <input type="text" id="startsWithInput" placeholder="e.g., TR">
+        </div>
+
+        <div class="filter-field" id="fieldEndsWith" style="display: none;">
+          <label for="endsWithInput">Ends With</label>
+          <input type="text" id="endsWithInput" placeholder="e.g., ING">
+        </div>
+
+        <div class="filter-field" id="fieldContains" style="display: none;">
+          <label for="containsInput">Contains</label>
+          <input type="text" id="containsInput" placeholder="e.g., Z">
+        </div>
+      </div>
+
       <div class="results-area" id="resultsContainer"></div>
     </div>
 
-    <!-- In-Feed Ad -->
     <div class="ad-container">
       <ins class="adsbygoogle"
            style="display:block"
@@ -176,7 +214,6 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- SEO Content Section -->
     <article class="content-section">
       <h2>How to Solve 7-Letter Word Puzzles</h2>
       <p>Solving 7-letter anagrams can be challenging when playing popular word games like Scrabble, Words with Friends, or Wordle. Using our free 7-letter unscrambler tool allows you to find high-scoring anagrams in seconds.</p>
@@ -187,7 +224,6 @@
 
   </main>
 
-  <!-- Sticky Bottom Anchor Ad Window -->
   <div class="sticky-bottom-ad" id="stickyBottomAd">
     <button class="close-ad-btn" onclick="document.getElementById('stickyBottomAd').style.display='none'" title="Close Ad">✕</button>
     <ins class="adsbygoogle"
@@ -199,7 +235,6 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
     <p>
@@ -210,25 +245,42 @@
     </p>
   </footer>
 
-  <!-- Include the Unscrambler JS script -->
   <script src="unscrambler.js"></script>
 
-  <!-- Night Mode Script -->
   <script>
     const themeBtn = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'light';
-
     document.documentElement.setAttribute('data-theme', savedTheme);
     themeBtn.textContent = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Night Mode';
 
     themeBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       themeBtn.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Night Mode';
     });
+
+    function setupFilterToggle(btnId, fieldId) {
+      const btn = document.getElementById(btnId);
+      const field = document.getElementById(fieldId);
+      const container = document.getElementById('advancedFilters');
+
+      btn.addEventListener('click', () => {
+        const isHidden = field.style.display === 'none';
+        field.style.display = isHidden ? 'block' : 'none';
+        btn.classList.toggle('active', isHidden);
+
+        const anyVisible = ['fieldStartsWith', 'fieldEndsWith', 'fieldContains'].some(id => {
+          return document.getElementById(id).style.display !== 'none';
+        });
+        container.style.display = anyVisible ? 'flex' : 'none';
+      });
+    }
+
+    setupFilterToggle('btnToggleStartsWith', 'fieldStartsWith');
+    setupFilterToggle('btnToggleEndsWith', 'fieldEndsWith');
+    setupFilterToggle('btnToggleContains', 'fieldContains');
   </script>
 
 </body>
