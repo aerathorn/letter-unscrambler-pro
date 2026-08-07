@@ -8,11 +8,54 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Landing Pages -->
+  <!-- Keyword Landing Pages -->
   <url>
     <loc>https://letterunscramblerpro.com/7-letter-words.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterunscramblerpro.com/6-letter-words.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterunscramblerpro.com/5-letter-words.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterunscramblerpro.com/words-with-z.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterunscramblerpro.com/words-with-q.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://letterunscramblerpro.com/scrabble-solver.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Articles & Content -->
+  <url>
+    <loc>https://letterunscramblerpro.com/scrabble-tips.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://letterunscramblerpro.com/faq.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Utility Pages -->
@@ -32,20 +75,6 @@
     <loc>https://letterunscramblerpro.com/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-
-  <!-- FAQ Page -->
-  <url>
-    <loc>https://letterunscramblerpro.com/faq.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-<!-- Scrabble Tips Blog Post -->
-  <url>
-    <loc>https://letterunscramblerpro.com/scrabble-tips.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
 </urlset>

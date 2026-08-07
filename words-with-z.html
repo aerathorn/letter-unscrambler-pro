@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Unscramble 7 Letter Words - Fast Letter Unscrambler Tool</title>
-  <meta name="description" content="Unscramble 7-letter words instantly. Enter your rack letters to find all valid 7-letter anagrams and high-scoring words with tile point values for Scrabble and Words With Friends.">
-  <link rel="canonical" href="https://letterunscramblerpro.com/7-letter-words.html">
+  <title>Words With Z - Unscramble High-Scoring Z Words for Scrabble</title>
+  <meta name="description" content="Find all words with Z for Scrabble and Words with Friends. Unscramble 10-point Z words including 2-letter, 3-letter, and 7-letter words instantly with tile scores.">
+  <link rel="canonical" href="https://letterunscramblerpro.com/words-with-z.html">
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPYRF51CN0"></script>
@@ -174,8 +174,8 @@
   <main class="container">
 
     <div class="hero">
-      <h1>Unscramble 7 Letter Words</h1>
-      <p>Enter your scrambled letters below to find all possible 7-letter words instantly.</p>
+      <h1>Words With Z Solver</h1>
+      <p>Find high-scoring 10-point 'Z' words for Scrabble and Words with Friends.</p>
     </div>
 
     <div class="ad-container">
@@ -190,7 +190,7 @@
 
     <div class="tool-card">
       <div class="tool-form">
-        <input type="text" class="main-input" id="lettersInput" placeholder="Enter scrambled letters (e.g., A B S O L U T)" maxlength="15" autofocus>
+        <input type="text" class="main-input" id="lettersInput" placeholder="Enter rack letters (e.g., A B S O L U T)" maxlength="15" autofocus>
         
         <div class="dropdown-row">
           <select id="gameModeSelect">
@@ -199,23 +199,24 @@
           </select>
 
           <select id="lengthFilter">
-            <option value="0">All Lengths</option>
-            <option value="7" selected>7-Letter Words Only</option>
-            <option value="6">6-Letter Words Only</option>
-            <option value="5">5-Letter Words Only</option>
+            <option value="0" selected>All Lengths</option>
+            <option value="7">7-Letter Words</option>
+            <option value="6">6-Letter Words</option>
+            <option value="5">5-Letter Words</option>
           </select>
         </div>
 
-        <button id="unscrambleBtn" class="large-unscramble-btn">Unscramble Words</button>
+        <button id="unscrambleBtn" class="large-unscramble-btn">Unscramble Words with Z</button>
       </div>
 
       <div class="filter-toggles">
         <button class="chip-btn" id="btnToggleStartsWith">+ Starts With</button>
         <button class="chip-btn" id="btnToggleEndsWith">+ Ends With</button>
-        <button class="chip-btn" id="btnToggleContains">+ Contains</button>
+        <button class="chip-btn active" id="btnToggleContains">+ Contains</button>
       </div>
 
-      <div class="advanced-filters" id="advancedFilters" style="display: none;">
+      <!-- Contains Z Pre-filled -->
+      <div class="advanced-filters" id="advancedFilters" style="display: flex;">
         <div class="filter-field" id="fieldStartsWith" style="display: none;">
           <label for="startsWithInput">Starts With</label>
           <input type="text" id="startsWithInput" placeholder="e.g., TR">
@@ -226,9 +227,9 @@
           <input type="text" id="endsWithInput" placeholder="e.g., ING">
         </div>
 
-        <div class="filter-field" id="fieldContains" style="display: none;">
+        <div class="filter-field" id="fieldContains" style="display: block;">
           <label for="containsInput">Contains</label>
-          <input type="text" id="containsInput" placeholder="e.g., Z">
+          <input type="text" id="containsInput" value="Z" placeholder="e.g., Z">
         </div>
       </div>
 
@@ -246,11 +247,15 @@
     </div>
 
     <article class="content-section">
-      <h2>How to Solve 7-Letter Word Puzzles</h2>
-      <p>Solving 7-letter anagrams can be challenging when playing popular word games like Scrabble, Words with Friends, or Wordle. Using our free 7-letter unscrambler tool allows you to find high-scoring anagrams in seconds.</p>
+      <h2>Scrabble Strategy for the 10-Point 'Z' Tile</h2>
+      <p>The <strong>Z tile</strong> is worth a massive 10 points in both Scrabble and Words with Friends. Because there is only one 'Z' tile in a standard Scrabble bag, playing it on a Double or Triple Letter square can net you huge points.</p>
 
-      <h2>Popular 7-Letter Scrabble Words</h2>
-      <p>Some of the highest scoring 7-letter words in Scrabble include words containing high-value tiles like Z, Q, X, and J. Getting a 50-point "Bingo" bonus by using all 7 tiles on your rack is the fastest way to win the game!</p>
+      <h2>Short High-Scoring Z Words</h2>
+      <ul>
+        <li><strong>2-Letter Z Words:</strong> <em>ZA</em> (11 pts).</li>
+        <li><strong>3-Letter Z Words:</strong> <em>ZEZ</em>, <em>ZAP</em>, <em>ZIP</em>, <em>ZOO</em>, <em>ZIN</em>.</li>
+        <li><strong>4-Letter Z Words:</strong> <em>QUIZ</em> (22 pts), <em>JAZZ</em> (29 pts), <em>ZINC</em>.</li>
+      </ul>
     </article>
 
   </main>
