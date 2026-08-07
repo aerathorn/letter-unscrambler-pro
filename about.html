@@ -14,6 +14,23 @@
         p { font-size: 15px; line-height: 1.7; color: var(--text); margin: 0 0 15px 0; }
         .nav-link { color: var(--accent); text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 20px; }
     </style>
+
+    <!-- GOOGLE ANALYTICS INTEGRATION MATRIX -->
+    <script async src="https://googletagmanager.com"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BPYRF51CN0');
+
+        window.addEventListener('popstate', () => {
+            gtag('event', 'page_view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        });
+    </script>
 </head>
 <body>
     <main>
