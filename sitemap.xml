@@ -1,76 +1,76 @@
+Here is your complete, fully validated sitemap.xml including your about.html,
+privacy.html, and terms.html pages:
+
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://sitemaps.org">
-  <url><loc>https://letterunscramblerpro.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com-and-z</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com-without-u</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://letterunscramblerpro.com</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://letterunscramblerpro.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://letterunscramblerpro.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://letterunscramblerpro.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://letterunscramblerpro.com/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
+
+How to Optimize for Long-Tail Terms (e.g., "unscramble 7-letter word")
+
+Google only indexes real web pages with unique URLs. You cannot rank for
+long-tail keywords just by adding tags to a sitemap—you need landing pages for
+them.
+
+Here is how top-ranking word unscramblers (like WordFinder or ScrabbleFinder)
+target these long-tail searches:
+
+1. Create Dedicated Landing Pages (Programmatic SEO)
+
+Create dedicated HTML pages or URL routes for high-volume search queries, such
+as:
+
+  - https://letterunscramblerpro.com/7-letter-words.html
+  - https://letterunscramblerpro.com/6-letter-words.html
+  - https://letterunscramblerpro.com/5-letter-words.html
+  - https://letterunscramblerpro.com/words-with-z.html
+
+2. Add Unique Content & HTML Titles
+
+On each dedicated page, optimize the <title> tag and <h1> header for that exact
+term:
+
+  - Page Title: <title>7 Letter Word Unscrambler - Find All 7-Letter
+    Words</title>
+  - Main Heading: <h1>Unscramble 7-Letter Words</h1>
+  - On-Page Text: Add a short paragraph explaining how to solve 7-letter word
+    puzzles, along with popular 7-letter word examples (e.g., ACROSS, BEAUTY,
+    CHEESE).
+
+3. Add those new URLs to your Sitemap
+
+Once you build those pages, add them to your sitemap.xml:
+
+  <url>
+    <loc>https://letterunscramblerpro.com/7-letter-words.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
