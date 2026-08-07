@@ -4,28 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- ==================== SEO META TAGS ==================== -->
   <title>Letter Unscrambler Pro - Fast Word Finder & Scrabble Solver</title>
   <meta name="description" content="Unscramble letters instantly to find high-scoring words for Scrabble, Words with Friends, Wordle, and anagram puzzles. Features tile point values, FAQs, and advanced filters.">
   <link rel="canonical" href="https://letterunscramblerpro.com/">
   
+  <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Letter Unscrambler Pro - Fast Word Finder">
   <meta property="og:description" content="Unscramble letters instantly to find high-scoring words for Scrabble and Words with Friends.">
   <meta property="og:url" content="https://letterunscramblerpro.com/">
 
-  <!-- GA4 -->
+  <!-- ==================== GOOGLE ANALYTICS 4 (GA4) ==================== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPYRF51CN0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-BPYRF51CN0');
   </script>
 
-  <!-- Google AdSense -->
+  <!-- ==================== GOOGLE ADSENSE ==================== -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480" crossorigin="anonymous"></script>
 
-  <!-- Google Schemas -->
+  <!-- ==================== GOOGLE SCHEMA (JSON-LD) ==================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,6 +70,7 @@
   </script>
 
   <style>
+    /* Light Mode Variables */
     :root {
       --primary-color: #2563eb;
       --primary-hover: #1d4ed8;
@@ -84,6 +88,7 @@
       --tile-sub: #a16207;
     }
 
+    /* Dark Mode (Night Mode) Variables */
     [data-theme="dark"] {
       --primary-color: #3b82f6;
       --primary-hover: #60a5fa;
@@ -102,9 +107,9 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
-    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 120px; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 120px; /* Space for floating anchor ad */ }
 
-    /* Header & Mobile Nav */
+    /* Header & Mobile Navigation */
     header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; }
     header a.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary-color); text-decoration: none; }
     .nav-items { display: flex; align-items: center; gap: 0.75rem; }
@@ -114,7 +119,10 @@
     nav.nav-links a:hover { color: var(--primary-color); }
 
     .hamburger-btn { display: none; background: transparent; border: 1px solid var(--border-color); color: var(--text-color); font-size: 1.2rem; padding: 0.3rem 0.6rem; border-radius: 6px; cursor: pointer; }
-    .theme-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+    
+    .theme-btn {
+      background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
 
     /* Container & Hero */
     .container { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
@@ -126,22 +134,26 @@
     .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
     .tool-form { display: flex; flex-direction: column; gap: 1rem; }
 
+    /* Main Letters Input Box */
     .main-input {
-      width: 100%; font-size: 16px; padding: 1rem 1.2rem; border: 2px solid var(--border-color); border-radius: 10px; background: var(--card-bg); color: var(--text-color); font-weight: 600; letter-spacing: 1px;
+      width: 100%; font-size: 16px; /* Prevents mobile auto-zoom */ padding: 1rem 1.2rem; border: 2px solid var(--border-color); border-radius: 10px; background: var(--card-bg); color: var(--text-color); font-weight: 600; letter-spacing: 1px;
     }
     .main-input:focus { outline: none; border-color: var(--primary-color); }
 
+    /* Dropdowns */
     .dropdown-row { display: flex; flex-direction: column; gap: 0.75rem; }
     @media (min-width: 640px) { .dropdown-row { flex-direction: row; } }
     .dropdown-row select {
       flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; background: var(--card-bg); color: var(--text-color);
     }
 
+    /* Large Unscramble Button */
     button.large-unscramble-btn {
       width: 100%; background: var(--primary-color); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.15rem; cursor: pointer; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); min-height: 48px;
     }
     button.large-unscramble-btn:hover { background: var(--primary-hover); }
 
+    /* Filter Toggle Chips */
     .filter-toggles { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
     .chip-btn {
       background: var(--ad-bg); border: 1px solid var(--border-color); color: var(--subtext-color); padding: 0.45rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; min-height: 40px;
@@ -194,7 +206,8 @@
     .keyword-hub { margin-top: 2.5rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; }
     .keyword-hub h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color); }
     .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
-    .link-grid a { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; background: var(--ad-bg); padding: 0.6rem 0.8rem; border-radius: 6px; text-align: center; }
+    .link-grid a { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; background: var(--ad-bg); padding: 0.6rem 0.8rem; border-radius: 6px; text-align: center; font-weight: 500; }
+    .link-grid a:hover { background: var(--border-color); }
 
     .content-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; }
     .content-section h2 { font-size: 1.35rem; margin: 1.5rem 0 0.5rem; color: var(--heading-color); border-top: 1px solid var(--border-color); padding-top: 1rem; }
@@ -234,6 +247,7 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <a href="/" class="logo">LetterUnscramblerPro</a>
     <div class="nav-items">
@@ -293,12 +307,14 @@
         <button id="unscrambleBtn" class="large-unscramble-btn">Unscramble Words</button>
       </div>
 
+      <!-- Advanced Filter Toggle Chips -->
       <div class="filter-toggles">
         <button class="chip-btn" id="btnToggleStartsWith">+ Starts With</button>
         <button class="chip-btn" id="btnToggleEndsWith">+ Ends With</button>
         <button class="chip-btn" id="btnToggleContains">+ Contains</button>
       </div>
 
+      <!-- Expandable Filter Inputs -->
       <div class="advanced-filters" id="advancedFilters" style="display: none;">
         <div class="filter-field" id="fieldStartsWith" style="display: none;">
           <label for="startsWithInput">Starts With</label>
@@ -316,6 +332,7 @@
         </div>
       </div>
 
+      <!-- Results Area -->
       <div class="results-area" id="resultsContainer"></div>
     </div>
 
@@ -330,7 +347,7 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- Keyword Hub -->
+    <!-- Complete Keyword Hub linking to all active landing pages -->
     <section class="keyword-hub">
       <h2>Popular Word Solvers & Tools</h2>
       <div class="link-grid">
@@ -341,9 +358,9 @@
         <a href="/words-ending-in-ing.html">Words Ending in ING</a>
         <a href="/words-with-z.html">Words with Z</a>
         <a href="/words-with-q.html">Words with Q</a>
-        <a href="/words-with-x.html">Words with X</a>
         <a href="/words-with-z-and-x.html">Words with Z and X</a>
         <a href="/scrabble-solver.html">Scrabble Word Finder</a>
+        <a href="/scrabble-tips.html">Scrabble Tips & Tricks</a>
       </div>
     </section>
 
@@ -403,9 +420,12 @@
     // 1. Mobile Hamburger Menu Toggle
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navLinks = document.getElementById('navLinks');
-    hamburgerBtn.addEventListener('click', () => { navLinks.classList.toggle('nav-active'); });
 
-    // 2. Session-Remember Close Button for Floating Bottom Ad
+    hamburgerBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-active');
+    });
+
+    // 2. Session Memory Close Button for Bottom Ad
     const closeAdBtn = document.getElementById('closeAdBtn');
     const stickyBottomAd = document.getElementById('stickyBottomAd');
     
