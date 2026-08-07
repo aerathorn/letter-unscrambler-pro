@@ -9,14 +9,13 @@
   <meta name="description" content="Unscramble letters instantly to find high-scoring words for Scrabble, Words with Friends, Wordle, and anagram puzzles. Features tile point values, FAQs, and advanced filters.">
   <link rel="canonical" href="https://letterunscramblerpro.com/">
   
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Letter Unscrambler Pro - Fast Word Finder">
   <meta property="og:description" content="Unscramble letters instantly to find high-scoring words for Scrabble and Words with Friends.">
   <meta property="og:url" content="https://letterunscramblerpro.com/">
 
   <!-- ==================== GOOGLE SCHEMA (JSON-LD) ==================== -->
-  <!-- 1. WebApplication Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,7 +27,6 @@
   }
   </script>
 
-  <!-- 2. Google FAQ Schema for Rich Search Snippets -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,12 +56,11 @@
   }
   </script>
 
-  <!-- ==================== GOOGLE ADSENSE SCRIPT ==================== -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480"
-       crossorigin="anonymous"></script>
+  <!-- ==================== GOOGLE ADSENSE ==================== -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480" crossorigin="anonymous"></script>
 
   <style>
-    /* Light Mode Variables */
+    /* Light Mode */
     :root {
       --primary-color: #2563eb;
       --primary-hover: #1d4ed8;
@@ -81,7 +78,7 @@
       --tile-sub: #a16207;
     }
 
-    /* Dark Mode (Night Mode) Variables */
+    /* Dark Mode (Night Mode) */
     [data-theme="dark"] {
       --primary-color: #3b82f6;
       --primary-hover: #60a5fa;
@@ -102,7 +99,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
     body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 90px; }
 
-    /* Header & Navigation */
     header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     header a.logo { font-weight: 800; font-size: 1.3rem; color: var(--primary-color); text-decoration: none; }
     .nav-items { display: flex; align-items: center; gap: 1rem; }
@@ -113,26 +109,35 @@
       background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
     }
 
-    /* Main Container */
     .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
     .hero { text-align: center; margin-bottom: 2rem; }
     .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--heading-color); }
     .hero p { color: var(--subtext-color); font-size: 1.1rem; }
 
-    /* Tool Card */
+    /* Tool Card & Stacked Layout */
     .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-    .input-group { display: flex; flex-direction: column; gap: 0.75rem; }
-    @media (min-width: 640px) { .input-group { flex-direction: row; } }
+    .tool-form { display: flex; flex-direction: column; gap: 1rem; }
 
-    input[type="text"], select {
-      padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%; background: var(--card-bg); color: var(--text-color);
+    /* Main Letters Input Box (Top Row) */
+    .main-input {
+      width: 100%; font-size: 1.2rem; padding: 1rem 1.2rem; border: 2px solid var(--border-color); border-radius: 10px; background: var(--card-bg); color: var(--text-color); font-weight: 600; letter-spacing: 1px;
     }
-    input[type="text"]:focus, select:focus { outline: 2px solid var(--primary-color); }
+    .main-input:focus { outline: none; border-color: var(--primary-color); }
 
-    button.unscramble-btn {
-      background: var(--primary-color); color: white; border: none; padding: 0.85rem 1.8rem; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; white-space: nowrap;
+    /* Dropdowns Row (Middle Row) */
+    .dropdown-row { display: flex; flex-direction: column; gap: 0.75rem; }
+    @media (min-width: 640px) { .dropdown-row { flex-direction: row; } }
+    .dropdown-row select {
+      flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; background: var(--card-bg); color: var(--text-color);
     }
-    button.unscramble-btn:hover { background: var(--primary-hover); }
+    .dropdown-row select:focus { outline: 2px solid var(--primary-color); }
+
+    /* Large Full-Width Unscramble Button (Bottom Row) */
+    button.large-unscramble-btn {
+      width: 100%; background: var(--primary-color); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    button.large-unscramble-btn:hover { background: var(--primary-hover); }
+    button.large-unscramble-btn:active { transform: scale(0.99); }
 
     /* Filter Toggle Chips */
     .filter-toggles { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
@@ -141,15 +146,17 @@
     }
     .chip-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
 
-    /* Expandable Advanced Filters */
     .advanced-filters { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-color); }
     .filter-field { flex: 1; min-width: 180px; }
     .filter-field label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--subtext-color); margin-bottom: 0.3rem; text-transform: uppercase; }
+    .filter-field input { padding: 0.75rem 0.9rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; width: 100%; background: var(--card-bg); color: var(--text-color); }
 
-    /* Ads Containers */
-    .ad-container { margin: 1.5rem 0; text-align: center; background: var(--ad-bg); border: 1px dashed var(--border-color); padding: 10px; border-radius: 8px; }
+    /* Clean Ad Container (Invisible until ad fills) */
+    .ad-container { margin: 1rem 0; text-align: center; min-height: 0; }
+    .ad-container:has(ins[data-ad-status="filled"]) {
+      background: var(--ad-bg); border: 1px dashed var(--border-color); padding: 10px; border-radius: 8px;
+    }
 
-    /* Sticky Bottom Ad Window */
     .sticky-bottom-ad {
       position: fixed; bottom: 0; left: 0; width: 100%; background: var(--card-bg); border-top: 1px solid var(--border-color); padding: 8px 10px; z-index: 9999; text-align: center; box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
     }
@@ -157,36 +164,34 @@
       position: absolute; top: -12px; right: 15px; background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; cursor: pointer; font-weight: bold; line-height: 22px;
     }
 
-    /* Visual Scrabble Tiles & Word Rows */
+    /* Results Grid & Single-Line Tile Rack Fix */
     .results-area { margin-top: 1.5rem; }
     .results-header { font-size: 1.05rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: var(--heading-color); }
     .length-group { margin-bottom: 1.5rem; }
     .length-group h3 { font-size: 1.05rem; color: var(--subtext-color); margin-bottom: 0.6rem; }
     
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0.75rem; }
     .word-row {
-      display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--border-color); padding: 0.6rem 0.8rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--border-color); padding: 0.6rem 0.8rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); overflow: hidden;
     }
-    .tile-rack { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+    .tile-rack { display: flex; align-items: center; gap: 3px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
     .tile {
-      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 32px; background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 4px; font-weight: 800; font-size: 0.95rem; color: var(--tile-text); position: relative; text-transform: uppercase; box-shadow: 0 2px 0 var(--tile-shadow);
+      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 32px; background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 4px; font-weight: 800; font-size: 0.95rem; color: var(--tile-text); position: relative; text-transform: uppercase; box-shadow: 0 2px 0 var(--tile-shadow); flex-shrink: 0;
     }
     .tile sub {
       position: absolute; bottom: 1px; right: 2px; font-size: 0.55rem; font-weight: 700; line-height: 1; color: var(--tile-sub);
     }
     .score-badge {
-      background: var(--primary-color); color: white; padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 700; font-size: 0.8rem; white-space: nowrap; margin-left: 8px;
+      background: var(--primary-color); color: white; padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 700; font-size: 0.8rem; white-space: nowrap; margin-left: 8px; flex-shrink: 0;
     }
     
     .no-results, .error-msg { color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 0.8rem; border-radius: 6px; }
 
-    /* Keyword Hub */
     .keyword-hub { margin-top: 2.5rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; }
     .keyword-hub h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color); }
     .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
     .link-grid a { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; background: var(--ad-bg); padding: 0.6rem 0.8rem; border-radius: 6px; text-align: center; }
 
-    /* Content & FAQ */
     .content-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; }
     .content-section h2 { font-size: 1.35rem; margin: 1.5rem 0 0.5rem; color: var(--heading-color); border-top: 1px solid var(--border-color); padding-top: 1rem; }
     .content-section h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
@@ -200,7 +205,6 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <a href="/" class="logo">LetterUnscramblerPro</a>
     <div class="nav-items">
@@ -232,27 +236,33 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- Unscrambler Tool Card -->
+    <!-- Tool Card with Stacked Layout -->
     <div class="tool-card">
-      <div class="input-group">
-        <input type="text" id="lettersInput" placeholder="Enter letters (e.g., A B S O L U T)" maxlength="15" autofocus>
+      <div class="tool-form">
         
-        <!-- Game Mode Selector -->
-        <select id="gameModeSelect">
-          <option value="scrabble" selected>Scrabble Scoring</option>
-          <option value="wwf">Words With Friends</option>
-        </select>
+        <!-- 1. Top Row: Letters Input Box -->
+        <input type="text" class="main-input" id="lettersInput" placeholder="Enter scrambled letters (e.g., A B S O L U T)" maxlength="15" autofocus>
+        
+        <!-- 2. Middle Row: Dropdowns -->
+        <div class="dropdown-row">
+          <select id="gameModeSelect">
+            <option value="scrabble" selected>Scrabble Scoring</option>
+            <option value="wwf">Words With Friends</option>
+          </select>
 
-        <select id="lengthFilter">
-          <option value="0">All Word Lengths</option>
-          <option value="7">7-Letter Words</option>
-          <option value="6">6-Letter Words</option>
-          <option value="5">5-Letter Words</option>
-          <option value="4">4-Letter Words</option>
-          <option value="3">3-Letter Words</option>
-        </select>
-        
-        <button id="unscrambleBtn" class="unscramble-btn">Unscramble</button>
+          <select id="lengthFilter">
+            <option value="0">All Word Lengths</option>
+            <option value="7">7-Letter Words</option>
+            <option value="6">6-Letter Words</option>
+            <option value="5">5-Letter Words</option>
+            <option value="4">4-Letter Words</option>
+            <option value="3">3-Letter Words</option>
+          </select>
+        </div>
+
+        <!-- 3. Bottom Row: Large Full-Width Unscramble Button -->
+        <button id="unscrambleBtn" class="large-unscramble-btn">Unscramble Words</button>
+
       </div>
 
       <!-- Advanced Filter Toggle Chips -->
@@ -314,10 +324,10 @@
       <p>Letter Unscrambler Pro is a free online tool that helps word puzzle enthusiasts solve scrambled words, anagrams, and tile games like Scrabble, Words with Friends, and Wordle.</p>
       
       <ol>
-        <li>Type your scrambled letters into the search bar.</li>
+        <li>Type your scrambled letters into the main search box above.</li>
         <li>Select your preferred scoring system (Scrabble or Words With Friends).</li>
         <li>(Optional) Use advanced filters like <strong>Starts With</strong>, <strong>Ends With</strong>, or <strong>Contains</strong>.</li>
-        <li>Click <strong>Unscramble</strong> to generate all possible word combinations sorted by highest point score first.</li>
+        <li>Click <strong>UNSCRAMBLE WORDS</strong> to generate all possible word combinations sorted by highest point score first.</li>
       </ol>
 
       <h2>Frequently Asked Questions (FAQ)</h2>
