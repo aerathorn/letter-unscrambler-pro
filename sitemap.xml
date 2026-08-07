@@ -41,4 +41,11 @@
     <priority>0.6</priority>
   </url>
 
+<!-- Scrabble Tips Blog Post -->
+  <url>
+    <loc>https://letterunscramblerpro.com/scrabble-tips.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
