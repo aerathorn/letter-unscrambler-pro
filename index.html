@@ -60,7 +60,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480" crossorigin="anonymous"></script>
 
   <style>
-    /* Light Mode */
     :root {
       --primary-color: #2563eb;
       --primary-hover: #1d4ed8;
@@ -78,7 +77,6 @@
       --tile-sub: #a16207;
     }
 
-    /* Dark Mode (Night Mode) */
     [data-theme="dark"] {
       --primary-color: #3b82f6;
       --primary-hover: #60a5fa;
@@ -114,32 +112,25 @@
     .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--heading-color); }
     .hero p { color: var(--subtext-color); font-size: 1.1rem; }
 
-    /* Tool Card & Stacked Layout */
     .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
     .tool-form { display: flex; flex-direction: column; gap: 1rem; }
 
-    /* Main Letters Input Box (Top Row) */
     .main-input {
       width: 100%; font-size: 1.2rem; padding: 1rem 1.2rem; border: 2px solid var(--border-color); border-radius: 10px; background: var(--card-bg); color: var(--text-color); font-weight: 600; letter-spacing: 1px;
     }
     .main-input:focus { outline: none; border-color: var(--primary-color); }
 
-    /* Dropdowns Row (Middle Row) */
     .dropdown-row { display: flex; flex-direction: column; gap: 0.75rem; }
     @media (min-width: 640px) { .dropdown-row { flex-direction: row; } }
     .dropdown-row select {
       flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; background: var(--card-bg); color: var(--text-color);
     }
-    .dropdown-row select:focus { outline: 2px solid var(--primary-color); }
 
-    /* Large Full-Width Unscramble Button (Bottom Row) */
     button.large-unscramble-btn {
-      width: 100%; background: var(--primary-color); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      width: 100%; background: var(--primary-color); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
     }
     button.large-unscramble-btn:hover { background: var(--primary-hover); }
-    button.large-unscramble-btn:active { transform: scale(0.99); }
 
-    /* Filter Toggle Chips */
     .filter-toggles { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
     .chip-btn {
       background: var(--ad-bg); border: 1px solid var(--border-color); color: var(--subtext-color); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
@@ -151,7 +142,6 @@
     .filter-field label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--subtext-color); margin-bottom: 0.3rem; text-transform: uppercase; }
     .filter-field input { padding: 0.75rem 0.9rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; width: 100%; background: var(--card-bg); color: var(--text-color); }
 
-    /* Clean Ad Container (Invisible until ad fills) */
     .ad-container { margin: 1rem 0; text-align: center; min-height: 0; }
     .ad-container:has(ins[data-ad-status="filled"]) {
       background: var(--ad-bg); border: 1px dashed var(--border-color); padding: 10px; border-radius: 8px;
@@ -164,7 +154,6 @@
       position: absolute; top: -12px; right: 15px; background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; cursor: pointer; font-weight: bold; line-height: 22px;
     }
 
-    /* Results Grid & Single-Line Tile Rack Fix */
     .results-area { margin-top: 1.5rem; }
     .results-header { font-size: 1.05rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: var(--heading-color); }
     .length-group { margin-bottom: 1.5rem; }
@@ -205,11 +194,13 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <a href="/" class="logo">LetterUnscramblerPro</a>
     <div class="nav-items">
       <nav>
         <a href="/">Home</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/about.html">About</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
@@ -236,14 +227,11 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- Tool Card with Stacked Layout -->
+    <!-- Tool Card -->
     <div class="tool-card">
       <div class="tool-form">
-        
-        <!-- 1. Top Row: Letters Input Box -->
         <input type="text" class="main-input" id="lettersInput" placeholder="Enter scrambled letters (e.g., A B S O L U T)" maxlength="15" autofocus>
         
-        <!-- 2. Middle Row: Dropdowns -->
         <div class="dropdown-row">
           <select id="gameModeSelect">
             <option value="scrabble" selected>Scrabble Scoring</option>
@@ -260,9 +248,7 @@
           </select>
         </div>
 
-        <!-- 3. Bottom Row: Large Full-Width Unscramble Button -->
         <button id="unscrambleBtn" class="large-unscramble-btn">Unscramble Words</button>
-
       </div>
 
       <!-- Advanced Filter Toggle Chips -->
@@ -290,7 +276,7 @@
         </div>
       </div>
 
-      <!-- Results Container -->
+      <!-- Results Area -->
       <div class="results-area" id="resultsContainer"></div>
     </div>
 
@@ -360,6 +346,7 @@
     <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
     <p>
       <a href="/">Home</a> | 
+      <a href="/faq.html">FAQ</a> | 
       <a href="/about.html">About</a> | 
       <a href="/privacy.html">Privacy Policy</a> | 
       <a href="/terms.html">Terms of Service</a>
