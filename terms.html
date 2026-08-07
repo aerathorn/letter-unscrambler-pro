@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Letter Unscrambler Pro</title>
+    <!-- GOOGLE ANALYTICS INTEGRATION MATRIX -->
+    <script async src="https://googletagmanager.com"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BPYRF51CN0');
+
+        window.addEventListener('popstate', () => {
+            gtag('event', 'page_view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        });
+    </script>
     <style>
         :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; }
         body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; }
-        main { max-w: 800px; width: 100%; margin: 30px auto; padding: 15px; box-sizing: border-box; }
+        main { max-width: 800px; width: 100%; margin: 30px auto; padding: 15px; box-sizing: border-box; }
         .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
         h1 { font-size: 28px; font-weight: 900; color: var(--accent); margin: 0 0 15px 0; }
         h2 { font-size: 18px; font-weight: 800; margin: 25px 0 10px 0; }
