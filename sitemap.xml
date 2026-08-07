@@ -8,69 +8,78 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Keyword Landing Pages -->
+  <!-- Word Length Pages -->
   <url>
     <loc>https://letterunscramblerpro.com/7-letter-words.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://letterunscramblerpro.com/6-letter-words.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://letterunscramblerpro.com/5-letter-words.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- High-Scoring & Pattern Pages -->
+  <url>
+    <loc>https://letterunscramblerpro.com/5-letter-words-ending-in-e.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://letterunscramblerpro.com/words-ending-in-ing.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://letterunscramblerpro.com/words-with-z.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://letterunscramblerpro.com/words-with-q.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://letterunscramblerpro.com/words-with-z-and-x.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://letterunscramblerpro.com/scrabble-solver.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Articles & Content -->
+  <!-- Articles & FAQs -->
   <url>
     <loc>https://letterunscramblerpro.com/scrabble-tips.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://letterunscramblerpro.com/faq.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Utility Pages -->
+  <!-- Legal Utilities -->
   <url>
     <loc>https://letterunscramblerpro.com/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://letterunscramblerpro.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://letterunscramblerpro.com/terms.html</loc>
     <changefreq>yearly</changefreq>

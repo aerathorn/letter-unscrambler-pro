@@ -4,14 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Letter Unscrambler Pro - Fast Word Finder & Scrabble Solver</title>
-  <meta name="description" content="Unscramble letters instantly to find high-scoring words for Scrabble, Words with Friends, Wordle, and anagram puzzles. Features tile point values, FAQs, and advanced filters.">
-  <link rel="canonical" href="https://letterunscramblerpro.com/">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Letter Unscrambler Pro - Fast Word Finder">
-  <meta property="og:description" content="Unscramble letters instantly to find high-scoring words for Scrabble and Words with Friends.">
-  <meta property="og:url" content="https://letterunscramblerpro.com/">
+  <title>Words With Z and X - High-Scoring Scrabble Combinations</title>
+  <meta name="description" content="Find all valid words containing both Z and X for Scrabble and Words with Friends. Unscramble high-value tile combinations with instant scores.">
+  <link rel="canonical" href="https://letterunscramblerpro.com/words-with-z-and-x.html">
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPYRF51CN0"></script>
@@ -24,47 +19,6 @@
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480" crossorigin="anonymous"></script>
-
-  <!-- Google Schemas -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Letter Unscrambler Pro",
-    "url": "https://letterunscramblerpro.com/",
-    "applicationCategory": "GameApplication",
-    "operatingSystem": "All"
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "How does the letter unscrambler work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simply enter your scrambled rack letters into the input box and click Unscramble. The tool compares your letters against our official English word dictionary to generate all possible valid words."
-      }
-    }, {
-      "@type": "Question",
-      "name": "What is the difference between Scrabble and Words With Friends scoring?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "While most tile point values are identical, a few letters have different scores. For example, J is worth 8 points in Scrabble but 10 points in Words With Friends. You can switch between scoring systems using our dropdown menu."
-      }
-    }, {
-      "@type": "Question",
-      "name": "Is this letter unscrambler tool free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Letter Unscrambler Pro is 100% free to use on mobile, tablet, and desktop with no sign-up or registration required."
-      }
-    }]
-  }
-  </script>
 
   <style>
     :root {
@@ -104,7 +58,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
     body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 120px; }
 
-    /* Header & Mobile Nav */
     header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; }
     header a.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary-color); text-decoration: none; }
     .nav-items { display: flex; align-items: center; gap: 0.75rem; }
@@ -116,14 +69,12 @@
     .hamburger-btn { display: none; background: transparent; border: 1px solid var(--border-color); color: var(--text-color); font-size: 1.2rem; padding: 0.3rem 0.6rem; border-radius: 6px; cursor: pointer; }
     .theme-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
 
-    /* Container & Hero */
     .container { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
     .hero { text-align: center; margin-bottom: 1.2rem; }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 0.3rem; color: var(--heading-color); }
-    .hero p { color: var(--subtext-color); font-size: 1.05rem; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.3rem; color: var(--heading-color); }
+    .hero p { color: var(--subtext-color); }
 
-    /* Tool Card Stacked Layout */
-    .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
     .tool-form { display: flex; flex-direction: column; gap: 1rem; }
 
     .main-input {
@@ -133,19 +84,15 @@
 
     .dropdown-row { display: flex; flex-direction: column; gap: 0.75rem; }
     @media (min-width: 640px) { .dropdown-row { flex-direction: row; } }
-    .dropdown-row select {
-      flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; background: var(--card-bg); color: var(--text-color);
-    }
+    .dropdown-row select { flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; background: var(--card-bg); color: var(--text-color); }
 
     button.large-unscramble-btn {
-      width: 100%; background: var(--primary-color); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.15rem; cursor: pointer; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); min-height: 48px;
+      width: 100%; background: var(--primary-color); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.15rem; cursor: pointer; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
     }
     button.large-unscramble-btn:hover { background: var(--primary-hover); }
 
     .filter-toggles { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
-    .chip-btn {
-      background: var(--ad-bg); border: 1px solid var(--border-color); color: var(--subtext-color); padding: 0.45rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; min-height: 40px;
-    }
+    .chip-btn { background: var(--ad-bg); border: 1px solid var(--border-color); color: var(--subtext-color); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
     .chip-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
 
     .advanced-filters { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-color); }
@@ -153,81 +100,54 @@
     .filter-field label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--subtext-color); margin-bottom: 0.3rem; text-transform: uppercase; }
     .filter-field input { padding: 0.75rem 0.9rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 16px; width: 100%; background: var(--card-bg); color: var(--text-color); }
 
-    /* Clean Ad Container */
     .ad-container { margin: 1rem 0; text-align: center; min-height: 0; }
     .ad-container:has(ins[data-ad-status="filled"]) {
       background: var(--ad-bg); border: 1px dashed var(--border-color); padding: 10px; border-radius: 8px;
     }
 
-    /* Floating Mobile Anchor Ad */
     .sticky-bottom-ad {
       position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%); width: calc(100% - 16px); max-width: 728px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 6px 10px; z-index: 9999; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     .close-ad-btn {
-      position: absolute; top: -14px; right: 10px; background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; border-radius: 50%; width: 30px; height: 30px; font-size: 14px; cursor: pointer; font-weight: bold; line-height: 28px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: absolute; top: -14px; right: 10px; background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; border-radius: 50%; width: 30px; height: 30px; font-size: 14px; cursor: pointer; font-weight: bold; line-height: 28px;
     }
 
-    /* Results Grid & Responsive Tile Rack */
     .results-area { margin-top: 1.5rem; }
     .results-header { font-size: 1.05rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: var(--heading-color); }
     .length-group { margin-bottom: 1.5rem; }
     .length-group h3 { font-size: 1.05rem; color: var(--subtext-color); margin-bottom: 0.6rem; }
     
     .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.75rem; }
-    .word-row {
-      display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--border-color); padding: 0.6rem 0.8rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); overflow: visible;
-    }
+    .word-row { display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--border-color); padding: 0.6rem 0.8rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); overflow: visible; }
     .tile-rack { display: flex; align-items: center; gap: 3px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; max-width: 100%; -webkit-overflow-scrolling: touch; }
     
-    .tile {
-      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 32px; background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 4px; font-weight: 800; font-size: 0.95rem; color: var(--tile-text); position: relative; text-transform: uppercase; box-shadow: 0 2px 0 var(--tile-shadow); flex-shrink: 0;
-    }
-    .tile sub {
-      position: absolute; bottom: 1px; right: 2px; font-size: 0.55rem; font-weight: 700; line-height: 1; color: var(--tile-sub);
-    }
-    .score-badge {
-      background: var(--primary-color); color: white; padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 700; font-size: 0.8rem; white-space: nowrap; margin-left: 6px; flex-shrink: 0;
-    }
+    .tile { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 32px; background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 4px; font-weight: 800; font-size: 0.95rem; color: var(--tile-text); position: relative; text-transform: uppercase; box-shadow: 0 2px 0 var(--tile-shadow); flex-shrink: 0; }
+    .tile sub { position: absolute; bottom: 1px; right: 2px; font-size: 0.55rem; font-weight: 700; line-height: 1; color: var(--tile-sub); }
+    .score-badge { background: var(--primary-color); color: white; padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 700; font-size: 0.8rem; white-space: nowrap; margin-left: 6px; flex-shrink: 0; }
     
     .no-results, .error-msg { color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 0.8rem; border-radius: 6px; }
 
-    .keyword-hub { margin-top: 2.5rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; }
-    .keyword-hub h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color); }
-    .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
-    .link-grid a { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; background: var(--ad-bg); padding: 0.6rem 0.8rem; border-radius: 6px; text-align: center; }
-
     .content-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; }
-    .content-section h2 { font-size: 1.35rem; margin: 1.5rem 0 0.5rem; color: var(--heading-color); border-top: 1px solid var(--border-color); padding-top: 1rem; }
-    .content-section h2:first-of-type { border-top: none; padding-top: 0; }
-    .content-section h3 { font-size: 1.1rem; margin: 1rem 0 0.3rem; color: var(--heading-color); }
-    .content-section p, .content-section ol { color: var(--text-color); margin-bottom: 1rem; }
-    .content-section ol { margin-left: 1.5rem; }
+    .content-section h2 { font-size: 1.4rem; margin: 1rem 0 0.5rem; color: var(--heading-color); }
+    .content-section p { margin-bottom: 1rem; color: var(--text-color); }
 
-    footer { text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.9rem; }
+    footer { text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.85rem; }
     footer a { color: var(--subtext-color); text-decoration: none; margin: 0 0.4rem; }
 
-    /* Mobile Screen Adjustments (@media max-width: 640px) */
     @media (max-width: 640px) {
       .container { padding: 0 0.5rem; margin: 0.8rem auto; }
-      .hero { margin-bottom: 0.8rem; }
-      .hero h1 { font-size: 1.5rem; margin-bottom: 0.2rem; }
-      .hero p { font-size: 0.9rem; }
-      
-      .tool-card, .content-section, .keyword-hub { padding: 1rem; }
-
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.95rem; }
+      .tool-card, .content-section { padding: 1rem; }
       .hamburger-btn { display: block; }
-      nav.nav-links {
-        display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--card-bg); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--border-color); box-shadow: 0 8px 16px rgba(0,0,0,0.1); gap: 0.8rem;
-      }
+      nav.nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--card-bg); flex-direction: column; padding: 1rem; border-bottom: 1px solid var(--border-color); box-shadow: 0 8px 16px rgba(0,0,0,0.1); gap: 0.8rem; }
       nav.nav-links.nav-active { display: flex; }
-
       .results-grid { grid-template-columns: 1fr; }
       .tile { width: 22px; height: 26px; font-size: 0.75rem; border-radius: 3px; }
       .tile sub { font-size: 0.45rem; bottom: 0px; right: 1px; }
       .tile-rack { gap: 2px; }
       .word-row { padding: 0.5rem 0.6rem; }
       .score-badge { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
-
       .sticky-bottom-ad { max-height: 65px; padding: 4px; }
     }
   </style>
@@ -254,11 +174,10 @@
   <main class="container">
 
     <div class="hero">
-      <h1>Free Letter Unscrambler</h1>
-      <p>Enter your scrambled tiles or letters to find high-scoring words instantly.</p>
+      <h1>Words With Z and X</h1>
+      <p>Unscramble ultra high-scoring words containing both Z (10 pts) and X (8 pts).</p>
     </div>
 
-    <!-- Top Banner Ad -->
     <div class="ad-container">
       <ins class="adsbygoogle"
            style="display:block"
@@ -269,10 +188,9 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- Tool Card -->
     <div class="tool-card">
       <div class="tool-form">
-        <input type="text" class="main-input" id="lettersInput" placeholder="Enter scrambled letters (e.g., A B S O L U T)" maxlength="15" autofocus>
+        <input type="text" class="main-input" id="lettersInput" placeholder="Enter rack letters (e.g., A B S O L U T)" maxlength="15" autofocus>
         
         <div class="dropdown-row">
           <select id="gameModeSelect">
@@ -281,25 +199,23 @@
           </select>
 
           <select id="lengthFilter">
-            <option value="0">All Word Lengths</option>
+            <option value="0" selected>All Lengths</option>
             <option value="7">7-Letter Words</option>
             <option value="6">6-Letter Words</option>
-            <option value="5">5-Letter Words</option>
-            <option value="4">4-Letter Words</option>
-            <option value="3">3-Letter Words</option>
           </select>
         </div>
 
-        <button id="unscrambleBtn" class="large-unscramble-btn">Unscramble Words</button>
+        <button id="unscrambleBtn" class="large-unscramble-btn">Find Words with Z and X</button>
       </div>
 
       <div class="filter-toggles">
         <button class="chip-btn" id="btnToggleStartsWith">+ Starts With</button>
         <button class="chip-btn" id="btnToggleEndsWith">+ Ends With</button>
-        <button class="chip-btn" id="btnToggleContains">+ Contains</button>
+        <button class="chip-btn active" id="btnToggleContains">+ Contains</button>
       </div>
 
-      <div class="advanced-filters" id="advancedFilters" style="display: none;">
+      <!-- Pre-filled Contains ZX -->
+      <div class="advanced-filters" id="advancedFilters" style="display: flex;">
         <div class="filter-field" id="fieldStartsWith" style="display: none;">
           <label for="startsWithInput">Starts With</label>
           <input type="text" id="startsWithInput" placeholder="e.g., TR">
@@ -310,16 +226,15 @@
           <input type="text" id="endsWithInput" placeholder="e.g., ING">
         </div>
 
-        <div class="filter-field" id="fieldContains" style="display: none;">
+        <div class="filter-field" id="fieldContains" style="display: block;">
           <label for="containsInput">Contains</label>
-          <input type="text" id="containsInput" placeholder="e.g., Z">
+          <input type="text" id="containsInput" value="ZX" placeholder="e.g., ZX">
         </div>
       </div>
 
       <div class="results-area" id="resultsContainer"></div>
     </div>
 
-    <!-- In-Feed Ad -->
     <div class="ad-container">
       <ins class="adsbygoogle"
            style="display:block"
@@ -330,50 +245,13 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- Keyword Hub -->
-    <section class="keyword-hub">
-      <h2>Popular Word Solvers & Tools</h2>
-      <div class="link-grid">
-        <a href="/7-letter-words.html">7-Letter Words</a>
-        <a href="/6-letter-words.html">6-Letter Words</a>
-        <a href="/5-letter-words.html">5-Letter Words</a>
-        <a href="/5-letter-words-ending-in-e.html">5-Letter Words Ending in E</a>
-        <a href="/words-ending-in-ing.html">Words Ending in ING</a>
-        <a href="/words-with-z.html">Words with Z</a>
-        <a href="/words-with-q.html">Words with Q</a>
-        <a href="/words-with-x.html">Words with X</a>
-        <a href="/words-with-z-and-x.html">Words with Z and X</a>
-        <a href="/scrabble-solver.html">Scrabble Word Finder</a>
-      </div>
-    </section>
-
-    <!-- SEO Content Section -->
     <article class="content-section">
-      <h2>How to Use Letter Unscrambler Pro</h2>
-      <p>Letter Unscrambler Pro is a free online tool that helps word puzzle enthusiasts solve scrambled words, anagrams, and tile games like Scrabble, Words with Friends, and Wordle.</p>
-      
-      <ol>
-        <li>Type your scrambled letters into the main search box above.</li>
-        <li>Select your preferred scoring system (Scrabble or Words With Friends).</li>
-        <li>(Optional) Use advanced filters like <strong>Starts With</strong>, <strong>Ends With</strong>, or <strong>Contains</strong>.</li>
-        <li>Click <strong>UNSCRAMBLE WORDS</strong> to generate all possible word combinations sorted by highest point score first.</li>
-      </ol>
-
-      <h2>Frequently Asked Questions (FAQ)</h2>
-
-      <h3>How does the letter unscrambler work?</h3>
-      <p>Simply enter your scrambled rack letters into the input box and click Unscramble. The tool compares your letters against our official English word dictionary to generate all possible valid words instantly.</p>
-
-      <h3>What is the difference between Scrabble and Words With Friends scoring?</h3>
-      <p>While most tile point values are identical, a few letters have different scores. For example, 'J' is worth 8 points in Scrabble but 10 points in Words With Friends. You can switch between scoring systems using our dropdown menu.</p>
-
-      <h3>Is this letter unscrambler tool free?</h3>
-      <p>Yes, Letter Unscrambler Pro is 100% free to use on mobile, tablet, and desktop with no sign-up or registration required.</p>
+      <h2>High-Scoring Double Premium Tiles: Z (10 pts) and X (8 pts)</h2>
+      <p>Playing both a 'Z' and an 'X' tile in a single move is rare and extremely valuable. Combined, these two letters alone contribute 18 base points before applying any Double or Triple bonus squares on the board!</p>
     </article>
 
   </main>
 
-  <!-- Floating Mobile Anchor Ad Window -->
   <div class="sticky-bottom-ad" id="stickyBottomAd">
     <button class="close-ad-btn" id="closeAdBtn" title="Close Ad">✕</button>
     <ins class="adsbygoogle"
@@ -400,27 +278,10 @@
   <script src="unscrambler.js"></script>
 
   <script>
-    // 1. Mobile Hamburger Menu Toggle
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navLinks = document.getElementById('navLinks');
     hamburgerBtn.addEventListener('click', () => { navLinks.classList.toggle('nav-active'); });
 
-    // 2. Session-Remember Close Button for Floating Bottom Ad
-    const closeAdBtn = document.getElementById('closeAdBtn');
-    const stickyBottomAd = document.getElementById('stickyBottomAd');
-    
-    if (sessionStorage.getItem('hideBottomAd') === 'true') {
-      if (stickyBottomAd) stickyBottomAd.style.display = 'none';
-    }
-
-    if (closeAdBtn) {
-      closeAdBtn.addEventListener('click', () => {
-        stickyBottomAd.style.display = 'none';
-        sessionStorage.setItem('hideBottomAd', 'true');
-      });
-    }
-
-    // 3. Night Mode Toggle
     const themeBtn = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -434,7 +295,6 @@
       themeBtn.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Night Mode';
     });
 
-    // 4. Advanced Filter Chips Setup
     function setupFilterToggle(btnId, fieldId) {
       const btn = document.getElementById(btnId);
       const field = document.getElementById(fieldId);
