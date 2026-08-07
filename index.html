@@ -1,335 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter Unscrambler Pro | Scrabble Solver & Wordle Cheat</title>
-    <meta name="description" id="metaDescription" content="Elite multi-dictionary letter unscrambler and word finder tool. Optimize your Scrabble, Wordle, and crossword puzzle gameplay parameters instantly." />
-    <meta name="google-site-verification" content="8wRE9V_T_bHRL-d7H-bZ6jG8WjB_XVD83oihHNdA" />
-    <link rel="canonical" id="canonicalUrl" href="https://letterunscramblerpro.com" />
-    <script async src="https://googlesyndication.com" crossorigin="anonymous"></script>
-    
-    <!-- GOOGLE ANALYTICS INTEGRATION MATRIX -->
-    <script async src="https://googletagmanager.com"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BPYRF51CN0');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ==================== SEO META TAGS ==================== -->
+  <title>Letter Unscrambler Pro - Fast Word Finder & Scrabble Solver</title>
+  <meta name="description" content="Unscramble letters instantly to find high-scoring words for Scrabble, Words with Friends, Wordle, and anagram puzzles. Free, fast, and easy to use.">
+  <link rel="canonical" href="https://letterunscramblerpro.com/">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Letter Unscrambler Pro - Fast Word Finder">
+  <meta property="og:description" content="Unscramble letters instantly to find high-scoring words for Scrabble, Words with Friends, and anagram puzzles.">
+  <meta property="og:url" content="https://letterunscramblerpro.com/">
 
-        window.addEventListener('popstate', () => {
-            gtag('event', 'page_view', {
-                page_title: document.title,
-                page_location: window.location.href,
-                page_path: window.location.pathname
-            });
-        });
-    </script>
+  <!-- ==================== GOOGLE SCHEMA (JSON-LD) ==================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Letter Unscrambler Pro",
+    "url": "https://letterunscramblerpro.com/",
+    "description": "An online tool to unscramble letters and find anagrams for word games.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All"
+  }
+  </script>
 
+  <!-- ==================== GOOGLE ADSENSE SCRIPT ==================== -->
+  <!-- REPLACE ca-pub-XXXXXXXXXXXXXXXX WITH YOUR ACTUAL ADSENSE PUBLISHER ID -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480"
+       crossorigin="anonymous"></script>
 
-    <!-- DYNAMIC STRUCTURED DATA SCHEMA FOR GOOGLEBOT -->
-    <script type="application/ld+json" id="structuredDataSchema">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Letter Unscrambler Pro",
-      "url": "https://letterunscramblerpro.com",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "All",
-      "description": "Elite multi-dictionary anagram solver and Scrabble point helper engine.",
-      "browserRequirements": "Requires JavaScript. Requires HTML5."
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --border-color: #e2e8f0;
     }
-    </script>
-    <style>
-        :root { --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #2563eb; --tile-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%); --tile-border: #facc15; }
-        .dark { --bg: #020617; --card: #0f172a; --text: #f1f5f9; --muted: #94a3b8; --border: #1e293b; --accent: #3b82f6; --tile-bg: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); --tile-border: #a16207; }
-        body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; padding: 0; transition: background 0.2s, color 0.2s; }
-        header { max-width: 800px; margin: 15px auto 0; display: flex; justify-content: flex-end; padding: 0 15px; }
-        .toggle-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; font-weight: bold; font-size: 12px; cursor: pointer; border-radius: 8px; }
-        .ad-slot { max-width: 800px; margin: 15px auto; background: var(--border); color: var(--muted); text-align: center; padding: 12px; font-size: 11px; border-radius: 6px; letter-spacing: 1px; }
-        main { max-width: 800px; width: 100%; margin: 0 auto; padding: 15px; box-sizing: border-box; }
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); overflow: hidden; }
-        .hero { background: #0f172a; color: #ffffff; text-align: center; padding: 30px 15px; border-bottom: 1px solid #1e293b; }
-        .hero h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; }
-        .hero p { margin: 0; color: #94a3b8; font-size: 14px; }
-        .form-area { padding: 25px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.01); }
-        .input-group-center { max-width: 500px; margin: 0 auto 25px; text-align: center; }
-        label { display: block; font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .main-input { width: 100%; text-align: center; padding: 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 12px; font-size: 28px; font-family: monospace; font-weight: 900; text-transform: uppercase; color: var(--accent); outline: none; box-sizing: border-box; }
-        .grid-options { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
-        @media (min-width: 600px) { .grid-options { grid-template-columns: 1fr 1fr; } }
-        select, .sub-input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text); outline: none; box-sizing: border-box; }
-        .flex-overlays { display: flex; gap: 8px; }
-        .sub-input { text-align: center; text-transform: uppercase; }
-        .action-btn { width: 100%; background: var(--accent); color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 14px; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .action-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        .results-panel { padding: 25px; min-height: 150px; }
-        .empty-text { text-align: center; color: var(--muted); font-size: 15px; padding: 30px 0; }
-        .bucket-container { background: rgba(0,0,0,0.01); border: 1px solid var(--border); border-radius: 12px; padding: 15px; margin-bottom: 20px; }
-        .bucket-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px 0; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
-        .tile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        @media (min-width: 450px) { .tile-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 650px) { .tile-grid { grid-template-columns: repeat(4, 1fr); } }
-        .tile { background: var(--tile-bg); border: 1px solid var(--tile-border); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-weight: bold; }
-        .tile-text { font-size: 16px; color: #020617; }
-        .tile-score { background: rgba(0,0,0,0.08); font-size: 11px; padding: 2px 6px; border-radius: 4px; color: #020617; }
-        .seo-box { max-width: 800px; margin: 0 auto 20px; padding: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
-        .seo-box h2 { font-size: 18px; font-weight: 900; color: var(--accent); margin: 0 0 10px 0; }
-        .seo-box p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0; }
-        footer { max-width: 800px; margin: 20px auto; padding: 20px 15px; text-align: center; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        footer a { color: var(--accent); text-decoration: none; font-weight: bold; }
-    </style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+    /* Header & Navigation */
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header a.logo { font-weight: 800; font-size: 1.3rem; color: var(--primary-color); text-decoration: none; }
+    nav a { margin-left: 1.2rem; color: #64748b; text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav a:hover { color: var(--primary-color); }
+
+    /* Main Layout */
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    
+    .hero { text-align: center; margin-bottom: 2rem; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: #0f172a; }
+    .hero p { color: #64748b; font-size: 1.1rem; }
+
+    /* Tool Container */
+    .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    .input-group { display: flex; flex-direction: column; gap: 1rem; }
+    @media (min-width: 640px) {
+      .input-group { flex-direction: row; }
+    }
+
+    input[type="text"], select {
+      padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; width: 100%;
+    }
+    input[type="text"]:focus, select:focus { outline: 2px solid var(--primary-color); border-color: transparent; }
+
+    button {
+      background: var(--primary-color); color: white; border: none; padding: 0.85rem 1.8rem; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; transition: background 0.2s; white-space: nowrap;
+    }
+    button:hover { background: var(--primary-hover); }
+
+    /* Ads Container */
+    .ad-container { margin: 1.5rem 0; text-align: center; background: #f1f5f9; border: 1px dashed #cbd5e1; padding: 10px; border-radius: 8px; }
+
+    /* Results styling */
+    .results-area { margin-top: 1.5rem; }
+    .results-header { font-size: 1.1rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: #0f172a; }
+    .length-group { margin-bottom: 1.5rem; }
+    .length-group h3 { font-size: 1.05rem; color: #475569; margin-bottom: 0.5rem; }
+    .word-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .word-card { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; padding: 0.45rem 0.85rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; }
+    .no-results, .error-msg { color: #dc2626; background: #fef2f2; padding: 0.8rem; border-radius: 6px; }
+
+    /* Quick Links Grid (SEO Internal Linking Hub) */
+    .keyword-hub { margin-top: 2.5rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; }
+    .keyword-hub h2 { font-size: 1.25rem; margin-bottom: 1rem; color: #0f172a; }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+    .link-grid a { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; background: #f1f5f9; padding: 0.6rem 0.8rem; border-radius: 6px; transition: background 0.2s; display: block; text-align: center; }
+    .link-grid a:hover { background: #e2e8f0; }
+
+    /* SEO Article Section */
+    .content-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; }
+    .content-section h2 { font-size: 1.35rem; margin: 1.2rem 0 0.5rem; color: #0f172a; }
+    .content-section p { margin-bottom: 1rem; color: #334155; }
+    .content-section ol { margin-left: 1.5rem; margin-bottom: 1rem; color: #334155; }
+    .content-section li { margin-bottom: 0.4rem; }
+
+    /* Footer */
+    footer { text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid var(--border-color); color: #94a3b8; font-size: 0.9rem; }
+    footer a { color: #64748b; text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { color: var(--primary-color); }
+  </style>
 </head>
 <body>
-    <header><button id="themeToggleBtn" onclick="toggleThemeMode()" class="toggle-btn">🌙 Dark Mode</button></header>
-    <div class="ad-slot">ADVERTISEMENT SLOT (TOP)</div>
-    <main>
-        <article class="card">
-            <div class="hero">
-                <h1>Letter Unscrambler Pro</h1>
-                <p>Elite multi-dictionary analytics engine for Scrabble and word puzzles.</p>
-            </div>
-            <div class="form-area">
-                <div class="input-group-center">
-                    <label for="lettersInput">Input Rack Letters (Use '?' or '*' for Blanks)</label>
-                    <input type="text" id="lettersInput" placeholder="ENTER LETTERS HERE..." class="main-input">
-                </div>
-                <div class="grid-options">
-                    <div>
-                        <label for="dictionarySelect">Reference Lexicon</label>
-                        <select id="dictionarySelect" onchange="initializeDictionaryDownload()">
-                            <option value="scrabble">Scrabble Standard (ENABLE List)</option>
-                            <option value="wordle">Wordle Valid Guess Engine</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Optional Placement Overlays</label>
-                        <div class="flex-overlays">
-                            <input type="text" id="startsWith" aria-label="Starts with letters" placeholder="Starts..." class="sub-input">
-                            <input type="text" id="contains" aria-label="Contains letters" placeholder="Contains..." class="sub-input">
-                            <input type="text" id="endsWith" aria-label="Ends with letters" placeholder="Ends..." class="sub-input">
-                        </div>
-                    </div>
-                </div>
-                <button id="actionBtn" onclick="runUnscrambleAnalysis()" class="action-btn"><span id="btnText">Unscramble Letters Now</span></button>
-            </div>
-            <div id="resultsScreen" class="results-panel">
-                <div id="emptyState" class="empty-text"><p id="statusFeedback">System online. Standby for input rack values.</p></div>
-                <div id="resultsContent" style="display: none;"></div>
-            </div>
-        </article>
-    </main>
-    <section class="seo-box">
-        <h2 id="seoTitle">Word Finder & Anagram Unscrambler Guide</h2>
-        <p id="seoText">Welcome to the ultimate word solver tool. Input your letters above to generate high-scoring combinations, filter words by specific placements, and discover terms matching your exact gameplay parameters.</p>
+
+  <!-- Header -->
+  <header>
+    <a href="/" class="logo">LetterUnscramblerPro</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Title -->
+    <div class="hero">
+      <h1>Free Letter Unscrambler</h1>
+      <p>Enter your scrambled tiles or letters to find all possible words instantly.</p>
+    </div>
+
+    <!-- ================= TOP AD BANNER ================= -->
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Unscrambler Tool Card -->
+    <div class="tool-card">
+      <div class="input-group">
+        <input type="text" id="lettersInput" placeholder="Enter letters (e.g., A B S O L U T)" maxlength="15" autofocus>
+        
+        <select id="lengthFilter">
+          <option value="0">All Word Lengths</option>
+          <option value="7">7-Letter Words</option>
+          <option value="6">6-Letter Words</option>
+          <option value="5">5-Letter Words</option>
+          <option value="4">4-Letter Words</option>
+          <option value="3">3-Letter Words</option>
+        </select>
+        
+        <button id="unscrambleBtn">Unscramble</button>
+      </div>
+
+      <!-- Results Area -->
+      <div class="results-area" id="resultsContainer"></div>
+    </div>
+
+    <!-- ================= IN-FEED AD BANNER ================= -->
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="0987654321"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Internal Linking Hub (Boosts SEO Indexing for Long-Tail Pages) -->
+    <section class="keyword-hub">
+      <h2>Popular Word Solvers & Tools</h2>
+      <div class="link-grid">
+        <a href="/7-letter-words.html">7-Letter Words</a>
+        <a href="/6-letter-words.html">6-Letter Words</a>
+        <a href="/5-letter-words.html">5-Letter Words</a>
+        <a href="/words-with-z.html">Words with Z</a>
+        <a href="/words-with-q.html">Words with Q</a>
+        <a href="/scrabble-solver.html">Scrabble Word Finder</a>
+      </div>
     </section>
-    <div class="ad-slot">ADVERTISEMENT SLOT (BOTTOM)</div>
-    <footer>
-        <span>© 2026 Letter Unscrambler Pro. All Rights Reserved.</span>
-        <a href="/about.html">About Us</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-    </footer>
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-        function toggleThemeMode() {
-            const btn = document.getElementById('themeToggleBtn');
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.theme = 'light';
-                btn.innerText = "🌙 Dark Mode";
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
-                btn.innerText = "🌞 Light Mode";
-            }
-        }
-    </script>
-    <script>
-        const scrabblePointValues = { A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8, K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1, U:1, V:4, W:4, X:8, Y:4, Z:10 };
-        async function initializeDictionaryDownload() {
-            const actionBtn = document.getElementById('actionBtn');
-            if (actionBtn) {
-                actionBtn.disabled = false;
-                actionBtn.classList.remove('opacity-60', 'cursor-not-allowed');
-            }
-            runProgrammaticRouter();
-        }
-        function determineScrabbleScore(word) {
-            return word.split('').reduce((sum, letter) => sum + (scrabblePointValues[letter] || 0), 0);
-        }
-        function checkRackInclusion(word, inputLetters) {
-            let pool = inputLetters.split('');
-            let wildcards = pool.filter(l => l === '?' || l === '*').length;
-            pool = pool.filter(l => l !== '?' && l !== '*');
-            for (let letter of word) {
-                const foundIdx = pool.indexOf(letter);
-                if (foundIdx > -1) { pool.splice(foundIdx, 1); }
-                else if (wildcards > 0) { wildcards--; }
-                else { return false; }
-            }
-            return true;
-        }
-        async function runUnscrambleAnalysis() {
-            const lettersInput = document.getElementById('lettersInput');
-            const dictionarySelect = document.getElementById('dictionarySelect');
-            const startsWithInput = document.getElementById('startsWith');
-            const containsInput = document.getElementById('contains');
-            const endsWithInput = document.getElementById('endsWith');
-            const emptyState = document.getElementById('emptyState');
-            const resultsContent = document.getElementById('resultsContent');
-            const btnText = document.getElementById('btnText');
 
-            const letters = lettersInput ? lettersInput.value.toUpperCase().replace(/\s/g, '') : '';
-            const targetType = dictionarySelect ? dictionarySelect.value : 'scrabble';
-            const prefix = startsWithInput ? startsWithInput.value.toUpperCase().trim() : '';
-            const interior = containsInput ? containsInput.value.toUpperCase().trim() : '';
-            const suffix = endsWithInput ? endsWithInput.value.toUpperCase().trim() : '';
+    <!-- SEO Content Section (Required for Google Search Console Ranking) -->
+    <article class="content-section">
+      <h2>How to Use Letter Unscrambler Pro</h2>
+      <p>Letter Unscrambler Pro is a free online tool that helps word puzzle enthusiasts solve scrambled words, anagrams, and tile games like Scrabble, Words with Friends, and Wordle.</p>
+      
+      <ol>
+        <li>Type your scrambled letters into the search bar above.</li>
+        <li>(Optional) Choose a specific word length filter if you are looking for an exact match.</li>
+        <li>Click <strong>Unscramble</strong> to generate all possible word combinations sorted by length.</li>
+      </ol>
 
-            if (!letters) { alert("Please enter characters to process."); return; }
-            if (btnText) btnText.innerText = "Processing Shards...";
-            
-            let lettersToFetch = new Set(letters.split('').filter(l => l >= 'A' && l <= 'Z'));
-            if (letters.includes('?') || letters.includes('*') || prefix || interior || suffix) {
-                lettersToFetch = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''));
-            }
-            let searchPool = [];
-            try {
-                const fetchPromises = Array.from(lettersToFetch).map(async (letter) => {
-                    const response = await fetch(`/dictionary/${letter.toLowerCase()}.json`);
-                    if (response.ok) {
-                        const words = await response.json();
-                        searchPool = searchPool.concat(words);
-                    }
-                });
-                await Promise.all(fetchPromises);
-            } catch (err) { console.error("Shard load failure:", err); }
+      <h2>Tips for High Scrabble Scores</h2>
+      <p>When playing Scrabble or Words with Friends, look for opportunities to play 7-letter words to earn a 50-point bonus (known as a "Bingo"). Focusing on high-value letters like <strong>Q, Z, X, and J</strong> can also drastically increase your score!</p>
+    </article>
 
-            let processingMatches = [];
-            for (let word of searchPool) {
-                if (prefix && !word.startsWith(prefix)) continue;
-                if (interior && !word.includes(interior)) continue;
-                if (suffix && !word.endsWith(suffix)) continue;
-                if (checkRackInclusion(word, letters)) {
-                    processingMatches.push({
-                        text: word,
-                        length: word.length,
-                        score: targetType === 'wordle' ? 0 : determineScrabbleScore(word)
-                    });
-                }
-            }
-            if (btnText) btnText.innerText = "Unscramble Letters Now";
-            if (processingMatches.length === 0) {
-                if (emptyState) {
-                    emptyState.innerHTML = `<p class='empty-text'>No entries match "${letters}".</p>`;
-                    emptyState.style.display = 'block';
-                }
-                if (resultsContent) resultsContent.style.display = 'none';
-                return;
-            }
-            if (emptyState) emptyState.style.display = 'none';
-            if (resultsContent) { resultsContent.innerHTML = ''; resultsContent.style.display = 'block'; }
+  </main>
 
-            let nestedBuckets = {};
-            processingMatches.forEach(item => {
-                if (!nestedBuckets[item.length]) nestedBuckets[item.length] = [];
-                nestedBuckets[item.length].push(item);
-            });
-            const sortedLengths = Object.keys(nestedBuckets).sort((a,b) => b - a);
-            sortedLengths.forEach(len => {
-                let listings = nestedBuckets[len].sort((a,b) => b.score - a.score);
-                let container = document.createElement('div');
-                container.className = "bucket-container";
-                let headerLine = document.createElement('h3');
-                headerLine.className = "bucket-title";
-                headerLine.innerHTML = `<span>${len}-Letter Combos</span> <span>${listings.length} items</span>`;
-                container.appendChild(headerLine);
-                let wrapperGrid = document.createElement('div');
-                wrapperGrid.className = "tile-grid";
-                listings.forEach(obj => {
-                    let tile = document.createElement('div');
-                    tile.className = "tile";
-                    tile.innerHTML = `<span class="tile-text">${obj.text}</span>${targetType !== 'wordle' ? `<span class="tile-score">${obj.score}</span>` : ''}`;
-                    wrapperGrid.appendChild(tile);
-                });
-                container.appendChild(wrapperGrid);
-                if (resultsContent) resultsContent.appendChild(container);
-            });
-        }
-        function runProgrammaticRouter() {
-            const segments = window.location.pathname.toLowerCase().split('/').filter(p => p.length > 0);
-            if (segments.length < 2) return;
-            const routeType = segments[0];
-            const rawParam = segments[1] || '';
-            const parameter = rawParam.toUpperCase();
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
+    <p>
+      <a href="/">Home</a> | 
+      <a href="/about.html">About</a> | 
+      <a href="/privacy.html">Privacy Policy</a> | 
+      <a href="/terms.html">Terms of Service</a>
+    </p>
+  </footer>
 
-            const seoTitle = document.getElementById('seoTitle');
-            const seoText = document.getElementById('seoText');
-            const lettersInput = document.getElementById('lettersInput');
-            const startsWith = document.getElementById('startsWith');
-            const containsInput = document.getElementById('contains');
-            const endsWith = document.getElementById('endsWith');
-            const metaDesc = document.getElementById('metaDescription');
-            const canonical = document.getElementById('canonicalUrl');
+  <!-- Include the Unscrambler JS script -->
+  <script src="unscrambler.js"></script>
 
-            const pageUrl = "https://letterunscramblerpro.com" + window.location.pathname;
-            if (canonical) canonical.setAttribute('href', pageUrl);
-
-            if (routeType === 'words-starting-with' && parameter.length === 1) {
-                const titleStr = `Words Starting With ${parameter} | Letter Unscrambler Pro`;
-                const descStr = `Comprehensive list and finder for words starting with the letter ${parameter}. Find the highest scoring Scrabble combinations instantly.`;
-                document.title = titleStr;
-                if (metaDesc) metaDesc.setAttribute('content', descStr);
-                if (seoTitle) seoTitle.innerText = `Comprehensive List of Words Starting with ${parameter}`;
-                if (seoText) seoText.innerText = `Explore our complete dictionary index of words starting with the letter ${parameter}. Find top scoring hooks for your next turn dynamically.`;
-                if (startsWith) startsWith.value = parameter;
-                if (lettersInput) lettersInput.value = `${parameter}???????`;
-                updateGoogleSchema(titleStr, descStr, pageUrl);
-                runUnscrambleAnalysis();
-            }
-            else if (routeType === 'words-ending-in') {
-                const titleStr = `Words Ending In ${parameter} | Letter Unscrambler Pro`;
-                const descStr = `Find every solvable word ending in ${parameter} sorted by high-scoring Scrabble tile values. Perfect for tricky puzzle placement shortcuts.`;
-                document.title = titleStr;
-                if (metaDesc) metaDesc.setAttribute('content', descStr);
-                if (seoTitle) seoTitle.innerText = `Every Solvable Word Ending in ${parameter}`;
-                if (seoText) seoText.innerText = `Stuck with an end-board placement? Browse our master dictionary index of all words that end with the string ${parameter} sorted by high-scoring point arrays.`;
-                if (endsWith) endsWith.value = parameter;
-                if (lettersInput) lettersInput.value = `???????${parameter}`;
-                updateGoogleSchema(titleStr, descStr, pageUrl);
-                runUnscrambleAnalysis();
-            }
-            else if (routeType === 'words-containing') {
-                const titleStr = `Words Containing ${parameter} | Letter Unscrambler Pro`;
-                const descStr = `Discover terms and words containing the letters ${parameter}. Optimize your tile racks and clear high-value placements instantly.`;
-                document.title = titleStr;
-                if (metaDesc) metaDesc.setAttribute('content', descStr);
-                if (seoTitle) seoTitle.innerText = `Words Containing the Letters ${parameter}`;
-                if (seoText) seoText.innerText = `Need to map high-value tiles together? Check out every word containing the target string ${parameter} available inside our tournament dictionary database.`;
-                if (containsInput) containsInput.value = parameter;
-                if (lettersInput) lettersInput.value = `???${parameter}???`;
-                updateGoogleSchema(titleStr, descStr, pageUrl);
-                runUnscrambleAnalysis();
-            }
-        }
-        function updateGoogleSchema(name, desc, url) {
-            const schemaScript = document.getElementById('structuredDataSchema');
-            if (schemaScript) {
-                const schemaObj = {
-                    "@context": "https://schema.org",
-                    "@type": "WebPage",
-                    "name": name,
-                    "url": url,
-                    "description": desc
-                };
-                schemaScript.text = JSON.stringify(schemaObj);
-            }
-        }
-        window.onload = initializeDictionaryDownload;
-    </script>
 </body>
 </html>
