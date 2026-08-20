@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Game Strategy Blog - Letter Unscrambler Pro</title>
+  
+  <style>
+    /* Global Styles Matching index.html */
+    :root {
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --heading-color: #0f172a;
+      --border-color: #e2e8f0;
+      --subtext-color: #64748b;
+      --ad-bg: #f1f5f9;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #3b82f6;
+      --primary-hover: #60a5fa;
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      --heading-color: #f8fafc;
+      --border-color: #334155;
+      --subtext-color: #94a3b8;
+      --ad-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+    /* Header Navigation */
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; }
+    header a.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary-color); text-decoration: none; }
+    .nav-items { display: flex; align-items: center; gap: 1.5rem; }
+    nav.nav-links { display: flex; gap: 1rem; }
+    nav.nav-links a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav.nav-links a:hover { color: var(--primary-color); }
+    
+    .theme-btn {
+      background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
+
+    /* Container Elements */
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .hero-section { text-align: center; margin-bottom: 2rem; }
+    .hero-section h1 { font-size: 2.2rem; color: var(--heading-color); margin-bottom: 0.5rem; }
+    .hero-section p { color: var(--subtext-color); font-size: 1.1rem; }
+
+    /* Blog Card Layout Grid */
+    .blog-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+    .article-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    
+    .category-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary-color); margin-bottom: 0.5rem; display: inline-block; }
+    .article-card h2 { font-size: 1.5rem; color: var(--heading-color); margin-bottom: 0.6rem; }
+    .article-card p { color: var(--text-color); font-size: 1rem; margin-bottom: 1.2rem; }
+    
+    .read-btn { display: inline-block; background: var(--primary-color); color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background-color 0.1s; }
+    .read-btn:hover { background: var(--primary-hover); }
+
+    /* Footer Section */
+    footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.9rem; }
+    footer a { color: var(--primary-color); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">LetterUnscramblerPro</a>
+    <div class="nav-items">
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html" style="font-weight: 700; color: var(--primary-color);">Blog</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <button class="theme-btn" id="themeToggle">🌙 Night Mode</button>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout Container -->
+  <div class="container">
+    <div class="hero-section">
+      <h1>Word Game Masterclass</h1>
+      <p>Expert analytical strategies, vocabulary builders, and guides to dominate your daily match puzzles.</p>
+    </div>
+
+    <main class="blog-grid">
+      
+      <!-- Article 1 Card -->
+      <article class="article-card">
+        <span class="category-tag">Scrabble Tactics</span>
+        <h2>The Ultimate Guide to Scoring High with Hard Letters (Q, X, Z, J)</h2>
+        <p>Stuck with a rack full of awkward high-point tiles? Learn the essential placement tricks and hidden short words to turn difficult letters into winning plays.</p>
+        <a href="scrabble-high-scoring-letters.html" class="read-btn">Read Article &rarr;</a>
+      </article>
+
+      <!-- Article 2 Card -->
+      <article class="article-card">
+        <span class="category-tag">Wordle Strategy</span>
+        <h2>Statistically Proven Best Starting Words for Wordle</h2>
+        <p>Discover the mathematical approach to solving your daily word puzzles faster by choosing opening words that eliminate vowels and common consonants immediately.</p>
+        <a href="wordle-best-starting-words.html" class="read-btn">Read Article &rarr;</a>
+      </article>
+
+      <!-- Article 3 Card -->
+      <article class="article-card">
+        <span class="category-tag">Vocabulary Basics</span>
+        <h2>Crucial 2-Letter and 3-Letter Words for Competitive Play</h2>
+        <p>The secret weapon of master word game players isn't massive words—it's short words. Memorize these crucial combinations to easily escape tight board spaces.</p>
+        <a href="crucial-short-words-guide.html" class="read-btn">Read Article &rarr;</a>
+      </article>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer>
+      <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="index.html">Home</a> | 
+        <a href="blog.html">Blog</a> | 
+        <a href="about.html">About Us</a> | 
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="terms.html">Terms of Service</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Theme Script synchronization tracking -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlEl.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+    });
+  </script>
+</body>
+</html>
