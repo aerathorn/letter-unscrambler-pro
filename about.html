@@ -1,65 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - LetterUnscramblerPro</title>
-    <script src="https://tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Letter Unscrambler Pro</title>
+  
+  <style>
+    /* Light Mode Variables matching your exact index.html */
+    :root {
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --heading-color: #0f172a;
+      --border-color: #e2e8f0;
+      --subtext-color: #64748b;
+      --ad-bg: #f1f5f9;
+    }
+
+    /* Dark Mode (Night Mode) Variables matching your exact index.html */
+    [data-theme="dark"] {
+      --primary-color: #3b82f6;
+      --primary-hover: #60a5fa;
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      --heading-color: #f8fafc;
+      --border-color: #334155;
+      --subtext-color: #94a3b8;
+      --ad-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+    /* Header & Navigation Matching index.html */
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; }
+    header a.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary-color); text-decoration: none; }
+    .nav-items { display: flex; align-items: center; gap: 1.5rem; }
+    nav.nav-links { display: flex; gap: 1rem; }
+    nav.nav-links a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav.nav-links a:hover { color: var(--primary-color); }
+    
+    .theme-btn {
+      background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
+
+    /* Polished Card Container for Content */
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .content-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    
+    h1 { font-size: 2.2rem; color: var(--heading-color); margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; color: var(--heading-color); margin-top: 1.8rem; margin-bottom: 0.5rem; }
+    p { margin-bottom: 1rem; color: var(--text-color); font-size: 1.05rem; }
+    .subtitle { color: var(--subtext-color); font-size: 1.05rem; margin-bottom: 1.5rem; border-b: 1px solid var(--border-color); padding-bottom: 1rem; }
+    
+    /* Footer Layout Matching index.html */
+    footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.9rem; }
+    footer a { color: var(--primary-color); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans leading-relaxed">
+<body>
 
-    <!-- Simple Navigation Menu -->
-    <nav class="bg-white border-b border-gray-200 py-4 px-6 flex justify-between items-center max-w-4xl mx-auto rounded-b-xl shadow-sm mt-2">
-        <a href="index.html" class="text-xl font-bold text-blue-600">LetterUnscramblerPro</a>
-        <div class="space-x-6 text-sm font-medium text-gray-600">
-            <a href="index.html" class="hover:text-blue-600">Home</a>
-            <a href="blog.html" class="hover:text-blue-600">Blog</a>
-            <a href="about.html" class="text-blue-600 font-semibold">About</a>
-        </div>
-    </nav>
+  <!-- Header Section -->
+  <header>
+    <a href="index.html" class="logo">LetterUnscramblerPro</a>
+    <div class="nav-items">
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html" style="font-weight: 700; color: var(--primary-color);">Blog</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <button class="theme-btn" id="themeToggle">🌙 Night Mode</button>
+    </div>
+  </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-3xl mx-auto px-4 py-12">
-        <div class="bg-white p-8 sm:p-12 rounded-2xl border border-gray-100 shadow-sm">
-            
-            <header class="mb-8 border-b border-gray-100 pb-6">
-                <h1 class="text-3xl font-extrabold text-gray-900 mb-2">About LetterUnscramblerPro</h1>
-                <p class="text-sm text-gray-500">Empowering word game enthusiasts with precision data tools.</p>
-            </header>
+  <!-- Main Content Area -->
+  <div class="container">
+    <main class="content-card">
+      <h1>About LetterUnscramblerPro</h1>
+      <p class="subtitle">Empowering word game enthusiasts with precision data tools.</p>
 
-            <div class="space-y-6 text-gray-700">
-                <p>
-                    Welcome to <strong>LetterUnscramblerPro</strong>, a dedicated digital repository and performance tool engineered explicitly for fans of anagrams, crosswords, Scrabble, Wordle, and Words With Friends. 
-                </p>
+      <p>Welcome to <strong>LetterUnscramblerPro</strong>, a dedicated digital repository and performance tool engineered explicitly for fans of anagrams, crosswords, Scrabble, Wordle, and Words With Friends.</p>
 
-                <h2 class="text-xl font-bold text-gray-900 mt-6">Our Mission</h2>
-                <p>
-                    Our core mission is to bridge the gap between casual vocabulary and competitive board game mechanics. We believe that word games are not just an idle pastime, but a valuable exercise in cognitive conditioning, analytical logic, and information theory. We build fast, reliable computational resources to help players break down difficult tile draws, study linguistic patterns, and optimize their match strategies.
-                </p>
+      <h2>Our Mission</h2>
+      <p>Our core mission is to bridge the gap between casual vocabulary and competitive board game mechanics. We believe that word games are not just an idle pastime, but a valuable exercise in cognitive conditioning, analytical logic, and information theory. We build fast, reliable computational resources to help players break down difficult tile draws, study linguistic patterns, and optimize their match strategies.</p>
 
-                <h2 class="text-xl font-bold text-gray-900 mt-6">How Our Engine Works</h2>
-                <p>
-                    Unlike heavy web search apps that constantly process queries across slow external networks, LetterUnscramblerPro functions as a streamlined client-side engine. By hosting and indexing a robust local lexical dictionary array directly within our application layout, your lookups are calculated instantly inside your native browser memory. This guarantees flawless processing, elite speed, and private calculations.
-                </p>
+      <h2>How Our Engine Works</h2>
+      <p>Unlike heavy web search apps that constantly process queries across slow external networks, LetterUnscramblerPro functions as a streamlined client-side engine. By hosting and indexing a robust local lexical dictionary array directly within our application layout, your lookups are calculated instantly inside your native browser memory. This guarantees flawless processing, elite speed, and private calculations.</p>
 
-                <h2 class="text-xl font-bold text-gray-900 mt-6">Our Editorial Integrity</h2>
-                <p>
-                    Alongside our dynamic solving interface, we publish a regular masterclass blog managed by native word game enthusiasts. Our technical guides, tactical breakdowns, and tile-management strategies are rigorously compiled to provide real, human-centric educational substance to our community.
-                </p>
+      <h2>Our Editorial Integrity</h2>
+      <p>Alongside our dynamic solving interface, we publish a regular masterclass blog managed by native word game enthusiasts. Our technical guides, tactical breakdowns, and tile-management strategies are rigorously compiled to provide real, human-centric educational substance to our community.</p>
 
-                <h2 class="text-xl font-bold text-gray-900 mt-6">Contact Us</h2>
-                <p>
-                    We are constantly refining our local dictionary indexes and sorting layouts to support tournament-level play standards. If you have feature requests, database updates, or general feedback, please feel free to reach out to our team at <span class="text-blue-600 font-medium">support@letterunscramblerpro.com</span>.
-                </p>
-            </div>
+      <h2>Contact Us</h2>
+      <p>We are constantly refining our local dictionary indexes and sorting layouts to support tournament-level play standards. If you have feature requests, database updates, or general feedback, please feel free to reach out to our team at <span style="color: var(--primary-color); font-weight: 500;">support@letterunscramblerpro.com</span>.</p>
 
-        </div>
+      <!-- Footer Section -->
+      <footer>
+        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <a href="index.html">Home</a> | 
+          <a href="blog.html">Blog</a> | 
+          <a href="about.html">About Us</a> | 
+          <a href="privacy.html">Privacy Policy</a> | 
+          <a href="terms.html">Terms of Service</a>
+        </p>
+      </footer>
     </main>
+  </div>
 
-    <!-- Simple Footer Links -->
-    <footer class="bg-white border-t border-gray-100 py-8 px-6 text-center text-xs text-gray-400">
-        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved. | <a href="privacy.html" class="underline hover:text-gray-600">Privacy Policy</a> | <a href="terms.html" class="underline hover:text-gray-600">Terms of Service</a></p>
-    </footer>
+  <!-- Night Mode Script Layout to sync with index.html toggle state -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
 
+    // Load theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlEl.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+    });
+  </script>
 </body>
 </html>
