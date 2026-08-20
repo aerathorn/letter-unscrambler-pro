@@ -176,9 +176,127 @@ function displayResults(grouped, totalCount, gameMode) {
   resultsContainer.innerHTML = html;
 }
 
+// ==================== URL Parameter Filtering ====================
+// Lets a single page (e.g. scrabble-solver.html) act as every old static
+// word-list page used to, driven entirely by the query string:
+//   ?letters=TRAIN        -> pre-fills the rack input
+//   ?length=5             -> pre-selects the length dropdown
+//   ?startsWith=TR        -> opens & fills the "Starts With" filter
+//   ?endsWith=ING         -> opens & fills the "Ends With" filter
+//   ?contains=Z           -> opens & fills the "Contains" filter
+//   ?mode=wwf|scrabble    -> pre-selects scoring system
+// Multiple params can be combined, e.g. ?length=5&endsWith=E
+
+function revealFilterField(fieldId, btnId) {
+  const field = document.getElementById(fieldId);
+  const btn = document.getElementById(btnId);
+  const container = document.getElementById("advancedFilters");
+  if (field) field.style.display = "block";
+  if (btn) btn.classList.add("active");
+  if (container) container.style.display = "flex";
+}
+
+// Builds a human-readable title/heading from active filters so each
+// filtered URL still gets a distinct, descriptive page title for SEO,
+// even though there's no separate static file behind it.
+function buildDynamicHeading(params) {
+  const length = params.get("length");
+  const startsWith = params.get("startsWith");
+  const endsWith = params.get("endsWith");
+  const contains = params.get("contains");
+
+  if (!length && !startsWith && !endsWith && !contains) return null;
+
+  const parts = [];
+  if (length) parts.push(`${length}-Letter Words`);
+  else parts.push("Words");
+
+  const clauses = [];
+  if (startsWith) clauses.push(`Starting With "${startsWith.toUpperCase()}"`);
+  if (endsWith) clauses.push(`Ending in "${endsWith.toUpperCase()}"`);
+  if (contains) clauses.push(`Containing "${contains.toUpperCase()}"`);
+
+  const heading = clauses.length ? `${parts[0]} ${clauses.join(" & ")}` : parts[0];
+  return heading;
+}
+
+function applyUrlParamsAndMaybeSearch() {
+  const params = new URLSearchParams(window.location.search);
+  const lettersInput = document.getElementById("lettersInput");
+
+  // Nothing to do if this page doesn't have the tool at all.
+  if (!lettersInput) return;
+
+  const lengthFilter = document.getElementById("lengthFilter");
+  const gameModeSelect = document.getElementById("gameModeSelect");
+  const startsWithInput = document.getElementById("startsWithInput");
+  const endsWithInput = document.getElementById("endsWithInput");
+  const containsInput = document.getElementById("containsInput");
+
+  let hasActionableFilter = false; // true once we have something to actually search with
+
+  const letters = params.get("letters");
+  if (letters) {
+    lettersInput.value = letters;
+    hasActionableFilter = true;
+  }
+
+  const length = params.get("length");
+  if (length && lengthFilter) {
+    const optionExists = Array.from(lengthFilter.options).some(o => o.value === length);
+    if (optionExists) lengthFilter.value = length;
+  }
+
+  const mode = params.get("mode");
+  if (mode && gameModeSelect) {
+    const optionExists = Array.from(gameModeSelect.options).some(o => o.value === mode);
+    if (optionExists) gameModeSelect.value = mode;
+  }
+
+  const startsWith = params.get("startsWith");
+  if (startsWith && startsWithInput) {
+    startsWithInput.value = startsWith;
+    revealFilterField("fieldStartsWith", "btnToggleStartsWith");
+    hasActionableFilter = true;
+  }
+
+  const endsWith = params.get("endsWith");
+  if (endsWith && endsWithInput) {
+    endsWithInput.value = endsWith;
+    revealFilterField("fieldEndsWith", "btnToggleEndsWith");
+    hasActionableFilter = true;
+  }
+
+  const contains = params.get("contains");
+  if (contains && containsInput) {
+    containsInput.value = contains;
+    revealFilterField("fieldContains", "btnToggleContains");
+    hasActionableFilter = true;
+  }
+
+  // Update the on-page heading/title so the filtered view reads like a
+  // dedicated page, even though it's all one dynamic template.
+  const dynamicHeading = buildDynamicHeading(params);
+  if (dynamicHeading) {
+    const headingEl = document.querySelector("[data-dynamic-heading]");
+    const subheadingEl = document.querySelector("[data-dynamic-subheading]");
+    if (headingEl) headingEl.textContent = dynamicHeading;
+    if (subheadingEl) subheadingEl.textContent = `Instant results for ${dynamicHeading.toLowerCase()} — enter your rack letters below to see matches.`;
+    document.title = `${dynamicHeading} | Letter Unscrambler Pro`;
+  }
+
+  // Only auto-run the search once we actually have letters to work with
+  // (rack letters, or a starts/ends/contains value) — matching the tool's
+  // existing rule that a letter pool is required to form matches.
+  if (hasActionableFilter) {
+    unscrambleLetters();
+  }
+}
+
 // Event Listeners
-document.addEventListener("DOMContentLoaded", () => {
-  loadDictionary();
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadDictionary();
+  applyUrlParamsAndMaybeSearch();
 
   const unscrambleBtn = document.getElementById("unscrambleBtn");
   const lettersInput = document.getElementById("lettersInput");
