@@ -1,85 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crucial 2-Letter and 3-Letter Words for Competitive Play - LetterUnscramblerPro</title>
-    <script src="https://tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crucial 2-Letter and 3-Letter Words for Competitive Play - Letter Unscrambler Pro</title>
+  
+  <style>
+    /* Global Design System Variables */
+    :root {
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --heading-color: #0f172a;
+      --border-color: #e2e8f0;
+      --subtext-color: #64748b;
+      --ad-bg: #f1f5f9;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #3b82f6;
+      --primary-hover: #60a5fa;
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      --heading-color: #f8fafc;
+      --border-color: #334155;
+      --subtext-color: #94a3b8;
+      --ad-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+    /* Navigation Bar Setup */
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; }
+    header a.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary-color); text-decoration: none; }
+    .nav-items { display: flex; align-items: center; gap: 1.5rem; }
+    nav.nav-links { display: flex; gap: 1rem; }
+    nav.nav-links a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav.nav-links a:hover { color: var(--primary-color); }
+    
+    .theme-btn {
+      background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
+
+    /* Article Card Layout Container */
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .article-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    
+    .category-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary-color); margin-bottom: 0.5rem; display: inline-block; }
+    h1 { font-size: 2.2rem; color: var(--heading-color); margin-bottom: 0.5rem; line-height: 1.2; }
+    .author-sub { color: var(--subtext-color); font-size: 0.9rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; }
+    
+    h2 { font-size: 1.4rem; color: var(--heading-color); margin-top: 2rem; margin-bottom: 0.6rem; }
+    p { margin-bottom: 1.2rem; color: var(--text-color); font-size: 1.05rem; }
+    .intro-italic { font-size: 1.1rem; color: var(--subtext-color); font-style: italic; margin-bottom: 1.5rem; }
+    
+    /* Lists & Highlights */
+    ul { margin: 1rem 0; padding-left: 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.5rem; list-style-type: disc; }
+    li { margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-color); }
+    li:last-child { margin-bottom: 0; }
+    
+    /* Footer */
+    footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.9rem; }
+    footer a { color: var(--primary-color); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans leading-relaxed">
+<body>
 
-    <!-- Simple Navigation Menu -->
-    <nav class="bg-white border-b border-gray-200 py-4 px-6 flex justify-between items-center max-w-4xl mx-auto rounded-b-xl shadow-sm mt-2">
-        <a href="index.html" class="text-xl font-bold text-blue-600">LetterUnscramblerPro</a>
-        <div class="space-x-6 text-sm font-medium text-gray-600">
-            <a href="index.html" class="hover:text-blue-600">Home</a>
-            <a href="blog.html" class="text-blue-600 font-semibold">Blog</a>
-            <a href="about.html" class="hover:text-blue-600">About</a>
-        </div>
-    </nav>
+  <!-- Top Navigation Header -->
+  <header>
+    <a href="index.html" class="logo">LetterUnscramblerPro</a>
+    <div class="nav-items">
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html" style="font-weight: 700; color: var(--primary-color);">Blog</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <button class="theme-btn" id="themeToggle">🌙 Night Mode</button>
+    </div>
+  </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-3xl mx-auto px-4 py-12">
-        <article class="bg-white p-8 sm:p-12 rounded-2xl border border-gray-100 shadow-sm">
-            
-            <header class="mb-8">
-                <span class="text-xs font-semibold text-purple-600 uppercase tracking-wider bg-purple-50 px-3 py-1 rounded-full">Vocabulary Basics</span>
-                <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-4 mb-4">Crucial 2-Letter and 3-Letter Words for Competitive Play</h1>
-                <p class="text-sm text-gray-400">Published by LetterUnscramblerPro Editorial Team</p>
-            </header>
+  <!-- Main Article Body -->
+  <div class="container">
+    <main class="article-card">
+      <span class="category-tag">Vocabulary Basics</span>
+      <h1>Crucial 2-Letter and 3-Letter Words for Competitive Play</h1>
+      <p class="author-sub">Published by LetterUnscramblerPro Editorial Team</p>
 
-            <div class="space-y-6 text-gray-700">
-                <p class="text-lg text-gray-600 italic">
-                    When casual spectators watch a high-level Scrabble tournament, they expect to see grandmasters laying down sprawling, obscure seven-letter words across premium squares. In reality, master matches are won in the tight trenches of the board using micro-words.
-                </p>
+      <p class="intro-italic">When casual spectators watch a high-level Scrabble tournament, they expect to see grandmasters laying down sprawling, obscure seven-letter words across premium squares. In reality, master matches are won in the tight trenches of the board using micro-words.</p>
 
-                <p>
-                    Short two-letter and three-letter words are the lifeblood of competitive word board games. They allow you to squeeze out of tight blockages, score heavy parallel points, and drop high-value consonants when your rack is entirely crowded. Memorizing these tiny combinations is the single most rapid way to scale your average match score.
-                </p>
+      <p>Short two-letter and three-letter words are the lifeblood of competitive word board games. They allow you to squeeze out of tight blockages, score heavy parallel points, and drop high-value consonants when your rack is entirely crowded. Memorizing these tiny combinations is the single most rapid way to scale your average match score.</p>
 
-                <hr class="border-gray-100 my-8">
+      <h2>1. The Secret Weapon: Parallel Play</h2>
+      <p>Parallel play means placing your word directly alongside an existing word on the board rather than branching off it at a right angle. To make a parallel move, every single touching letter must form a valid word horizontally and vertically.</p>
+      <p>Without an intimate knowledge of two-letter vocabulary, parallel play is completely impossible. If you memorize your micro-words, you can score points for four or five words simultaneously with a single placement, turning basic tiles into a major points haul.</p>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-6">1. The Secret Weapon: Parallel Play</h2>
-                <p>
-                    Parallel play means placing your word directly alongside an existing word on the board rather than branching off it at a right angle. To make a parallel move, every single touching letter must form a valid word horizontally and vertically.
-                </p>
-                <p>
-                    Without an intimate knowledge of two-letter vocabulary, parallel play is completely impossible. If you memorize your micro-words, you can score points for four or five words simultaneously with a single placement, turning basic tiles into a major points haul.
-                </p>
+      <h2>2. The Essential 2-Letter List</h2>
+      <p>There are over 100 legal two-letter words in official tournament dictionaries. While you don't need to learn them all today, memorizing these unique or unusual letter combos will immediately change your tactical approach:</p>
+      
+      <ul>
+        <li><strong>ZA</strong> (Slang term for pizza — the single most powerful short play for an open Z tile)</li>
+        <li><strong>QI</strong> (The life force in Chinese philosophy — essential for dumping a Q tile)</li>
+        <li><strong>JO</strong> (A Scottish word for a sweetheart or companion)</li>
+        <li><strong>XU</strong> (A monetary unit of Vietnam — saves your rack when stuck with an X)</li>
+        <li><strong>AA</strong> (A type of rough, jagged volcanic lava rock)</li>
+      </ul>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-8">2. The Essential 2-Letter List</h2>
-                <p>
-                    There are over 100 legal two-letter words in official tournament dictionaries. While you don't need to learn them all today, memorizing these unique or unusual letter combos will immediately change your tactical approach:
-                </p>
-                <ul class="list-disc list-inside pl-4 space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
-                    <li><strong>ZA</strong> (Slang term for pizza — the single most powerful short play for an open Z tile)</li>
-                    <li><strong>QI</strong> (The life force in Chinese philosophy — essential for dumping a Q tile)</li>
-                    <li><strong>JO</strong> (A Scottish word for a sweetheart or companion)</li>
-                    <li><strong>XU</strong> (A monetary unit of Vietnam — saves your rack when stuck with an X)</li>
-                    <li><strong>AA</strong> (A type of rough, jagged volcanic lava rock)</li>
-                </ul>
+      <h2>3. High-Impact 3-Letter Hooks</h2>
+      <p>Once you master the 2-letter foundations, 3-letter combinations allow you to extend or "hook" onto your opponent's plays seamlessly. Focus your energy on short words that safely swallow difficult vowels or heavy consonants.</p>
+      <p>Familiarize yourself with versatile words like <strong>SUQ</strong> (an open-air market), <strong>TAX</strong>, <strong>ZIG</strong>, and <strong>FEZ</strong>. Additionally, watch out for vowel dumps like <strong>EAU</strong> (water) and <strong>AAL</strong> (an East Indian shrub). These words serve as vital escape hatches when your letter choices leave you out of rhythm.</p>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-8">3. High-Impact 3-Letter Hooks</h2>
-                <p>
-                    Once you master the 2-letter foundations, 3-letter combinations allow you to extend or "hook" onto your opponent's plays seamlessly. Focus your energy on short words that safely swallow difficult vowels or heavy consonants.
-                </p>
-                <p>
-                    Familiarize yourself with versatile words like <strong>SUQ</strong> (an open-air market), <strong>TAX</strong>, <strong>ZIG</strong>, and <strong>FEZ</strong>. Additionally, watch out for vowel dumps like <strong>EAU</strong> (water) and <strong>AAL</strong> (an East Indian shrub). These words serve as vital escape hatches when your letter choices leave you out of rhythm.
-                </p>
+      <h2>Strategic Conclusion</h2>
+      <p>Instead of letting your tile rack clog up while trying to string together a rare, massive word, keep your board position fluid. Use our quick letter unscrambler tools to review and study short hooks between game rounds. Keep your plays tight, build parallel points, and sweep the board clean with precision.</p>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-8">Strategic Conclusion</h2>
-                <p>
-                    Instead of letting your tile rack clog up while trying to string together a rare, massive word, keep your board position fluid. Use our quick letter unscrambler tools to review and study short hooks between game rounds. Keep your plays tight, build parallel points, and sweep the board clean with precision.
-                </p>
-            </div>
-
-        </article>
+      <!-- Footer navigation -->
+      <footer>
+        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <a href="index.html">Home</a> | 
+          <a href="blog.html">Blog</a> | 
+          <a href="about.html">About Us</a> | 
+          <a href="privacy.html">Privacy Policy</a> | 
+          <a href="terms.html">Terms of Service</a>
+        </p>
+      </footer>
     </main>
+  </div>
 
-    <!-- Simple Footer Links -->
-    <footer class="bg-white border-t border-gray-100 py-8 px-6 text-center text-xs text-gray-400">
-        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved. | <a href="privacy.html" class="underline hover:text-gray-600">Privacy Policy</a> | <a href="terms.html" class="underline hover:text-gray-600">Terms of Service</a></p>
-    </footer>
+  <!-- Unified Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
 
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlEl.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+    });
+  </script>
 </body>
 </html>
