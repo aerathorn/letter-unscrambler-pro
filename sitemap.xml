@@ -8,26 +8,45 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Core Tool Page (dynamic filtering via URL params replaces the old static word-list pages) -->
+  <!-- Core Tool Page -->
   <url>
     <loc>https://letterunscramblerpro.com/scrabble-solver.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Articles & FAQs -->
+  <!-- Blog Index -->
   <url>
-    <loc>https://letterunscramblerpro.com/scrabble-tips.html</loc>
+    <loc>https://letterunscramblerpro.com</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- High-Value Strategic Blog Articles -->
+  <url>
+    <loc>https://letterunscramblerpro.com</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://letterunscramblerpro.com</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letterunscramblerpro.com</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQ Utility -->
   <url>
     <loc>https://letterunscramblerpro.com/faq.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Legal Utilities -->
+  <!-- Trust & Legal Compliance Utilities -->
   <url>
     <loc>https://letterunscramblerpro.com/about.html</loc>
     <changefreq>monthly</changefreq>
