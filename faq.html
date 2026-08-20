@@ -57,7 +57,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8929411914632480" crossorigin="anonymous"></script>
 
   <style>
-    /* Light Mode Variables */
+    /* Design Variables matching your exact layout */
     :root {
       --primary-color: #2563eb;
       --primary-hover: #1d4ed8;
@@ -70,7 +70,6 @@
       --ad-bg: #f1f5f9;
     }
 
-    /* Dark Mode Variables */
     [data-theme="dark"] {
       --primary-color: #3b82f6;
       --primary-hover: #60a5fa;
@@ -89,7 +88,7 @@
     header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     header a.logo { font-weight: 800; font-size: 1.3rem; color: var(--primary-color); text-decoration: none; }
     .nav-items { display: flex; align-items: center; gap: 1rem; }
-    nav a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; margin-left: 1rem; }
     nav a:hover { color: var(--primary-color); }
     
     .theme-btn {
@@ -111,50 +110,45 @@
       background: var(--ad-bg); border: 1px dashed var(--border-color); padding: 10px; border-radius: 8px;
     }
 
-    .sticky-bottom-ad {
-      position: fixed; bottom: 0; left: 0; width: 100%; background: var(--card-bg); border-top: 1px solid var(--border-color); padding: 8px 10px; z-index: 9999; text-align: center; box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-    }
-    .close-ad-btn {
-      position: absolute; top: -12px; right: 15px; background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; cursor: pointer; font-weight: bold; line-height: 22px;
-    }
-
     footer { text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.9rem; }
     footer a { color: var(--subtext-color); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { color: var(--primary-color); }
   </style>
-<!-- Google Analytics 4 (GA4) -->
+
+  <!-- Google Analytics 4 (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPYRF51CN0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-BPYRF51CN0');
   </script>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header Section -->
   <header>
-    <a href="/" class="logo">LetterUnscramblerPro</a>
+    <a href="index.html" class="logo">LetterUnscramblerPro</a>
     <div class="nav-items">
       <nav>
-        <a href="/">Home</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/about.html">About</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
+        <a href="index.html">Home</a>
+        <a href="blog.html" style="font-weight: 700; color: var(--primary-color);">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </nav>
       <button class="theme-btn" id="themeToggle">🌙 Night Mode</button>
     </div>
   </header>
 
+  <!-- Content Container -->
   <main class="container">
-
     <article class="faq-card">
       <h1>Frequently Asked Questions</h1>
       <p class="intro">Find instant answers to common questions about using Letter Unscrambler Pro, scoring rules, and search filters.</p>
 
-      <!-- ================= TOP BANNER AD ================= -->
+      <!-- Placeholder Container for Ads -->
       <div class="ad-container">
         <ins class="adsbygoogle"
              style="display:block"
@@ -180,17 +174,6 @@
         <p>Click on the filter chips underneath the search box to expand fields. Enter the specific prefix, suffix, or letters you want to match. Our Smart Merge algorithm will automatically incorporate those constraint letters into your search.</p>
       </div>
 
-      <!-- ================= IN-ARTICLE MID FAQ AD ================= -->
-      <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="ca-pub-8929411914632480"
-             data-ad-slot="0987654321"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-
       <div class="faq-item">
         <h3>4. Which dictionary does Letter Unscrambler Pro use?</h3>
         <p>Our tool uses the standard tournament English dictionary, which combines official word lists from ENABLE1, SOWPODS, and TWL06 to ensure complete coverage for word game players.</p>
@@ -198,7 +181,7 @@
 
       <div class="faq-item">
         <h3>5. Are words sorted by highest point score?</h3>
-        <p>Yes! Words are grouped by letter length (e.g. 7-letter, 6-letter) and automatically sorted from highest point value to lowest point value so you can easily find your winning move.</p>
+        <p>Yes! Words are grouped by letter length (e.g., 7-letter, 6-letter) and automatically sorted from highest point value to lowest point value so you can easily find your winning move.</p>
       </div>
 
       <div class="faq-item">
@@ -206,47 +189,25 @@
         <p>Yes, Letter Unscrambler Pro is 100% free to use on mobile, tablet, and desktop with no sign-up or registration required.</p>
       </div>
 
-    </article>
-
+      <!-- Footer section links -->
+      <footer>
+        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <a href="index.html">Home</a> | 
+          <a href="blog.html">Blog</a> | 
+          <a href="faq.html">FAQ</a> | 
+          <a href="about.html">About Us</a> | 
+          <a href="privacy.html">Privacy Policy</a> | 
+          <a href="terms.html">Terms of Service</a>
+        </p>
+      </footer>
+    </main>
   </main>
 
-  <!-- Sticky Bottom Anchor Ad Window -->
-  <div class="sticky-bottom-ad" id="stickyBottomAd">
-    <button class="close-ad-btn" onclick="document.getElementById('stickyBottomAd').style.display='none'">✕</button>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-8929411914632480"
-         data-ad-slot="1122334455"
-         data-ad-format="horizontal"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
-    <p>
-      <a href="/">Home</a> | 
-      <a href="/faq.html">FAQ</a> | 
-      <a href="/about.html">About</a> | 
-      <a href="/privacy.html">Privacy Policy</a> | 
-      <a href="/terms.html">Terms of Service</a>
-    </p>
-  </footer>
-
+  <!-- Theme Synchronization Script -->
   <script>
-    const themeBtn = document.getElementById('themeToggle');
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
     const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeBtn.textContent = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Night Mode';
-
-    themeBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      themeBtn.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Night Mode';
-    });
-  </script>
-
-</body>
-</html>
+    htmlEl.setAttribute('data-theme', savedTheme);
