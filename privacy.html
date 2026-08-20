@@ -1,83 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - LetterUnscramblerPro</title>
-    <script src="https://tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Letter Unscrambler Pro</title>
+  
+  <style>
+    /* Global Styles Matching index.html */
+    :root {
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --heading-color: #0f172a;
+      --border-color: #e2e8f0;
+      --subtext-color: #64748b;
+      --ad-bg: #f1f5f9;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #3b82f6;
+      --primary-hover: #60a5fa;
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      --heading-color: #f8fafc;
+      --border-color: #334155;
+      --subtext-color: #94a3b8;
+      --ad-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.2s, color 0.2s; }
+    body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+    /* Header Navigation */
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; }
+    header a.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary-color); text-decoration: none; }
+    .nav-items { display: flex; align-items: center; gap: 1.5rem; }
+    nav.nav-links { display: flex; gap: 1rem; }
+    nav.nav-links a { color: var(--subtext-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav.nav-links a:hover { color: var(--primary-color); }
+    
+    .theme-btn {
+      background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
+
+    /* Polished Card Container for Legal Content */
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .content-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    
+    h1 { font-size: 2.2rem; color: var(--heading-color); margin-bottom: 0.5rem; }
+    h2 { font-size: 1.3rem; color: var(--heading-color); margin-top: 1.8rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3rem; }
+    p { margin-bottom: 1rem; color: var(--text-color); font-size: 1rem; }
+    .subtitle { color: var(--subtext-color); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    
+    /* Footer Layout */
+    footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); color: var(--subtext-color); font-size: 0.9rem; }
+    footer a { color: var(--primary-color); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans leading-relaxed">
+<body>
 
-    <!-- Simple Navigation Menu -->
-    <nav class="bg-white border-b border-gray-200 py-4 px-6 flex justify-between items-center max-w-4xl mx-auto rounded-b-xl shadow-sm mt-2">
-        <a href="index.html" class="text-xl font-bold text-blue-600">LetterUnscramblerPro</a>
-        <div class="space-x-6 text-sm font-medium text-gray-600">
-            <a href="index.html" class="hover:text-blue-600">Home</a>
-            <a href="blog.html" class="hover:text-blue-600">Blog</a>
-            <a href="about.html" class="hover:text-blue-600">About</a>
-        </div>
-    </nav>
+  <!-- Header Section -->
+  <header>
+    <a href="index.html" class="logo">LetterUnscramblerPro</a>
+    <div class="nav-items">
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="blog.html" style="font-weight: 700; color: var(--primary-color);">Blog</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <button class="theme-btn" id="themeToggle">🌙 Night Mode</button>
+    </div>
+  </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-3xl mx-auto px-4 py-12">
-        <div class="bg-white p-8 sm:p-12 rounded-2xl border border-gray-100 shadow-sm">
-            
-            <header class="mb-8 border-b border-gray-100 pb-6">
-                <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Privacy Policy</h1>
-                <p class="text-sm text-gray-500">Last Updated: August 20, 2026</p>
-            </header>
+  <!-- Main Content Container -->
+  <div class="container">
+    <main class="content-card">
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">Last Updated: August 20, 2026</p>
 
-            <div class="space-y-6 text-gray-700 text-sm">
-                <p>
-                    At <strong>LetterUnscramblerPro</strong>, accessible from letterunscramblerpro.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by LetterUnscramblerPro and how we use it.
-                </p>
+      <p>At <strong>LetterUnscramblerPro</strong>, accessible from letterunscramblerpro.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by LetterUnscramblerPro and how we use it.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Log Files</h2>
-                <p>
-                    LetterUnscramblerPro follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
-                </p>
+      <h2>Log Files</h2>
+      <p>LetterUnscramblerPro follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Cookies and Web Beacons</h2>
-                <p>
-                    Like any other website, LetterUnscramblerPro uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
-                </p>
+      <h2>Cookies and Web Beacons</h2>
+      <p>Like any other website, LetterUnscramblerPro uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Google DoubleClick DART Cookie</h2>
-                <p>
-                    Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to letterunscramblerpro.com and other sites on the internet. Visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://google.com" class="text-blue-600 underline" target="_blank">https://google.com</a>.
-                </p>
+      <h2>Google DoubleClick DART Cookie</h2>
+      <p>Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to letterunscramblerpro.com and other sites on the internet. Visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://google.com" style="color: var(--primary-color); text-decoration: underline;" target="_blank">https://google.com</a>.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Advertising Partners Privacy Policies</h2>
-                <p>
-                    Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on LetterUnscramblerPro, which are sent directly to users' browsers. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
-                </p>
-                <p>
-                    Note that LetterUnscramblerPro has no access to or control over these cookies that are used by third-party advertisers.
-                </p>
+      <h2>Advertising Partners Privacy Policies</h2>
+      <p>Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on LetterUnscramblerPro, which are sent directly to users' browsers. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
+      <p>Note that LetterUnscramblerPro has no access to or control over these cookies that are used by third-party advertisers.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Third Party Privacy Policies</h2>
-                <p>
-                    LetterUnscramblerPro's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
-                </p>
+      <h2>Third Party Privacy Policies</h2>
+      <p>LetterUnscramblerPro's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Children's Information</h2>
-                <p>
-                    Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. LetterUnscramblerPro does not knowingly collect any Personal Identifiable Information from children under the age of 13.
-                </p>
+      <h2>Children's Information</h2>
+      <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. LetterUnscramblerPro does not knowingly collect any Personal Identifiable Information from children under the age of 13.</p>
 
-                <h2 class="text-lg font-bold text-gray-900 mt-6">Consent</h2>
-                <p>
-                    By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.
-                </p>
-            </div>
+      <h2>Consent</h2>
+      <p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>
 
-        </div>
+      <!-- Footer Section -->
+      <footer>
+        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <a href="index.html">Home</a> | 
+          <a href="blog.html">Blog</a> | 
+          <a href="about.html">About Us</a> | 
+          <a href="privacy.html">Privacy Policy</a> | 
+          <a href="terms.html">Terms of Service</a>
+        </p>
+      </footer>
     </main>
+  </div>
 
-    <!-- Simple Footer Links -->
-    <footer class="bg-white border-t border-gray-100 py-8 px-6 text-center text-xs text-gray-400">
-        <p>&copy; 2026 LetterUnscramblerPro. All rights reserved. | <a href="privacy.html" class="underline hover:text-gray-600">Privacy Policy</a></p>
-    </footer>
+  <!-- Theme Script Synchronization -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
 
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlEl.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode';
+    });
+  </script>
 </body>
 </html>
